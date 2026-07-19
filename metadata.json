@@ -1,0 +1,8 @@
+{
+  "name": "Remix: Remix: EarthSprings Empowerment Platform",
+  "description": "A premium, editorial-style website for ESGGEI highlighting sustainable agriculture, community empowerment, and rural development with a warm design.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
