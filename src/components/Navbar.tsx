@@ -3,7 +3,6 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { navLinks } from "../data";
 import { cn } from "../lib/utils";
-import { motion, AnimatePresence } from "motion/react";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -73,13 +72,8 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Nav Dropdown */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.2 }}
+      {isOpen && (
+          <div
             className="absolute top-full left-4 right-4 mt-2 bg-white/95 backdrop-blur-xl shadow-2xl border border-gray-100/50 rounded-2xl py-6 px-6 md:hidden flex flex-col space-y-1 z-50"
           >
             {navLinks.map((link) => (
@@ -104,9 +98,8 @@ export default function Navbar() {
                 Contact Us
               </Link>
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          </div>
+      )}
     </header>
   );
 }

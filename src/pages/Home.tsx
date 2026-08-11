@@ -1,10 +1,24 @@
-import { useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { useState, type HTMLAttributes } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, X } from "lucide-react";
 import { projectsData, impactData, teamData } from "../data";
 import { useSEO } from "../lib/seo";
 import AnimatedSection from "../components/AnimatedSection";
+
+type StaticMotionDivProps = HTMLAttributes<HTMLDivElement> & {
+  initial?: unknown;
+  animate?: unknown;
+  exit?: unknown;
+  whileInView?: unknown;
+  viewport?: unknown;
+  transition?: unknown;
+};
+
+function StaticMotionDiv({ initial, animate, exit, whileInView, viewport, transition, ...props }: StaticMotionDivProps) {
+  return <div {...props} />;
+}
+
+const motion = { div: StaticMotionDiv };
 
 export default function Home() {
   useSEO("Home", "Join EarthSprings Global Grace Empowerment Initiative (ESGGEI) as we transform lives in Nigeria through empowerment programs targeting education, sustainable farming, and social welfare.");
@@ -15,22 +29,6 @@ export default function Home() {
     <div className="flex flex-col min-h-screen">
       {/* 1. Hero Section */}
       <section className="relative min-h-[85vh] flex items-center pt-32 md:pt-40 pb-20 overflow-hidden bg-primary">
-        <div className="absolute inset-0 z-0">
-          <picture>
-            <source srcSet="/images/hero.avif" type="image/avif" media="(min-width: 800px)" />
-            <source srcSet="/images/hero-800.avif" type="image/avif" />
-            <source srcSet="/images/hero.webp" type="image/webp" media="(min-width: 800px)" />
-            <source srcSet="/images/hero-800.webp" type="image/webp" />
-            <img 
-              src="/images/hero.jpg" 
-              alt="" /* Presentational image is decorative for screen readers since heading text follows */
-              className="w-full h-full object-cover opacity-40 mix-blend-overlay"
-              loading="eager"
-              fetchPriority="low"
-              decoding="async"
-            />
-          </picture>
-        </div>
         <div className="absolute inset-0 bg-primary/70 z-0" />
         
         {/* Beautiful dynamic atmospheric ambient glows */}
@@ -273,7 +271,7 @@ export default function Home() {
         </section>
       </AnimatedSection>
 
-      <AnimatePresence>
+      <>
         {selectedMember && (
           <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6">
             <motion.div 
@@ -311,7 +309,7 @@ export default function Home() {
             </motion.div>
           </div>
         )}
-      </AnimatePresence>
+      </>
 
 
 
