@@ -1,8 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import PageHero from "../components/PageHero";
 import { galleryImages } from "../data";
+import { useSEO } from "../lib/seo";
 
 export default function Gallery() {
+  useSEO("Gallery", "Explore moments from EarthSprings Global Grace Empowerment Initiative's outreach and community work.");
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const previousFocusRef = useRef<HTMLElement | null>(null);
@@ -51,15 +54,11 @@ export default function Gallery() {
 
   return (
     <>
-      <section className="bg-cream py-16 md:py-20">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-terra">EarthSprings</p>
-          <h1 className="font-serif text-5xl leading-tight text-forest md:text-6xl">Gallery</h1>
-          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-charcoal/75">
-            Moments from our work, outreach and community.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        title="Gallery"
+        subtitle="Moments from our work, outreach and community."
+        image="/images/gallery/outreach-03.webp"
+      />
 
       <section className="bg-white py-14 md:py-20">
         <div className="mx-auto grid max-w-7xl items-center gap-9 px-6 lg:grid-cols-[1.25fr_0.75fr] lg:px-8">
@@ -89,15 +88,15 @@ export default function Gallery() {
         </div>
       </section>
 
-      <section className="bg-cream py-14 md:py-20">
+      <section className="bg-cream py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="columns-1 gap-3 sm:columns-2 lg:columns-3 xl:columns-4">
+          <div className="columns-2 gap-5 md:gap-7 lg:columns-3 2xl:columns-4">
             {galleryImages.map((image, index) => (
               <button
                 key={image.src}
                 type="button"
                 onClick={() => setActiveIndex(index)}
-                className="group relative mb-3 block w-full break-inside-avoid overflow-hidden rounded-2xl bg-beige text-left shadow-sm transition duration-300 hover:-translate-y-0.5 hover:shadow-lg focus:outline-none focus-visible:ring-4 focus-visible:ring-terra/40"
+                className="group relative mb-5 block w-full break-inside-avoid overflow-hidden rounded-2xl bg-beige text-left shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg focus:outline-none focus-visible:ring-4 focus-visible:ring-terra/40 md:mb-7"
                 aria-label={`Open image ${index + 1}: ${image.alt}`}
               >
                 <img
