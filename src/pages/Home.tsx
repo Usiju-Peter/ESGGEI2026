@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Link } from "react-router-dom";
-import { ArrowRight, Globe, Heart, X } from "lucide-react";
+import { ArrowRight, X } from "lucide-react";
 import { projectsData, impactData, teamData } from "../data";
 import { useSEO } from "../lib/seo";
 import AnimatedSection from "../components/AnimatedSection";
@@ -155,8 +155,7 @@ export default function Home() {
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                 className="flex flex-col p-10 h-full rounded-3xl border border-primary/10 bg-white/50 backdrop-blur-sm shadow-[0_10px_35px_rgba(0,0,0,0.03)] hover:shadow-lg transition-shadow duration-500"
               >
-                <div className="flex items-center space-x-4 mb-6 text-primary-light">
-                  <Globe className="w-8 h-8 stroke-1" />
+                <div className="mb-6">
                   <h3 className="text-2xl font-serif font-semibold text-primary">Our Vision</h3>
                 </div>
                 <p className="text-charcoal/70 leading-relaxed text-lg font-light flex-grow">
@@ -171,8 +170,7 @@ export default function Home() {
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
                 className="flex flex-col p-10 h-full rounded-3xl border border-primary/10 bg-white/50 backdrop-blur-sm shadow-[0_10px_35px_rgba(0,0,0,0.03)] hover:shadow-lg transition-shadow duration-500"
               >
-                <div className="flex items-center space-x-4 mb-6 text-primary-light">
-                  <Heart className="w-8 h-8 stroke-1" />
+                <div className="mb-6">
                   <h3 className="text-2xl font-serif font-semibold text-primary">Our Mission</h3>
                 </div>
                 <p className="text-charcoal/70 leading-relaxed text-lg font-light flex-grow">
@@ -213,9 +211,6 @@ export default function Home() {
                   className="group cursor-pointer"
                 >
                   <div className="border border-white/10 bg-white/5 backdrop-blur-sm p-8 h-full rounded-3xl shadow-[0_10px_35px_rgba(0,0,0,0.15)] hover:bg-white/10 hover:border-white/20 hover:shadow-[0_25px_50px_rgba(0,0,0,0.35)] hover:-translate-y-1 transition-all duration-500">
-                    <div className="mb-8 text-cream/80 group-hover:text-white transition-colors duration-500">
-                      <prog.icon size={36} strokeWidth={1} />
-                    </div>
                     <h3 className="text-xl font-serif font-medium text-white mb-4 leading-snug">{prog.title}</h3>
                     <p className="text-cream/70 mb-8 font-light leading-relaxed group-hover:text-cream/90 transition-colors duration-500">{prog.shortDescription}</p>
                     <Link to={prog.href} className="text-cream hover:text-white text-sm uppercase tracking-widest border-b border-cream/20 hover:border-white pb-1 transition-all">
