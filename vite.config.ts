@@ -25,6 +25,7 @@ export default defineConfig(() => {
           main: path.resolve(__dirname, 'index.html'),
           about: path.resolve(__dirname, 'about/index.html'),
           projects: path.resolve(__dirname, 'projects/index.html'),
+          gallery: path.resolve(__dirname, 'gallery/index.html'),
           team: path.resolve(__dirname, 'team/index.html'),
           partner: path.resolve(__dirname, 'partner/index.html'),
         },

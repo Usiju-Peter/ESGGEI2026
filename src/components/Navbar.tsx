@@ -34,7 +34,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex items-center space-x-8">
+        <div className="hidden lg:flex items-center space-x-8">
           <ul className="flex space-x-8 text-base">
             {navLinks.map((link) => {
               const isActive = location.pathname === link.href;
@@ -63,7 +63,7 @@ export default function Navbar() {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden z-50 p-3 -mr-3 text-white"
+          className="lg:hidden z-50 p-3 -mr-3 text-white"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle menu"
         >
@@ -74,7 +74,7 @@ export default function Navbar() {
       {/* Mobile Nav Dropdown */}
       {isOpen && (
           <div
-            className="absolute top-full left-4 right-4 mt-2 bg-white/95 backdrop-blur-xl shadow-2xl border border-gray-100/50 rounded-2xl py-6 px-6 md:hidden flex flex-col space-y-1 z-50"
+            className="absolute top-full left-4 right-4 mt-2 bg-white/95 backdrop-blur-xl shadow-2xl border border-gray-100/50 rounded-2xl py-6 px-6 lg:hidden flex flex-col space-y-1 z-50"
           >
             {navLinks.map((link) => (
               <Link

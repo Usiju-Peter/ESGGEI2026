@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 
 const About = lazy(() => import("./pages/About"));
 const Projects = lazy(() => import("./pages/Projects"));
+const Gallery = lazy(() => import("./pages/Gallery"));
 const Team = lazy(() => import("./pages/Team"));
 const Partner = lazy(() => import("./pages/Partner"));
 
@@ -48,6 +49,7 @@ export default function App() {
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
               <Route path="/projects" element={<Projects />} />
+              <Route path="/gallery" element={<Gallery />} />
               <Route path="/team" element={<Team />} />
               <Route path="/partner" element={<Partner />} />
             </Routes>

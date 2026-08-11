@@ -18,7 +18,48 @@ export const navLinks = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
   { name: "Projects", href: "/projects" },
+  { name: "Gallery", href: "/gallery" },
   { name: "Team", href: "/team" },
+];
+
+export type GalleryImage = {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  caption?: string;
+};
+
+export const galleryImages: GalleryImage[] = [
+  { src: "/images/gallery/outreach-01.webp", alt: "EarthSprings integrated agriculture and medical outreach banner", width: 1200, height: 1600 },
+  { src: "/images/gallery/outreach-02.webp", alt: "EarthSprings volunteers registering community members", width: 1200, height: 2133 },
+  { src: "/images/gallery/outreach-03.webp", alt: "Community members waiting to register at the outreach", width: 1200, height: 900 },
+  { src: "/images/gallery/outreach-04.webp", alt: "Medical team providing health screening at the outreach", width: 1200, height: 1600 },
+  { src: "/images/gallery/outreach-05.webp", alt: "Health worker recording information during a community screening", width: 1200, height: 1600 },
+  { src: "/images/gallery/outreach-06.webp", alt: "Volunteers preparing medical supplies for community care", width: 1200, height: 1600 },
+  { src: "/images/gallery/outreach-07.webp", alt: "EarthSprings volunteer speaking with a community member", width: 1200, height: 1600 },
+  { src: "/images/gallery/outreach-08.webp", alt: "Outreach registration and consultation under a community canopy", width: 1200, height: 1600 },
+  { src: "/images/gallery/outreach-09.webp", alt: "Health worker performing a finger-prick test", width: 1200, height: 1600 },
+  { src: "/images/gallery/outreach-10.webp", alt: "Volunteers completing outreach registration forms", width: 1200, height: 1600 },
+  { src: "/images/gallery/outreach-11.webp", alt: "Health worker checking a community member's blood pressure", width: 1200, height: 1600 },
+  { src: "/images/gallery/outreach-12.webp", alt: "Health worker checking a patient's blood pressure", width: 1200, height: 1600 },
+  { src: "/images/gallery/outreach-13.webp", alt: "Outreach team preparing medicines and health supplies", width: 1200, height: 1600 },
+  { src: "/images/gallery/outreach-14.webp", alt: "Community members gathered for outreach registration", width: 1200, height: 1600 },
+  { src: "/images/gallery/outreach-15.webp", alt: "Outreach volunteers distributing health supplies", width: 1200, height: 1600 },
+  { src: "/images/gallery/outreach-16.webp", alt: "Health worker taking a community member's blood pressure", width: 1200, height: 1600 },
+  { src: "/images/gallery/outreach-17.webp", alt: "Volunteer assisting a child during the outreach", width: 1200, height: 1600 },
+  { src: "/images/gallery/outreach-18.webp", alt: "Community members seated together at the outreach", width: 1200, height: 900 },
+  { src: "/images/gallery/outreach-19.webp", alt: "Health worker administering care for children", width: 1200, height: 1600 },
+  { src: "/images/gallery/outreach-20.webp", alt: "Volunteer providing medicine to a child", width: 1200, height: 1600 },
+  { src: "/images/gallery/outreach-21.webp", alt: "Community leader speaking at the EarthSprings outreach", width: 1200, height: 1600 },
+  { src: "/images/gallery/outreach-22.webp", alt: "EarthSprings representative speaking to the community", width: 1200, height: 1600 },
+  { src: "/images/gallery/outreach-23.webp", alt: "Community representative addressing outreach participants", width: 1200, height: 1600 },
+  { src: "/images/gallery/outreach-24.webp", alt: "Community members gathered beneath the outreach canopy", width: 1200, height: 900 },
+  { src: "/images/gallery/outreach-25.webp", alt: "EarthSprings team and community leaders at the outreach", width: 1200, height: 900 },
+  { src: "/images/gallery/outreach-26.webp", alt: "EarthSprings team with community leaders beside an outreach celebration cake", width: 1200, height: 900 },
+  { src: "/images/gallery/outreach-27.webp", alt: "EarthSprings representative with an outreach celebration cake", width: 1200, height: 1600 },
+  { src: "/images/gallery/outreach-28.webp", alt: "Community group photo at the outreach", width: 1200, height: 1600 },
+  { src: "/images/gallery/outreach-29.webp", alt: "EarthSprings team and community members seated together", width: 1200, height: 900 },
 ];
 
 export const projectsData = [
