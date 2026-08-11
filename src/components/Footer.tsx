@@ -35,7 +35,6 @@ export default function Footer() {
             <Link to="/" className="inline-block group text-left">
               <div className="flex items-center space-x-3">
                 <picture>
-                  <source srcSet="/images/logo-small.webp" type="image/webp" />
                   <img 
                     src="/images/logo.png" 
                     alt="ESGGEI Logo" 
