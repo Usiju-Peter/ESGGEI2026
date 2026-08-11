@@ -98,30 +98,7 @@ export default function Home() {
                 <ArrowRight className="ml-2 w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
               </Link>
             </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="relative overflow-hidden aspect-[4/5] md:aspect-auto md:h-[600px] rounded-none md:rounded-[2rem] group"
-            >
-              <picture>
-                <source srcSet="/images/hero.avif" type="image/avif" media="(min-width: 800px)" />
-                <source srcSet="/images/hero-800.avif" type="image/avif" />
-                <source srcSet="/images/hero.webp" type="image/webp" media="(min-width: 800px)" />
-                <source srcSet="/images/hero-800.webp" type="image/webp" />
-                <img 
-                  src="/images/hero.jpg" 
-                  alt="Community Outreach" 
-                  className="w-full h-full object-cover transition-all duration-[1.5s] ease-[0.16,1,0.3,1] group-hover:scale-103"
-                  loading="lazy"
-                  decoding="async"
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).src = "/images/hero.jpg";
-                  }}
-                />
-              </picture>
-            </motion.div>
+            <div className="relative overflow-hidden aspect-[4/5] md:aspect-auto md:h-[600px] rounded-none md:rounded-[2rem] bg-[radial-gradient(circle_at_30%_25%,rgba(82,117,41,0.32),transparent_38%),radial-gradient(circle_at_75%_70%,rgba(212,168,79,0.2),transparent_35%)] border border-primary/10" />
           </div>
         </div>
       </section>
@@ -250,7 +227,7 @@ export default function Home() {
                   </div>
                   <div className="flex flex-col flex-grow">
                     <h3 className="text-2xl font-serif font-medium text-primary mb-1 group-hover:text-primary-light transition-colors duration-300">{member.name}</h3>
-                    <p className="text-charcoal/50 uppercase tracking-[0.15em] text-[11px] mb-6">{member.role}</p>
+                    <p className="text-charcoal/70 uppercase tracking-[0.15em] text-[11px] mb-6">{member.role}</p>
                     <div className="flex-grow" />
                     <button 
                       className="text-primary group-hover:text-primary-light transition-colors text-left uppercase text-[11px] tracking-widest w-max pb-1 border-b border-primary/20 group-hover:border-primary"
