@@ -15,13 +15,7 @@ export default function Home() {
     <div className="flex flex-col min-h-screen">
       {/* 1. Hero Section */}
       <section className="relative min-h-[85vh] flex items-center pt-32 md:pt-40 pb-20 overflow-hidden bg-primary">
-        <motion.div 
-          className="absolute inset-0 z-0"
-          initial={{ scale: 1.15 }}
-          whileInView={{ scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 8, ease: "linear" }}
-        >
+        <div className="absolute inset-0 z-0">
           <picture>
             <source srcSet="/images/hero.avif" type="image/avif" media="(min-width: 800px)" />
             <source srcSet="/images/hero-800.avif" type="image/avif" />
@@ -32,11 +26,11 @@ export default function Home() {
               alt="" /* Presentational image is decorative for screen readers since heading text follows */
               className="w-full h-full object-cover opacity-40 mix-blend-overlay"
               loading="eager"
-              fetchPriority="high"
+              fetchPriority="low"
               decoding="async"
             />
           </picture>
-        </motion.div>
+        </div>
         <div className="absolute inset-0 bg-primary/70 z-0" />
         
         {/* Beautiful dynamic atmospheric ambient glows */}
@@ -45,29 +39,20 @@ export default function Home() {
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex justify-center">
           <div className="max-w-4xl text-center flex flex-col items-center">
-            <motion.h1 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
+            <h1
               className="text-6xl sm:text-7xl md:text-8xl lg:text-[6.8rem] font-serif font-bold text-white leading-[1.1] mb-6 text-center tracking-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.45)]"
             >
               Empowering Lives.<br />
               <span className="text-cream/90">Restoring Hope.</span>
-            </motion.h1>
+            </h1>
             
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+            <p
               className="text-lg md:text-2xl text-cream/90 mb-10 max-w-2xl leading-relaxed font-light mx-auto text-center drop-shadow-[0_2px_6px_rgba(0,0,0,0.25)]"
             >
               EarthSprings Global Grace Empowerment Initiative supports vulnerable communities through education, sustainable agriculture, literacy, advocacy, and social support.
-            </motion.p>
+            </p>
             
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
+            <div
               className="flex flex-col sm:flex-row gap-4 justify-center"
             >
               <Link 
@@ -83,7 +68,7 @@ export default function Home() {
               >
                 Partner With Us
               </Link>
-            </motion.div>
+            </div>
 
 
           </div>

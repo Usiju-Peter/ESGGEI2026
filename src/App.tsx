@@ -2,9 +2,8 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from "react-route
 import { useEffect, lazy, Suspense } from "react";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import { preloadAllImages } from "./lib/preloader";
+import Home from "./pages/Home";
 
-const Home = lazy(() => import("./pages/Home"));
 const About = lazy(() => import("./pages/About"));
 const Projects = lazy(() => import("./pages/Projects"));
 const Team = lazy(() => import("./pages/Team"));
