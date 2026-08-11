@@ -29,13 +29,16 @@ export default function Home() {
     <div className="flex flex-col min-h-screen">
       {/* 1. Hero Section */}
       <section className="relative min-h-[85vh] flex items-center pt-32 md:pt-40 pb-20 overflow-hidden bg-primary">
-        <img
-          src="/images/gallery/outreach-25.webp"
-          alt=""
-          className="absolute inset-0 z-0 h-full w-full object-cover opacity-40 mix-blend-overlay"
-          loading="eager"
-          fetchPriority="high"
-        />
+        <picture className="absolute inset-0 z-0">
+          <source srcSet="/images/gallery/outreach-25-home.avif" type="image/avif" />
+          <img
+            src="/images/gallery/outreach-25-home.webp"
+            alt=""
+            className="h-full w-full object-cover opacity-40 mix-blend-overlay"
+            loading="eager"
+            fetchPriority="high"
+          />
+        </picture>
         <div className="absolute inset-0 bg-primary/70 z-0" />
         
         {/* Beautiful dynamic atmospheric ambient glows */}
@@ -106,13 +109,16 @@ export default function Home() {
               </Link>
             </motion.div>
             <div className="relative overflow-hidden aspect-[4/5] md:aspect-auto md:h-[600px] rounded-none md:rounded-[2rem] border border-primary/10">
-              <img
-                src="/images/gallery/outreach-28.webp"
-                alt="Community members gathered during an EarthSprings outreach"
-                className="h-full w-full object-cover transition-transform duration-[1.5s] ease-[0.16,1,0.3,1] group-hover:scale-105"
-                loading="lazy"
-                decoding="async"
-              />
+              <picture className="block h-full w-full">
+                <source srcSet="/images/gallery/outreach-28-home.avif" type="image/avif" />
+                <img
+                  src="/images/gallery/outreach-28-home.webp"
+                  alt="Community members gathered during an EarthSprings outreach"
+                  className="h-full w-full object-cover transition-transform duration-[1.5s] ease-[0.16,1,0.3,1] group-hover:scale-105"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </picture>
               <div className="absolute inset-0 bg-primary/10" />
             </div>
           </div>
