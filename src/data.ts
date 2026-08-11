@@ -79,7 +79,8 @@ export const projectsData = [
     ],
     supports: "Out-of-school children, adult learners, rural communities.",
     expectedImpact: "Increased literacy rates and access to quality education.",
-    image: "https://i.postimg.cc/SsKV6WTb/Dubourthoumieu.jpg"
+    image: "/images/gallery/outreach-19.webp",
+    imageAlt: "EarthSprings outreach support for children and families"
   },
   {
     id: "agriculture",
@@ -96,7 +97,8 @@ export const projectsData = [
     ],
     supports: "Women, youth, smallholder farmers, and widows.",
     expectedImpact: "Improved crop yields, sustainable agribusiness, and economic empowerment.",
-    image: "https://i.postimg.cc/mgBF0TQ0/Millions-of-women-around-the-world-work-growing.jpg"
+    image: "/images/gallery/outreach-01.webp",
+    imageAlt: "EarthSprings integrated agriculture and medical outreach banner"
   },
   {
     id: "women-empowerment",
@@ -113,9 +115,19 @@ export const projectsData = [
     ],
     supports: "Women, girls, and communities.",
     expectedImpact: "Reduced gender inequality and enhanced economic independence for women.",
-    image: "https://i.postimg.cc/8CrD46j4/623326404723130922.jpg"
+    image: "/images/gallery/outreach-28.webp",
+    imageAlt: "Women, children, and community members gathered during an EarthSprings outreach"
   }
 ];
+
+export const featuredProject = {
+  title: "Integrated Agriculture & Medical Outreach",
+  description: "A community outreach bringing together integrated agriculture and medical support.",
+  location: "Guruku Gbayi Community, Karu LGA, Nasarawa State",
+  date: "27 June 2026",
+  image: "/images/gallery/outreach-01.webp",
+  imageAlt: "EarthSprings integrated agriculture and medical outreach banner",
+};
 
 export const teamData = [
   {

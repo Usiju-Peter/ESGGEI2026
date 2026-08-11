@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 import PageHero from "../components/PageHero";
 import AnimatedSection from "../components/AnimatedSection";
-import { projectsData } from "../data";
+import { featuredProject, projectsData } from "../data";
 import { CheckCircle2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useSEO } from "../lib/seo";
@@ -15,6 +15,55 @@ export default function Projects() {
         subtitle="Practical initiatives designed to empower communities, improve livelihoods, and restore hope."
         image="/images/gallery/outreach-01.webp"
       />
+
+      <AnimatedSection>
+        <section className="border-b-[3px] border-primary/15 bg-cream py-24 lg:py-32">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="mb-12 flex items-center space-x-4">
+              <div className="h-[3px] w-16 bg-[#D4A84F]" />
+              <span className="font-sans text-sm font-black uppercase tracking-[0.3em] text-[#D4A84F]">Featured Project</span>
+            </div>
+            <div className="flex flex-col items-center gap-12 lg:flex-row lg:gap-24">
+              <div className="group relative w-full overflow-hidden rounded-3xl bg-beige shadow-[0_20px_50px_rgba(212,168,79,0.15)] ring-2 ring-[#D4A84F]/30 lg:w-3/5">
+                <img
+                  src={featuredProject.image}
+                  alt={featuredProject.imageAlt}
+                  className="h-full min-h-[360px] w-full object-cover transition-transform duration-[1.5s] ease-[0.16,1,0.3,1] group-hover:scale-103 md:min-h-[540px]"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div className="w-full lg:w-2/5">
+                <h2 className="font-serif text-4xl font-bold leading-tight text-primary md:text-5xl">{featuredProject.title}</h2>
+                <p className="mt-7 text-lg font-light leading-relaxed text-charcoal/70">{featuredProject.description}</p>
+                <dl className="mt-10 space-y-5 border-l-2 border-primary/20 pl-5">
+                  <div>
+                    <dt className="text-xs font-semibold uppercase tracking-widest text-primary/50">Location</dt>
+                    <dd className="mt-1 font-serif text-lg text-charcoal/80">{featuredProject.location}</dd>
+                  </div>
+                  <div>
+                    <dt className="text-xs font-semibold uppercase tracking-widest text-primary/50">Date</dt>
+                    <dd className="mt-1 font-serif text-lg text-charcoal/80">{featuredProject.date}</dd>
+                  </div>
+                </dl>
+                <Link to="/gallery" className="mt-10 inline-flex items-center text-sm font-semibold uppercase tracking-widest text-primary-light transition-colors hover:text-primary">
+                  View Outreach Photos <span className="ml-2 text-lg" aria-hidden="true">→</span>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+      </AnimatedSection>
+
+      <AnimatedSection>
+        <section className="bg-white py-20 text-center md:py-24">
+          <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary-light">What is ahead</p>
+            <h2 className="mt-4 font-serif text-4xl font-semibold text-primary md:text-5xl">Upcoming Projects</h2>
+            <p className="mt-5 text-lg font-light leading-relaxed text-charcoal/70">Programme areas that guide the next stages of our work with communities.</p>
+          </div>
+        </section>
+      </AnimatedSection>
 
       {projectsData.map((prog, idx) => {
         const isCream = idx % 2 === 0;
@@ -39,20 +88,17 @@ export default function Projects() {
                 }`}>
                   <img 
                     src={prog.image} 
-                    alt={prog.title} 
+                    alt={prog.imageAlt}
                     className="w-full h-full object-cover transition-all duration-[1.5s] ease-[0.16,1,0.3,1] group-hover:scale-103"
                     loading="lazy"
                     decoding="async"
-                    onError={(e) => {
-                       (e.target as HTMLImageElement).src = `https://images.unsplash.com/photo-1544256718-3bcf237f3974?q=80&w=1000&auto=format&fit=crop&fm=webp`;
-                    }}
                   />
                 </div>
                 <div className="w-full md:w-1/2 py-8 relative">
                   <div className="flex items-center space-x-4 mb-6 relative z-10">
                     <div className={`h-[3px] w-16 transition-all ${idx === 0 ? 'bg-[#D4A84F]' : 'bg-primary-light'}`} />
                     <span className={`font-sans font-black text-sm md:text-base uppercase tracking-[0.3em] transition-colors ${idx === 0 ? 'text-[#D4A84F]' : 'text-primary-light'}`}>
-                      Project {String(idx + 1).padStart(2, '0')}
+                      Upcoming Project {String(idx + 1).padStart(2, '0')}
                     </span>
                   </div>
                   <h2 className="text-3xl md:text-5xl font-serif font-bold text-primary mb-8 leading-tight relative z-10">{prog.title}</h2>

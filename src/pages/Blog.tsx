@@ -1,6 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { blogPosts, getReadingTime } from "../blogData";
+import PageHero from "../components/PageHero";
 import { useSEO } from "../lib/seo";
 
 export default function Blog() {
@@ -14,15 +15,11 @@ export default function Blog() {
 
   return (
     <div className="bg-cream">
-      <section className="border-b border-primary/10 py-16 md:py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.24em] text-primary-light">EarthSprings Journal</p>
-          <h1 className="font-serif text-5xl font-semibold leading-tight text-primary md:text-6xl">Blog</h1>
-          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-charcoal/70 md:text-xl">
-            Stories, ideas and reflections from our work and the communities we serve.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        title="Blog"
+        subtitle="Stories, ideas and reflections from our work and the communities we serve."
+        image="/images/gallery/outreach-22.webp"
+      />
 
       <section className="py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -35,8 +32,8 @@ export default function Blog() {
                 width={featuredPost.heroWidth}
                 height={featuredPost.heroHeight}
                 className="h-full w-full object-cover transition-transform duration-700 ease-[0.16,1,0.3,1] group-hover:scale-105"
-                loading="eager"
-                fetchPriority="high"
+                loading="lazy"
+                decoding="async"
               />
             </Link>
             <div className="flex flex-col justify-center p-8 sm:p-12 lg:p-14">
