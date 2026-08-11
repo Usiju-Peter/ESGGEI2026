@@ -18,7 +18,7 @@ export default function Blog() {
       <PageHero
         title="Blog"
         subtitle="Stories, ideas and reflections from our work and the communities we serve."
-        image="/images/gallery/outreach-22.webp"
+        image="/images/gallery/outreach-25.webp"
       />
 
       <section className="py-16 md:py-24">
