@@ -28,7 +28,7 @@ export default function Partner() {
       <PageHero 
         title="Contact Us" 
         subtitle="We would love to hear from partners, volunteers, donors, and organizations ready to build lasting impact."
-        image="https://images.unsplash.com/photo-1511632765486-a01980e01a18?q=80&w=1200&auto=format&fit=crop&fm=webp"
+        image="/images/gallery/outreach-29.webp"
       />
 
       <AnimatedSection>

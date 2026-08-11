@@ -13,7 +13,7 @@ export default function Projects() {
       <PageHero 
         title="Our Projects" 
         subtitle="Practical initiatives designed to empower communities, improve livelihoods, and restore hope."
-        image="https://images.unsplash.com/photo-1509099836639-18ba1795216d?q=80&w=1200&auto=format&fit=crop&fm=webp"
+        image="/images/gallery/outreach-01.webp"
       />
 
       {projectsData.map((prog, idx) => {

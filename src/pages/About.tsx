@@ -11,7 +11,7 @@ export default function About() {
       <PageHero 
         title="About Us" 
         subtitle="We exist to empower vulnerable lives through education, agriculture, literacy, advocacy, and social support."
-        image="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=1200&auto=format&fit=crop&fm=webp"
+        image="/images/gallery/outreach-24.webp"
       />
 
       <AnimatedSection>

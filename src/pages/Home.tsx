@@ -29,6 +29,13 @@ export default function Home() {
     <div className="flex flex-col min-h-screen">
       {/* 1. Hero Section */}
       <section className="relative min-h-[85vh] flex items-center pt-32 md:pt-40 pb-20 overflow-hidden bg-primary">
+        <img
+          src="/images/gallery/outreach-25.webp"
+          alt=""
+          className="absolute inset-0 z-0 h-full w-full object-cover opacity-40 mix-blend-overlay"
+          loading="eager"
+          fetchPriority="high"
+        />
         <div className="absolute inset-0 bg-primary/70 z-0" />
         
         {/* Beautiful dynamic atmospheric ambient glows */}
@@ -98,7 +105,16 @@ export default function Home() {
                 <ArrowRight className="ml-2 w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
               </Link>
             </motion.div>
-            <div className="relative overflow-hidden aspect-[4/5] md:aspect-auto md:h-[600px] rounded-none md:rounded-[2rem] bg-[radial-gradient(circle_at_30%_25%,rgba(82,117,41,0.32),transparent_38%),radial-gradient(circle_at_75%_70%,rgba(212,168,79,0.2),transparent_35%)] border border-primary/10" />
+            <div className="relative overflow-hidden aspect-[4/5] md:aspect-auto md:h-[600px] rounded-none md:rounded-[2rem] border border-primary/10">
+              <img
+                src="/images/gallery/outreach-28.webp"
+                alt="Community members gathered during an EarthSprings outreach"
+                className="h-full w-full object-cover transition-transform duration-[1.5s] ease-[0.16,1,0.3,1] group-hover:scale-105"
+                loading="lazy"
+                decoding="async"
+              />
+              <div className="absolute inset-0 bg-primary/10" />
+            </div>
           </div>
         </div>
       </section>

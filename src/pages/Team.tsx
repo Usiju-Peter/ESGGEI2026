@@ -16,7 +16,7 @@ export default function Team() {
       <PageHero 
         title="Our Team" 
         subtitle="Meet the people guiding ESGGEI’s mission of empowerment, dignity, and sustainable development."
-        image="https://images.unsplash.com/photo-1531538606174-0f90ff5dce83?q=80&w=1200&auto=format&fit=crop&fm=webp"
+        image="/images/gallery/outreach-26.webp"
       />
 
       <AnimatedSection>
