@@ -83,6 +83,26 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="bg-white py-16 md:py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-10 rounded-3xl border border-primary/10 bg-cream p-8 shadow-sm md:grid-cols-[1.15fr_0.85fr] md:p-12">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary-light">Why EarthSprings</p>
+              <h2 className="mt-4 font-serif text-4xl font-semibold leading-tight text-primary md:text-5xl">Practical support for communities facing connected challenges.</h2>
+              <p className="mt-6 text-lg leading-relaxed text-charcoal/70">Many families face barriers that overlap: children out of school, limited livelihood opportunities, low agricultural productivity, scarce resources, and social exclusion. ESGGEI works alongside communities to respond with useful, respectful support that strengthens opportunity and dignity.</p>
+            </div>
+            <div className="border-l-2 border-primary/20 pl-6 md:pl-8">
+              <h3 className="font-serif text-2xl font-semibold text-primary">How we work</h3>
+              <p className="mt-4 leading-relaxed text-charcoal/70">We listen to local priorities, resources, and gaps, then shape practical programmes around the needs of the communities we serve. Our integrated approach connects education, sustainable agriculture, literacy, advocacy, medical outreach, and social support.</p>
+              <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+                <Link to="/projects" className="inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-primary-dark">Learn About Our Programmes</Link>
+                <Link to="/partner" className="inline-flex items-center justify-center rounded-full border border-primary/20 px-6 py-3 text-sm font-medium text-primary transition-colors hover:bg-primary hover:text-white">Support Our Work</Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* 2. About Preview Section */}
       <section className="py-24 bg-cream">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -160,6 +180,60 @@ export default function Home() {
                 </p>
               </motion.div>
             </div>
+          </div>
+        </section>
+      </AnimatedSection>
+
+      <AnimatedSection placeholderHeight="320px">
+        <section className="bg-white py-24 md:py-28">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="mx-auto max-w-3xl text-center">
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary-light">Outreach in action</p>
+              <h2 className="mt-4 font-serif text-4xl font-semibold text-primary md:text-5xl">Integrated agriculture and medical outreach.</h2>
+              <p className="mt-6 text-lg leading-relaxed text-charcoal/70">Our outreach brings practical agricultural support and basic medical care together, helping communities address immediate needs while strengthening longer-term wellbeing and livelihoods.</p>
+            </div>
+            <div className="mt-12 grid gap-6 md:grid-cols-3">
+              {[
+                ['Community-led planning', 'We work with community members to understand priorities and shape relevant support.'],
+                ['Health and wellbeing', 'Medical outreach connects people with practical screening, care, and health support.'],
+                ['Sustainable livelihoods', 'Agricultural knowledge and support help farmers, women, and youth build more resilient livelihoods.'],
+              ].map(([title, text]) => (
+                <div key={title} className="rounded-2xl border border-primary/10 bg-cream p-7">
+                  <h3 className="font-serif text-2xl font-semibold text-primary">{title}</h3>
+                  <p className="mt-4 leading-relaxed text-charcoal/70">{text}</p>
+                </div>
+              ))}
+            </div>
+            <div className="mt-10 text-center"><Link to="/projects" className="inline-flex items-center text-sm font-semibold uppercase tracking-[0.16em] text-primary transition-colors hover:text-primary-light">Explore our programme goals <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" /></Link></div>
+          </div>
+        </section>
+      </AnimatedSection>
+
+      <AnimatedSection placeholderHeight="280px">
+        <section className="bg-beige py-24 md:py-28">
+          <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+            <p className="text-center text-xs font-semibold uppercase tracking-[0.24em] text-primary-light">Impact in progress</p>
+            <div className="mt-5 rounded-3xl border border-primary/10 bg-white/70 p-8 shadow-sm md:p-12">
+              <h2 className="font-serif text-4xl font-semibold text-primary md:text-5xl">A community outreach built around dignity.</h2>
+              <p className="mt-6 text-lg leading-relaxed text-charcoal/70">At the Integrated Agriculture &amp; Medical Outreach in Guruku Gbayi Community, Karu LGA, Nasarawa State, ESGGEI brought community members, volunteers, and health workers together for registration, health screening, care, and support. The outreach reflects what makes our approach distinct: connected services, community participation, and practical action that responds to real needs.</p>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row"><Link to="/gallery" className="inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-primary-dark">View Outreach Photos</Link><Link to="/blog" className="inline-flex items-center justify-center rounded-full border border-primary/20 px-6 py-3 text-sm font-medium text-primary transition-colors hover:bg-primary hover:text-white">Read Our Story</Link></div>
+            </div>
+          </div>
+        </section>
+      </AnimatedSection>
+
+      <AnimatedSection placeholderHeight="300px">
+        <section className="bg-white py-24 md:py-28">
+          <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+            <div className="text-center"><p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary-light">Questions and answers</p><h2 className="mt-4 font-serif text-4xl font-semibold text-primary md:text-5xl">How you can take part.</h2></div>
+            <div className="mt-12 grid gap-6 md:grid-cols-3">
+              {[
+                ['What does ESGGEI do?', 'ESGGEI supports vulnerable communities through education, sustainable agriculture, literacy, advocacy, and social support.'],
+                ['How are programmes shaped for communities?', 'We listen to local priorities, resources, and gaps, then shape practical programmes around the needs of the communities we serve.'],
+                ['How can I support ESGGEI?', 'You can partner, volunteer, share expertise, advocate for our work, or make a donation.'],
+              ].map(([question, answer]) => <div key={question} className="rounded-2xl border border-primary/10 bg-cream p-7"><h3 className="font-serif text-2xl font-semibold text-primary">{question}</h3><p className="mt-4 leading-relaxed text-charcoal/70">{answer}</p></div>)}
+            </div>
+            <div className="mt-10 text-center"><Link to="/partner" className="inline-flex items-center justify-center rounded-full bg-primary px-7 py-3.5 text-sm font-medium text-white transition-colors hover:bg-primary-dark">Get Involved</Link></div>
           </div>
         </section>
       </AnimatedSection>
