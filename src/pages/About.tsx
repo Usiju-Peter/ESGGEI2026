@@ -48,6 +48,25 @@ export default function About() {
       </AnimatedSection>
 
       <AnimatedSection>
+        <section className="border-t border-primary/10 bg-white py-24 lg:py-28">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="max-w-3xl">
+              <span className="text-xs font-semibold uppercase tracking-[0.24em] text-primary-light">How we work</span>
+              <h2 className="mt-4 font-serif text-4xl font-semibold leading-tight text-primary md:text-5xl">Practical change, shaped with communities.</h2>
+              <p className="mt-6 text-lg leading-relaxed text-charcoal/70">Our programmes connect people to useful knowledge, supportive relationships, and opportunities they can carry forward. We listen first, work with local partners, and adapt our support to the context of each community.</p>
+            </div>
+            <div className="mt-12 grid gap-8 md:grid-cols-3">
+              {[
+                ['Community-led', 'Local voices help define priorities, strengthen trust, and guide the solutions we support.'],
+                ['Connected support', 'Education, livelihoods, advocacy, and social care work together because community needs rarely stand alone.'],
+                ['Built to last', 'We focus on practical skills, shared ownership, and sustainable approaches that can continue beyond a single intervention.'],
+              ].map(([title, text]) => <div key={title} className="border-l-2 border-primary/20 pl-6"><h3 className="font-serif text-2xl font-semibold text-primary">{title}</h3><p className="mt-3 leading-relaxed text-charcoal/70">{text}</p></div>)}
+            </div>
+          </div>
+        </section>
+      </AnimatedSection>
+
+      <AnimatedSection>
         <section className="py-32 bg-white border-t border-b border-gray-100">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div className="max-w-5xl mx-auto">

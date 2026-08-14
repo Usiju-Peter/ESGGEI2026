@@ -1,6 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import { blogPosts, getReadingTime } from "../blogData";
+import { blogPosts, formatPublishedDate, getReadingTime } from "../blogData";
 import PageHero from "../components/PageHero";
 import { useSEO } from "../lib/seo";
 
@@ -44,7 +44,7 @@ export default function Blog() {
                 </Link>
               </h2>
               <p className="mt-6 text-base leading-relaxed text-charcoal/70 md:text-lg">{featuredPost.excerpt}</p>
-              <p className="mt-6 text-sm text-charcoal/55">{readingTime} min read</p>
+              <p className="mt-6 text-sm text-charcoal/55">{readingTime} min read · Published {formatPublishedDate(featuredPost.publishedDate)}</p>
               <Link
                 to={`/blog/${featuredPost.slug}`}
                 className="group mt-8 inline-flex w-max items-center text-sm font-semibold uppercase tracking-[0.16em] text-primary transition-colors hover:text-primary-light"

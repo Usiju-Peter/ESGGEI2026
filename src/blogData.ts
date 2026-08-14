@@ -13,6 +13,7 @@ export type BlogPost = {
   heroAlt: string;
   heroWidth: number;
   heroHeight: number;
+  publishedDate: string;
   content: BlogContentBlock[];
 };
 
@@ -29,6 +30,7 @@ export const blogPosts: BlogPost[] = [
     heroAlt: "EarthSprings team and community leaders at an outreach gathering",
     heroWidth: 1200,
     heroHeight: 900,
+    publishedDate: "2026-08-14",
     content: [
       {
         type: "paragraph",
@@ -119,6 +121,11 @@ export const blogPosts: BlogPost[] = [
 ];
 
 export const getBlogPost = (slug: string) => blogPosts.find((post) => post.slug === slug);
+
+export const formatPublishedDate = (date: string) =>
+  new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" }).format(
+    new Date(`${date}T00:00:00Z`),
+  );
 
 export const getReadingTime = (post: BlogPost) => {
   const wordCount = post.content

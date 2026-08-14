@@ -99,6 +99,7 @@ const structuredData = () => ({
           '@id': `${url}#article`,
           headline: page.name,
           description: page.description,
+          datePublished: '2026-08-14',
           mainEntityOfPage: { '@id': `${url}#webpage` },
           image: `${siteUrl}/images/gallery/outreach-25.webp`,
           author: { '@id': `${siteUrl}/#organization` },

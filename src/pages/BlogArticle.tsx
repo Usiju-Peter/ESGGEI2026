@@ -1,6 +1,6 @@
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Link, Navigate, useParams } from "react-router-dom";
-import { getBlogPost, getReadingTime } from "../blogData";
+import { formatPublishedDate, getBlogPost, getReadingTime } from "../blogData";
 import { useSEO } from "../lib/seo";
 
 export default function BlogArticle() {
@@ -29,7 +29,7 @@ export default function BlogArticle() {
           <p className="mt-10 text-xs font-semibold uppercase tracking-[0.24em] text-primary-light">Blog / {post.category}</p>
           <h1 className="mt-5 font-serif text-4xl font-semibold leading-tight text-primary sm:text-5xl md:text-6xl">{post.title}</h1>
           <p className="mt-6 text-xl leading-relaxed text-charcoal/70 md:text-2xl">{post.excerpt}</p>
-          <p className="mt-6 text-sm text-charcoal/55">{readingTime} min read</p>
+            <p className="mt-6 text-sm text-charcoal/55">{readingTime} min read · Published {formatPublishedDate(post.publishedDate)}</p>
         </div>
       </header>
 

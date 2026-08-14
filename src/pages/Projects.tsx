@@ -17,14 +17,14 @@ export default function Projects() {
       />
 
       <AnimatedSection>
-        <section className="border-b-[3px] border-primary/15 bg-cream py-24 lg:py-32">
+        <section className="border-b border-primary/10 bg-cream py-24 lg:py-32">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="mb-12 flex items-center space-x-4">
               <div className="h-[3px] w-16 bg-[#D4A84F]" />
               <span className="font-sans text-sm font-black uppercase tracking-[0.3em] text-[#D4A84F]">Featured Project</span>
             </div>
-            <div className="flex flex-col items-center gap-12 lg:flex-row lg:gap-24">
-              <div className="group relative w-full overflow-hidden rounded-3xl bg-beige shadow-[0_20px_50px_rgba(212,168,79,0.15)] ring-2 ring-[#D4A84F]/30 lg:w-3/5">
+            <div className="flex flex-col items-center gap-12 lg:flex-row lg:gap-12">
+              <div className="group relative w-full overflow-hidden rounded-[2rem] bg-beige shadow-[0_20px_50px_rgba(212,168,79,0.15)] lg:w-2/3">
                 <img
                   src={featuredProject.image}
                   alt={featuredProject.imageAlt}
@@ -33,7 +33,7 @@ export default function Projects() {
                   decoding="async"
                 />
               </div>
-              <div className="w-full lg:w-2/5">
+              <div className="w-full lg:w-1/3">
                 <h2 className="font-serif text-4xl font-bold leading-tight text-primary md:text-5xl">{featuredProject.title}</h2>
                 <p className="mt-7 text-lg font-light leading-relaxed text-charcoal/70">{featuredProject.description}</p>
                 <dl className="mt-10 space-y-5 border-l-2 border-primary/20 pl-5">
