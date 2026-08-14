@@ -149,13 +149,13 @@ export default function Home() {
         {/* 3. Mission and Vision Section */}
         <section className="py-32 bg-beige">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid md:grid-cols-2 gap-16">
+            <div className="grid gap-16 md:grid-cols-12 md:gap-y-20">
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                className="border-l-2 border-primary/20 pl-8 md:pl-10"
+                className="border-l-2 border-primary/20 pl-8 md:col-span-7 md:pl-10"
               >
                 <div className="mb-6">
                   <h3 className="text-2xl font-serif font-semibold text-primary">Our Vision</h3>
@@ -170,7 +170,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
-                className="border-l-2 border-primary/20 pl-8 md:pl-10"
+                className="border-l-2 border-primary/20 pl-8 md:col-span-7 md:col-start-6 md:pl-10"
               >
                 <div className="mb-6">
                   <h3 className="text-2xl font-serif font-semibold text-primary">Our Mission</h3>
@@ -354,6 +354,9 @@ export default function Home() {
                 ['What does ESGGEI do?', 'ESGGEI supports vulnerable communities through education, sustainable agriculture, literacy, advocacy, and social support.'],
                 ['How are programmes shaped for communities?', 'We listen to local priorities, resources, and gaps, then shape practical programmes around the needs of the communities we serve.'],
                 ['How can I support ESGGEI?', 'You can support ESGGEI by partnering, volunteering, sharing expertise, advocating for our work, or making a donation.'],
+                ['Where does ESGGEI work?', 'ESGGEI works with vulnerable and marginalised communities in Nigeria through locally shaped education, livelihood, advocacy, and social support programmes.'],
+                ['Can organisations partner with ESGGEI?', 'Yes. Organisations can partner through funding, technical expertise, volunteering, advocacy, or in-kind support aligned with community priorities.'],
+                ['How can I stay connected to ESGGEI?', 'Follow our stories, outreach updates, and project news through the website, gallery, blog, and social channels.'],
               ].map(([question, answer]) => <details key={question} className="group p-6 md:p-7"><summary className="flex cursor-pointer list-none items-center justify-between gap-6 font-serif text-xl font-semibold text-primary [&::-webkit-details-marker]:hidden">{question}<span className="text-2xl font-light text-primary-light transition-transform group-open:rotate-45">+</span></summary><p className="mt-4 max-w-3xl leading-relaxed text-charcoal/70">{answer}</p></details>)}
             </div>
           </div>

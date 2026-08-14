@@ -89,6 +89,21 @@ const structuredData = () => ({
               name: 'How can I support ESGGEI?',
               acceptedAnswer: { '@type': 'Answer', text: 'You can support ESGGEI by partnering, volunteering, sharing expertise, advocating for our work, or making a donation.' },
             },
+            {
+              '@type': 'Question',
+              name: 'Where does ESGGEI work?',
+              acceptedAnswer: { '@type': 'Answer', text: 'ESGGEI works with vulnerable and marginalised communities in Nigeria through locally shaped education, livelihood, advocacy, and social support programmes.' },
+            },
+            {
+              '@type': 'Question',
+              name: 'Can organisations partner with ESGGEI?',
+              acceptedAnswer: { '@type': 'Answer', text: 'Yes. Organisations can partner through funding, technical expertise, volunteering, advocacy, or in-kind support aligned with community priorities.' },
+            },
+            {
+              '@type': 'Question',
+              name: 'How can I stay connected to ESGGEI?',
+              acceptedAnswer: { '@type': 'Answer', text: 'Follow our stories, outreach updates, and project news through the website, gallery, blog, and social channels.' },
+            },
           ],
         });
       }

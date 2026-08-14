@@ -24,16 +24,16 @@ export default function Projects() {
               <span className="font-sans text-sm font-black uppercase tracking-[0.3em] text-[#D4A84F]">Featured Project</span>
             </div>
             <div className="flex flex-col items-center gap-12 lg:flex-row lg:gap-12">
-              <div className="group relative w-full overflow-hidden rounded-[2rem] bg-beige shadow-[0_20px_50px_rgba(212,168,79,0.15)] lg:w-2/3">
+              <div className="group relative w-full overflow-hidden rounded-[1.5rem] bg-beige shadow-[0_16px_40px_rgba(212,168,79,0.12)] lg:w-1/2">
                 <img
                   src={featuredProject.image}
                   alt={featuredProject.imageAlt}
-                  className="h-full min-h-[360px] w-full object-cover transition-transform duration-[1.5s] ease-[0.16,1,0.3,1] group-hover:scale-103 md:min-h-[540px]"
+                  className="h-full min-h-[360px] w-full object-cover transition-transform duration-[1.5s] ease-[0.16,1,0.3,1] group-hover:scale-103 md:min-h-[470px]"
                   loading="lazy"
                   decoding="async"
                 />
               </div>
-              <div className="w-full lg:w-1/3">
+              <div className="w-full lg:w-1/2">
                 <h2 className="font-serif text-4xl font-bold leading-tight text-primary md:text-5xl">{featuredProject.title}</h2>
                 <p className="mt-7 text-lg font-light leading-relaxed text-charcoal/70">{featuredProject.description}</p>
                 <dl className="mt-10 space-y-5 border-l-2 border-primary/20 pl-5">

@@ -65,7 +65,7 @@ export default function Gallery() {
           <button
             type="button"
             onClick={() => setActiveIndex(0)}
-            className="group relative overflow-hidden rounded-2xl bg-beige text-left shadow-sm transition-shadow duration-300 hover:shadow-xl focus:outline-none focus-visible:ring-4 focus-visible:ring-terra/40"
+            className="group relative overflow-hidden rounded-[1.25rem] bg-beige text-left shadow-sm transition-shadow duration-300 hover:shadow-xl focus:outline-none focus-visible:ring-4 focus-visible:ring-terra/40"
             aria-label={`Open featured image: ${featuredImage.alt}`}
           >
             <img
@@ -96,7 +96,7 @@ export default function Gallery() {
                 key={image.src}
                 type="button"
                 onClick={() => setActiveIndex(index)}
-                className="group relative mb-5 block w-full break-inside-avoid overflow-hidden rounded-2xl bg-beige text-left shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg focus:outline-none focus-visible:ring-4 focus-visible:ring-terra/40 md:mb-7"
+                className="group relative mb-4 block w-full break-inside-avoid overflow-hidden rounded-[1.25rem] bg-beige text-left shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg focus:outline-none focus-visible:ring-4 focus-visible:ring-terra/40 md:mb-6"
                 aria-label={`Open image ${index + 1}: ${image.alt}`}
               >
                 <img
