@@ -185,10 +185,10 @@ export default function Home() {
       </AnimatedSection>
 
       <AnimatedSection placeholderHeight="280px">
-        <section className="border-b border-primary/15 bg-beige py-24 md:py-28">
+        <section className="border-b border-[#8f5721] bg-[#B26F2B] py-24 md:py-28">
           <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-            <h2 className="text-center font-serif text-4xl font-bold text-primary md:text-5xl lg:text-6xl">Impact in Progress</h2>
-            <div className="mt-12 rounded-3xl border border-primary/10 bg-white/70 p-8 shadow-sm md:p-12">
+            <h2 className="text-center font-serif text-4xl font-bold text-white md:text-5xl lg:text-6xl">Impact in Progress</h2>
+            <div className="mt-12 rounded-3xl border border-white/25 bg-cream/95 p-8 shadow-[0_18px_45px_rgba(61,31,8,0.18)] md:p-12">
               <h3 className="font-serif text-3xl font-semibold text-primary md:text-4xl">A community outreach built around dignity.</h3>
               <p className="mt-6 text-lg leading-relaxed text-charcoal/70">At the Integrated Agriculture &amp; Medical Outreach in Guruku Gbayi Community, Karu LGA, Nasarawa State, ESGGEI brought community members, volunteers, and health workers together for registration, health screening, care, and support. The outreach reflects what makes our approach distinct: connected services, community participation, and practical action that responds to real needs.</p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row"><Link to="/gallery" className="inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-primary-dark">View Outreach Photos</Link><Link to="/blog" className="inline-flex items-center justify-center rounded-full border border-primary/20 px-6 py-3 text-sm font-medium text-primary transition-colors hover:bg-primary hover:text-white">Read Our Story</Link></div>
