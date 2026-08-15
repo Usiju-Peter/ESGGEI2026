@@ -148,6 +148,7 @@ export default function Home() {
         {/* 3. Mission and Vision Section */}
         <section className="border-y border-primary/15 bg-beige py-24 md:py-28">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="mb-14 text-center font-serif text-4xl font-bold text-primary md:text-5xl lg:text-6xl">Our Vision &amp; Mission</h2>
             <div className="grid gap-8 md:grid-cols-2">
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
@@ -157,7 +158,7 @@ export default function Home() {
                 className="flex h-full flex-col rounded-3xl border border-primary/15 bg-white/70 p-8 shadow-sm transition-all duration-500 hover:-translate-y-1 hover:border-primary/30 hover:bg-white hover:shadow-lg md:p-10"
               >
                 <div className="mb-6">
-                  <h3 className="text-2xl font-serif font-semibold text-primary">Our Vision</h3>
+                  <h3 className="font-serif text-3xl font-bold text-primary">Our Vision</h3>
                 </div>
                 <p className="text-charcoal/70 leading-relaxed text-lg font-light flex-grow">
                   To build a society where every child learns, every woman thrives, and every vulnerable life is empowered to reach its full potential.
@@ -172,7 +173,7 @@ export default function Home() {
                 className="flex h-full flex-col rounded-3xl border border-primary/15 bg-white/70 p-8 shadow-sm transition-all duration-500 hover:-translate-y-1 hover:border-primary/30 hover:bg-white hover:shadow-lg md:p-10"
               >
                 <div className="mb-6">
-                  <h3 className="text-2xl font-serif font-semibold text-primary">Our Mission</h3>
+                  <h3 className="font-serif text-3xl font-bold text-primary">Our Mission</h3>
                 </div>
                 <p className="text-charcoal/70 leading-relaxed text-lg font-light flex-grow">
                   To empower individuals and communities through education, agriculture, literacy, advocacy, and social support, with a special focus on children, women, widows, and the aged.
@@ -184,11 +185,11 @@ export default function Home() {
       </AnimatedSection>
 
       <AnimatedSection placeholderHeight="280px">
-        <section className="bg-beige py-24 md:py-28">
+        <section className="border-b border-primary/15 bg-beige py-24 md:py-28">
           <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-            <p className="text-center text-xs font-semibold uppercase tracking-[0.24em] text-primary-light">Impact in progress</p>
-            <div className="mt-5 rounded-3xl border border-primary/10 bg-white/70 p-8 shadow-sm md:p-12">
-              <h2 className="font-serif text-4xl font-semibold text-primary md:text-5xl">A community outreach built around dignity.</h2>
+            <h2 className="text-center font-serif text-4xl font-bold text-primary md:text-5xl lg:text-6xl">Impact in Progress</h2>
+            <div className="mt-12 rounded-3xl border border-primary/10 bg-white/70 p-8 shadow-sm md:p-12">
+              <h3 className="font-serif text-3xl font-semibold text-primary md:text-4xl">A community outreach built around dignity.</h3>
               <p className="mt-6 text-lg leading-relaxed text-charcoal/70">At the Integrated Agriculture &amp; Medical Outreach in Guruku Gbayi Community, Karu LGA, Nasarawa State, ESGGEI brought community members, volunteers, and health workers together for registration, health screening, care, and support. The outreach reflects what makes our approach distinct: connected services, community participation, and practical action that responds to real needs.</p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row"><Link to="/gallery" className="inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-primary-dark">View Outreach Photos</Link><Link to="/blog" className="inline-flex items-center justify-center rounded-full border border-primary/20 px-6 py-3 text-sm font-medium text-primary transition-colors hover:bg-primary hover:text-white">Read Our Story</Link></div>
             </div>

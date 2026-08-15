@@ -71,37 +71,30 @@ export default function About() {
       </AnimatedSection>
 
       <AnimatedSection>
-        <section id="vision-mission" className="scroll-mt-28 border-b border-primary/15 bg-white py-32">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div className="max-w-5xl mx-auto">
+        <section id="vision-mission" className="scroll-mt-28 border-b border-primary/15 bg-white py-24 lg:py-28">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-6xl mx-auto">
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                className="flex flex-col items-center"
+                className="grid gap-12 md:grid-cols-2 md:gap-16"
               >
-                {/* Vision Section */}
-                <div className="w-full">
-                  <span className="text-xs uppercase tracking-[0.35em] text-primary-light font-bold block mb-4">The Blueprint</span>
-                  <h2 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-primary mb-8 tracking-tight">
+                <div>
+                  <h2 className="mb-6 font-serif text-4xl font-semibold tracking-tight text-primary md:text-5xl">
                     Our Vision
                   </h2>
-                  <p className="text-primary/95 text-2xl md:text-4xl lg:text-[2.8rem] font-serif leading-relaxed font-normal tracking-tight max-w-4xl mx-auto">
+                  <p className="font-serif text-xl font-normal leading-relaxed text-primary/90 md:text-2xl">
                     “To build a society where every child learns, every woman thrives, and every vulnerable life is empowered to reach its full potential.”
                   </p>
                 </div>
 
-                {/* Solid Thick Divider */}
-                <div className="h-[2px] bg-primary/25 w-full my-20" />
-
-                {/* Mission Section */}
-                <div className="w-full">
-                  <span className="text-xs uppercase tracking-[0.35em] text-primary-light font-bold block mb-4">The Commitment</span>
-                  <h2 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-primary mb-8 tracking-tight">
+                <div>
+                  <h2 className="mb-6 font-serif text-4xl font-semibold tracking-tight text-primary md:text-5xl">
                     Our Mission
                   </h2>
-                  <p className="text-primary/95 text-2xl md:text-4xl lg:text-[2.8rem] font-serif leading-relaxed font-normal tracking-tight max-w-4xl mx-auto">
+                  <p className="font-serif text-xl font-normal leading-relaxed text-primary/90 md:text-2xl">
                     “To empower individuals and communities through education, agriculture, literacy, advocacy, and social support, with a special focus on children, women, widows, and the aged.”
                   </p>
                 </div>

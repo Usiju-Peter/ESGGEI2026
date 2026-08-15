@@ -50,8 +50,9 @@ export default function Navbar() {
                     >
                       {link.name}<ChevronDown className="h-4 w-4 transition-transform duration-300 group-hover:rotate-180" aria-hidden="true" />
                     </Link>
-                    <div className="invisible absolute left-1/2 top-full z-50 w-64 -translate-x-1/2 pt-5 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
-                      <div className="rounded-2xl border border-primary/10 bg-white p-2 shadow-xl">
+                    <div className="invisible fixed left-0 right-0 top-[75px] z-40 border-t border-white/10 bg-primary/95 opacity-0 shadow-lg backdrop-blur-xl transition-all duration-200 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+                      <div className="mx-auto flex max-w-7xl items-center gap-2 px-6 py-4 md:px-12">
+                        <span className="mr-auto font-serif text-lg font-semibold text-white">Explore About</span>
                         {[
                           ["Who We Are", "identity"],
                           ["How We Work", "how-we-work"],
@@ -59,7 +60,7 @@ export default function Navbar() {
                           ["Aims & Objectives", "aims-objectives"],
                           ["Our Team", "our-team"],
                         ].map(([label, section]) => (
-                          <Link key={section} to={`/about#${section}`} className="block rounded-xl px-4 py-3 text-sm text-charcoal/75 transition-colors hover:bg-cream hover:text-primary">{label}</Link>
+                          <Link key={section} to={`/about#${section}`} className="block rounded-lg px-4 py-3 text-sm font-medium tracking-wide text-white/80 transition-colors hover:bg-white/10 hover:text-white">{label}</Link>
                         ))}
                       </div>
                     </div>
