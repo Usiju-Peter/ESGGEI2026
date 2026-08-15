@@ -146,15 +146,15 @@ export default function Home() {
 
       <AnimatedSection placeholderHeight="250px">
         {/* 3. Mission and Vision Section */}
-        <section className="py-32 bg-beige">
+        <section className="border-y border-primary/15 bg-beige py-24 md:py-28">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid gap-16 md:grid-cols-12 md:gap-y-20">
+            <div className="grid gap-8 md:grid-cols-2">
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                className="border-l-2 border-primary/20 pl-8 md:col-span-7 md:pl-10"
+                className="flex h-full flex-col rounded-3xl border border-primary/15 bg-white/70 p-8 shadow-sm transition-all duration-500 hover:-translate-y-1 hover:border-primary/30 hover:bg-white hover:shadow-lg md:p-10"
               >
                 <div className="mb-6">
                   <h3 className="text-2xl font-serif font-semibold text-primary">Our Vision</h3>
@@ -169,7 +169,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
-                className="border-l-2 border-primary/20 pl-8 md:col-span-7 md:col-start-6 md:pl-10"
+                className="flex h-full flex-col rounded-3xl border border-primary/15 bg-white/70 p-8 shadow-sm transition-all duration-500 hover:-translate-y-1 hover:border-primary/30 hover:bg-white hover:shadow-lg md:p-10"
               >
                 <div className="mb-6">
                   <h3 className="text-2xl font-serif font-semibold text-primary">Our Mission</h3>

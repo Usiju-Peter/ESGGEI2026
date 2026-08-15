@@ -65,7 +65,7 @@ export default function Gallery() {
           <button
             type="button"
             onClick={() => setActiveIndex(0)}
-            className="group relative overflow-hidden rounded-[1.25rem] bg-beige text-left shadow-sm transition-shadow duration-300 hover:shadow-xl focus:outline-none focus-visible:ring-4 focus-visible:ring-terra/40"
+            className="group relative aspect-[4/3] overflow-hidden rounded-[1.5rem] bg-beige text-left shadow-sm transition-shadow duration-300 hover:shadow-xl focus:outline-none focus-visible:ring-4 focus-visible:ring-terra/40"
             aria-label={`Open featured image: ${featuredImage.alt}`}
           >
             <img
@@ -75,7 +75,7 @@ export default function Gallery() {
               height={featuredImage.height}
               loading="eager"
               decoding="async"
-              className="max-h-[640px] w-full object-contain transition-transform duration-500 group-hover:scale-[1.015]"
+              className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.025]"
             />
           </button>
           <div>

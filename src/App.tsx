@@ -13,12 +13,25 @@ const Team = lazy(() => import("./pages/Team"));
 const Partner = lazy(() => import("./pages/Partner"));
 
 function ScrollToTop() {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
 
   useEffect(() => {
     if ("scrollRestoration" in window.history) {
       window.history.scrollRestoration = "manual";
     }
+    if (hash) {
+      const scrollToSection = () => {
+        document.getElementById(hash.slice(1))?.scrollIntoView({ behavior: "smooth", block: "start" });
+      };
+      const animationId = requestAnimationFrame(scrollToSection);
+      const timeoutId = setTimeout(scrollToSection, 150);
+
+      return () => {
+        cancelAnimationFrame(animationId);
+        clearTimeout(timeoutId);
+      };
+    }
+
     window.scrollTo(0, 0);
 
     // Fallback for asynchronous browser scroll restoration behavior
@@ -27,7 +40,7 @@ function ScrollToTop() {
     }, 0);
 
     return () => clearTimeout(timeoutId);
-  }, [pathname]);
+  }, [pathname, hash]);
 
   return null;
 }

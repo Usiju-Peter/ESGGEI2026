@@ -19,7 +19,7 @@ export default function About() {
       />
 
       <AnimatedSection>
-        <section className="py-24 lg:py-32 bg-cream">
+        <section id="identity" className="scroll-mt-28 border-y border-primary/15 bg-cream py-24 lg:py-32">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid md:grid-cols-2 gap-16 lg:gap-24">
               <motion.div
@@ -51,79 +51,27 @@ export default function About() {
         </section>
       </AnimatedSection>
 
-      <AnimatedSection placeholderHeight="300px">
-        <section className="py-24 bg-cream border-t border-primary/20">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
-          >
-            <h2 className="text-4xl md:text-5xl font-serif font-semibold text-primary mb-16">Meet the people behind the mission.</h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16 mb-16 text-left">
-              {teamData.slice(0, 3).map((member, idx) => (
-                <motion.div
-                  key={member.id}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  transition={{ delay: idx * 0.1, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                  onClick={() => setSelectedMember(member)}
-                  className="flex flex-col h-full bg-white/45 backdrop-blur-sm p-6 rounded-3xl border border-primary/5 shadow-[0_12px_35px_rgba(110,142,66,0.06)] hover:border-primary/25 hover:bg-white hover:shadow-[0_25px_50px_-12px_rgba(110,142,66,0.22)] hover:-translate-y-3 hover:scale-[1.02] transition-all duration-500 ease-[0.16,1,0.3,1] cursor-pointer group"
-                >
-                  <div className="aspect-[4/5] bg-gray-50 overflow-hidden rounded-2xl relative w-full mb-6">
-                    <img src={member.image} alt={member.name} className="w-full h-full object-cover transition-transform duration-700 ease-[0.16,1,0.3,1] group-hover:scale-105" loading="lazy" decoding="async" />
-                    <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-550" />
-                  </div>
-                  <div className="flex flex-col flex-grow">
-                    <h3 className="text-2xl font-serif font-medium text-primary mb-1 group-hover:text-primary-light transition-colors duration-300">{member.name}</h3>
-                    <p className="text-charcoal/70 uppercase tracking-[0.15em] text-[11px] mb-6">{member.role}</p>
-                    <div className="flex-grow" />
-                    <button className="text-primary group-hover:text-primary-light transition-colors text-left uppercase text-[11px] tracking-widest w-max pb-1 border-b border-primary/20 group-hover:border-primary" aria-label={`Read bio of ${member.name}`}>
-                      Read Bio <span className="sr-only">for {member.name}</span>
-                    </button>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-            <Link to="/team" className="border border-primary/20 text-primary hover:bg-primary hover:text-white px-10 py-4 rounded-full transition-colors inline-block uppercase tracking-widest text-sm">Meet Our Team</Link>
-          </motion.div>
-        </section>
-      </AnimatedSection>
-
-      {selectedMember && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6">
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.4 }} onClick={() => setSelectedMember(null)} className="absolute inset-0 bg-charcoal/80 backdrop-blur-sm" />
-          <motion.div initial={{ opacity: 0, scale: 0.98, y: 20 }} animate={{ opacity: 1, scale: 1, y: 0 }} transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }} className="bg-white w-full max-w-2xl max-h-[85vh] overflow-y-auto relative z-10 rounded-2xl shadow-2xl p-8 sm:p-12 border border-gray-100">
-            <button onClick={() => setSelectedMember(null)} className="absolute top-6 right-6 bg-gray-50 hover:bg-gray-100 p-2.5 rounded-full transition-colors z-20"><X className="w-5 h-5 text-charcoal" /></button>
-            <div className="mb-8 text-left"><h3 className="text-3xl sm:text-4xl font-serif font-semibold text-primary mb-2 tracking-tight">{selectedMember.name}</h3><p className="text-charcoal/40 tracking-[0.12em] uppercase text-xs font-semibold">{selectedMember.role}</p><div className="h-1 w-12 bg-primary/20 rounded mt-4" /></div>
-            <div className="prose prose-sm sm:prose-base prose-charcoal text-left">{selectedMember.fullBio.split('\n\n').map((paragraph, i) => <p key={i} className="mb-4 font-light leading-relaxed text-charcoal/85">{paragraph}</p>)}</div>
-          </motion.div>
-        </div>
-      )}
-
       <AnimatedSection>
-        <section className="border-t border-primary/10 bg-white py-24 lg:py-28">
+        <section id="how-we-work" className="scroll-mt-28 border-b border-primary/15 bg-primary py-24 lg:py-28">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl">
-              <span className="text-xs font-semibold uppercase tracking-[0.24em] text-primary-light">How we work</span>
-              <h2 className="mt-4 font-serif text-4xl font-semibold leading-tight text-primary md:text-5xl">Practical change, shaped with communities.</h2>
-              <p className="mt-6 text-lg leading-relaxed text-charcoal/70">Our programmes connect people to useful knowledge, supportive relationships, and opportunities they can carry forward. We listen first, work with local partners, and adapt our support to the context of each community.</p>
+              <span className="text-xs font-semibold uppercase tracking-[0.24em] text-cream/65">How we work</span>
+              <h2 className="mt-4 font-serif text-4xl font-semibold leading-tight text-white md:text-5xl">Practical change, shaped with communities.</h2>
+              <p className="mt-6 text-lg leading-relaxed text-cream/70">Our programmes connect people to useful knowledge, supportive relationships, and opportunities they can carry forward. We listen first, work with local partners, and adapt our support to the context of each community.</p>
             </div>
             <div className="mt-12 grid gap-8 md:grid-cols-3">
               {[
                 ['Community-led', 'Local voices help define priorities, strengthen trust, and guide the solutions we support.'],
                 ['Connected support', 'Education, livelihoods, advocacy, and social care work together because community needs rarely stand alone.'],
                 ['Built to last', 'We focus on practical skills, shared ownership, and sustainable approaches that can continue beyond a single intervention.'],
-              ].map(([title, text]) => <div key={title} className="border-l-2 border-primary/20 pl-6"><h3 className="font-serif text-2xl font-semibold text-primary">{title}</h3><p className="mt-3 leading-relaxed text-charcoal/70">{text}</p></div>)}
+              ].map(([title, text]) => <div key={title} className="flex min-h-64 flex-col rounded-3xl border border-white/15 bg-white/[0.06] p-8 shadow-[0_12px_35px_rgba(0,0,0,0.12)] transition-all duration-500 hover:-translate-y-1 hover:border-white/25 hover:bg-white/10"><h3 className="font-serif text-2xl font-semibold text-white">{title}</h3><p className="mt-5 leading-relaxed text-cream/70">{text}</p><div className="mt-auto pt-8"><span className="inline-block border-b border-cream/30 pb-1 text-xs font-semibold uppercase tracking-[0.18em] text-cream">Our approach</span></div></div>)}
             </div>
           </div>
         </section>
       </AnimatedSection>
 
       <AnimatedSection>
-        <section className="py-32 bg-white border-t border-b border-gray-100">
+        <section id="vision-mission" className="scroll-mt-28 border-b border-primary/15 bg-white py-32">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div className="max-w-5xl mx-auto">
               <motion.div
@@ -164,7 +112,7 @@ export default function About() {
       </AnimatedSection>
 
       <AnimatedSection>
-        <section className="py-24 lg:py-32 bg-cream">
+        <section id="aims-objectives" className="scroll-mt-28 border-b border-primary/15 bg-cream py-24 lg:py-32">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
@@ -212,6 +160,56 @@ export default function About() {
           </div>
         </section>
       </AnimatedSection>
+
+      <AnimatedSection placeholderHeight="300px">
+        <section id="our-team" className="scroll-mt-28 border-b border-primary/15 bg-white py-24">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
+          >
+            <h2 className="text-4xl md:text-5xl font-serif font-semibold text-primary mb-16">Meet the people behind the mission.</h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16 mb-16 text-left">
+              {teamData.slice(0, 3).map((member, idx) => (
+                <motion.div
+                  key={member.id}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ delay: idx * 0.1, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                  onClick={() => setSelectedMember(member)}
+                  className="group flex h-full cursor-pointer flex-col rounded-3xl border border-primary/10 bg-cream/60 p-6 shadow-sm transition-all duration-500 ease-[0.16,1,0.3,1] hover:-translate-y-2 hover:border-primary/25 hover:bg-white hover:shadow-xl"
+                >
+                  <div className="relative mb-6 aspect-[4/5] w-full overflow-hidden rounded-2xl bg-gray-50">
+                    <img src={member.image} alt={member.name} className="h-full w-full object-cover transition-transform duration-700 ease-[0.16,1,0.3,1] group-hover:scale-105" loading="lazy" decoding="async" />
+                    <div className="absolute inset-0 bg-primary/10 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                  </div>
+                  <div className="flex flex-grow flex-col">
+                    <h3 className="mb-1 font-serif text-2xl font-medium text-primary transition-colors group-hover:text-primary-light">{member.name}</h3>
+                    <p className="mb-6 text-[11px] uppercase tracking-[0.15em] text-charcoal/70">{member.role}</p>
+                    <div className="flex-grow" />
+                    <button className="w-max border-b border-primary/20 pb-1 text-left text-[11px] uppercase tracking-widest text-primary transition-colors group-hover:border-primary group-hover:text-primary-light" aria-label={`Read bio of ${member.name}`}>Read Bio <span className="sr-only">for {member.name}</span></button>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+            <Link to="/team" className="inline-block rounded-full border border-primary/20 px-10 py-4 text-sm uppercase tracking-widest text-primary transition-colors hover:bg-primary hover:text-white">Meet Our Team</Link>
+          </motion.div>
+        </section>
+      </AnimatedSection>
+
+      {selectedMember && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6">
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.4 }} onClick={() => setSelectedMember(null)} className="absolute inset-0 bg-charcoal/80 backdrop-blur-sm" />
+          <motion.div initial={{ opacity: 0, scale: 0.98, y: 20 }} animate={{ opacity: 1, scale: 1, y: 0 }} transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }} className="relative z-10 max-h-[85vh] w-full max-w-2xl overflow-y-auto rounded-2xl border border-gray-100 bg-white p-8 shadow-2xl sm:p-12">
+            <button onClick={() => setSelectedMember(null)} className="absolute right-6 top-6 z-20 rounded-full bg-gray-50 p-2.5 transition-colors hover:bg-gray-100" aria-label="Close biography"><X className="h-5 w-5 text-charcoal" /></button>
+            <div className="mb-8 text-left"><h3 className="mb-2 font-serif text-3xl font-semibold tracking-tight text-primary sm:text-4xl">{selectedMember.name}</h3><p className="text-xs font-semibold uppercase tracking-[0.12em] text-charcoal/40">{selectedMember.role}</p><div className="mt-4 h-1 w-12 rounded bg-primary/20" /></div>
+            <div className="prose prose-sm prose-charcoal text-left sm:prose-base">{selectedMember.fullBio.split('\n\n').map((paragraph, i) => <p key={i} className="mb-4 font-light leading-relaxed text-charcoal/85">{paragraph}</p>)}</div>
+          </motion.div>
+        </div>
+      )}
 
       <AnimatedSection>
         <section className="py-32 bg-primary text-center px-4 sm:px-6 lg:px-8 bg-[url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=1200&auto=format&fit=crop&fm=webp')] bg-cover bg-center bg-no-repeat bg-blend-overlay bg-primary/95 relative border-t border-white/10">
