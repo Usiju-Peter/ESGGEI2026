@@ -8,8 +8,9 @@ import { useSEO } from "../lib/seo";
 
 export default function Partner() {
   useSEO("Contact Us & Partners", "Get in touch with EarthSprings Global Grace Empowerment Initiative (ESGGEI) to partner, volunteer, donate, or learn more about our mission in Nigeria.");
-  const [formStatus, setFormStatus] = useState<"idle" | "success">("idle");
+  const [formStatus, setFormStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [copiedText, setCopiedText] = useState<string | null>(null);
+  const contactFormEndpoint = import.meta.env.VITE_CONTACT_FORM_ENDPOINT || "https://formsubmit.co/ajax/usijup3@gmail.com";
 
   const handleCopy = (text: string) => {
     navigator.clipboard.writeText(text);
@@ -17,10 +18,44 @@ export default function Partner() {
     setTimeout(() => setCopiedText(null), 3000);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setFormStatus("success");
-    setTimeout(() => setFormStatus("idle"), 5000);
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    setFormStatus("submitting");
+
+    try {
+      const response = await fetch(contactFormEndpoint, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.get("fullname"),
+          email: formData.get("email"),
+          phone: formData.get("phone"),
+          subject: formData.get("subject"),
+          message: formData.get("message"),
+          _subject: `New ESGGEI website enquiry: ${formData.get("subject")}`,
+          _template: "table",
+          _captcha: "false",
+          _honey: formData.get("website"),
+          _url: "https://www.esggei.org.ng/partner",
+        }),
+      });
+
+      const result = await response.json().catch(() => null);
+      if (!response.ok || result?.success === false || result?.success === "false") {
+        throw new Error("Message delivery failed");
+      }
+
+      form.reset();
+      setFormStatus("success");
+    } catch {
+      setFormStatus("error");
+    }
   };
 
   return (
@@ -110,40 +145,49 @@ export default function Partner() {
                     <CheckCircle2 size={40} />
                   </div>
                   <h3 className="text-2xl font-serif font-bold text-primary mb-4">Thank you for reaching out.</h3>
-                  <p className="text-charcoal/70 max-w-md">ESGGEI will get back to you soon. We appreciate your interest in our mission.</p>
+                  <p className="text-charcoal/70 max-w-md">Your message has been sent successfully. ESGGEI will get back to you soon.</p>
+                  <button type="button" onClick={() => setFormStatus("idle")} className="mt-8 rounded-full border border-primary/20 px-6 py-3 text-sm font-medium text-primary transition-colors hover:bg-primary hover:text-white">Send Another Message</button>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="bg-white p-8 md:p-12 rounded-3xl shadow-lg border border-gray-100 space-y-6">
                   <h3 className="sr-only">Inquiry Form</h3>
+                  <div className="hidden" aria-hidden="true">
+                    <label htmlFor="website">Leave this field empty</label>
+                    <input id="website" name="website" type="text" tabIndex={-1} autoComplete="off" />
+                  </div>
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
                       <label htmlFor="fullname" className="block text-sm font-medium text-charcoal mb-2">Full Name</label>
-                      <input id="fullname" required type="text" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all bg-gray-50/50" />
+                      <input id="fullname" name="fullname" required type="text" autoComplete="name" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all bg-gray-50/50" />
                     </div>
                     <div>
                       <label htmlFor="email" className="block text-sm font-medium text-charcoal mb-2">Email Address</label>
-                      <input id="email" required type="email" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all bg-gray-50/50" />
+                      <input id="email" name="email" required type="email" autoComplete="email" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all bg-gray-50/50" />
                     </div>
                   </div>
                   
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
                       <label htmlFor="phone" className="block text-sm font-medium text-charcoal mb-2">Phone Number</label>
-                      <input id="phone" required type="tel" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all bg-gray-50/50" />
+                      <input id="phone" name="phone" required type="tel" autoComplete="tel" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all bg-gray-50/50" />
                     </div>
                     <div>
                       <label htmlFor="subject" className="block text-sm font-medium text-charcoal mb-2">Subject</label>
-                      <input id="subject" required type="text" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all bg-gray-50/50" />
+                      <input id="subject" name="subject" required type="text" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all bg-gray-50/50" />
                     </div>
                   </div>
       
                   <div>
                     <label htmlFor="message" className="block text-sm font-medium text-charcoal mb-2">Message</label>
-                    <textarea id="message" required rows={5} className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all bg-gray-50/50"></textarea>
+                    <textarea id="message" name="message" required rows={5} className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all bg-gray-50/50"></textarea>
                   </div>
-      
-                  <button type="submit" className="w-full bg-primary hover:bg-primary-dark text-white font-medium py-4 rounded-xl transition-colors">
-                    Send Message
+
+                  {formStatus === "error" && (
+                    <p role="alert" className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800">We could not send your message. Please try again or email ESGGEI directly at esgeei@gmail.com.</p>
+                  )}
+
+                  <button type="submit" disabled={formStatus === "submitting"} className="w-full bg-primary hover:bg-primary-dark disabled:cursor-wait disabled:opacity-70 text-white font-medium py-4 rounded-xl transition-colors">
+                    {formStatus === "submitting" ? "Sending Message..." : "Send Message"}
                   </button>
                 </form>
               )}
