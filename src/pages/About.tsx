@@ -52,7 +52,7 @@ export default function About() {
       </AnimatedSection>
 
       <AnimatedSection>
-        <section id="how-we-work" className="scroll-mt-28 border-b border-primary/15 bg-primary py-24 lg:py-28">
+        <section id="how-we-work" className="scroll-mt-28 border-b border-primary/15 bg-forest py-24 lg:py-28">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl">
               <span className="text-xs font-semibold uppercase tracking-[0.24em] text-cream/65">How we work</span>
@@ -64,7 +64,7 @@ export default function About() {
                 ['Community-led', 'Local voices help define priorities, strengthen trust, and guide the solutions we support.'],
                 ['Connected support', 'Education, livelihoods, advocacy, and social care work together because community needs rarely stand alone.'],
                 ['Built to last', 'We focus on practical skills, shared ownership, and sustainable approaches that can continue beyond a single intervention.'],
-              ].map(([title, text]) => <div key={title} className="flex min-h-64 flex-col rounded-3xl border border-white/15 bg-white/[0.06] p-8 shadow-[0_12px_35px_rgba(0,0,0,0.12)] transition-all duration-500 hover:-translate-y-1 hover:border-white/25 hover:bg-white/10"><h3 className="font-serif text-2xl font-semibold text-white">{title}</h3><p className="mt-5 leading-relaxed text-cream/70">{text}</p><div className="mt-auto pt-8"><span className="inline-block border-b border-cream/30 pb-1 text-xs font-semibold uppercase tracking-[0.18em] text-cream">Our approach</span></div></div>)}
+              ].map(([title, text]) => <div key={title} className="flex min-h-64 flex-col rounded-3xl border border-leaf/30 bg-white/[0.06] p-8 shadow-[0_12px_35px_rgba(0,0,0,0.12)] transition-all duration-500 hover:-translate-y-1 hover:border-leaf/50 hover:bg-white/10"><h3 className="font-serif text-2xl font-semibold text-white">{title}</h3><p className="mt-5 leading-relaxed text-cream/70">{text}</p><div className="mt-auto pt-8"><span className="inline-block border-b border-terra/70 pb-1 text-xs font-semibold uppercase tracking-[0.18em] text-cream">Our approach</span></div></div>)}
             </div>
           </div>
         </section>
@@ -139,9 +139,9 @@ export default function About() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-100px" }}
                   transition={{ delay: idx * 0.1, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                  className="bg-white/70 backdrop-blur-sm border border-primary/10 rounded-2xl p-8 hover:bg-white hover:border-primary/25 hover:shadow-[0_12px_30px_rgba(110,142,66,0.06)] hover:-translate-y-1 transition-all duration-300 flex flex-col gap-4 relative group overflow-hidden"
+                  className="bg-white/70 backdrop-blur-sm border border-primary/10 border-t-terra/50 rounded-2xl p-8 hover:bg-white hover:border-leaf/35 hover:border-t-terra/70 hover:shadow-[0_12px_30px_rgba(110,142,66,0.06)] hover:-translate-y-1 transition-all duration-300 flex flex-col gap-4 relative group overflow-hidden"
                 >
-                  <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-full blur-2xl -mr-12 -mt-12 group-hover:bg-primary/8 transition-colors duration-300" />
+                  <div className="absolute top-0 right-0 w-24 h-24 bg-leaf/10 rounded-full blur-2xl -mr-12 -mt-12 group-hover:bg-leaf/15 transition-colors duration-300" />
                   <span className="text-sm font-sans tracking-[0.2em] text-primary-light/65 font-bold">0{idx + 1}</span>
                   <h3 className="text-xl font-serif font-semibold text-primary">{aim.title}</h3>
                   <p className="text-charcoal/70 leading-relaxed font-light text-base">

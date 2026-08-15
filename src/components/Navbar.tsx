@@ -6,15 +6,17 @@ import { cn } from "../lib/utils";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isAboutOpen, setIsAboutOpen] = useState(false);
   const location = useLocation();
 
-  // Close menu on route change
+  // Close every navigation layer after a route or in-page destination changes.
   useEffect(() => {
     setIsOpen(false);
+    setIsAboutOpen(false);
   }, [location.pathname, location.hash]);
 
   return (
-    <header className="sticky top-0 left-0 right-0 z-50 w-full bg-primary/90 backdrop-blur border-b border-white/5 py-4 px-6 md:px-12">
+    <header className="sticky top-0 left-0 right-0 z-50 w-full bg-forest/95 backdrop-blur border-b border-white/5 py-4 px-6 md:px-12">
       <div className="max-w-7xl mx-auto flex justify-between items-center w-full">
         <Link to="/" className="flex items-center space-x-3 z-50 group">
           <picture>
@@ -40,18 +42,35 @@ export default function Navbar() {
               const isActive = location.pathname === link.href;
               if (link.href === "/about") {
                 return (
-                  <li key={link.name} className="group relative">
+                  <li
+                    key={link.name}
+                    className="relative"
+                    onMouseEnter={() => setIsAboutOpen(true)}
+                    onMouseLeave={() => setIsAboutOpen(false)}
+                    onFocus={() => setIsAboutOpen(true)}
+                    onBlur={(event) => {
+                      if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
+                        setIsAboutOpen(false);
+                      }
+                    }}
+                  >
                     <Link
                       to={link.href}
+                      onClick={() => setIsAboutOpen(false)}
+                      aria-haspopup="true"
+                      aria-expanded={isAboutOpen}
                       className={cn(
-                        "relative pb-1 transition-colors tracking-wide duration-300 after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-[#B26F2B] after:transition-transform after:duration-300 hover:after:scale-x-100",
+                        "relative pb-1 transition-colors tracking-wide duration-300 after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-terra after:transition-transform after:duration-300 hover:after:scale-x-100",
                         isActive ? "text-white font-medium" : "text-white/80 hover:text-white font-normal"
                       )}
                     >
                       {link.name}
                     </Link>
-                    <div className="invisible absolute left-1/2 top-full z-50 w-60 -translate-x-1/2 pt-4 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
-                      <div className="flex flex-col rounded-b-2xl border border-white/10 bg-primary/95 p-3 shadow-xl backdrop-blur-xl">
+                    <div className={cn(
+                      "absolute left-1/2 top-full z-50 w-60 -translate-x-1/2 pt-4 transition-opacity duration-200",
+                      isAboutOpen ? "visible opacity-100" : "invisible pointer-events-none opacity-0"
+                    )}>
+                      <div className="flex flex-col rounded-b-2xl border border-white/10 bg-forest/95 p-3 shadow-xl backdrop-blur-xl">
                         {[
                           ["Who We Are", "identity"],
                           ["How We Work", "how-we-work"],
@@ -59,7 +78,7 @@ export default function Navbar() {
                           ["Aims & Objectives", "aims-objectives"],
                           ["Our Team", "our-team"],
                         ].map(([label, section]) => (
-                          <Link key={section} to={`/about#${section}`} className="block border-b border-white/[0.07] px-4 py-3 text-sm font-medium tracking-wide text-white/80 transition-colors last:border-b-0 hover:bg-white/[0.07] hover:text-white">{label}</Link>
+                          <Link key={section} to={`/about#${section}`} onClick={() => setIsAboutOpen(false)} className="block border-b border-white/[0.07] px-4 py-3 text-sm font-medium tracking-wide text-white/80 transition-colors last:border-b-0 hover:bg-white/[0.07] hover:text-white">{label}</Link>
                         ))}
                       </div>
                     </div>
@@ -71,7 +90,7 @@ export default function Navbar() {
                   <Link
                     to={link.href}
                     className={cn(
-                      "relative pb-1 transition-colors tracking-wide duration-300 after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-[#B26F2B] after:transition-transform after:duration-300 hover:after:scale-x-100",
+                      "relative pb-1 transition-colors tracking-wide duration-300 after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-terra after:transition-transform after:duration-300 hover:after:scale-x-100",
                       isActive ? "text-white font-medium" : "text-white/80 hover:text-white font-normal"
                     )}
                   >
@@ -108,6 +127,7 @@ export default function Navbar() {
               <div key={link.name}>
                 <Link
                   to={link.href}
+                  onClick={() => setIsOpen(false)}
                   className={cn(
                     "block px-4 py-3 rounded-lg text-lg transition-colors",
                     location.pathname === link.href
@@ -126,7 +146,7 @@ export default function Navbar() {
                       ["Aims & Objectives", "aims-objectives"],
                       ["Our Team", "our-team"],
                     ].map(([label, section]) => (
-                      <Link key={section} to={`/about#${section}`} className="block rounded-lg px-3 py-2 text-sm text-charcoal/60 hover:bg-cream hover:text-primary">{label}</Link>
+                      <Link key={section} to={`/about#${section}`} onClick={() => setIsOpen(false)} className="block rounded-lg px-3 py-2 text-sm text-charcoal/60 hover:bg-cream hover:text-primary">{label}</Link>
                     ))}
                   </div>
                 )}

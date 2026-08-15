@@ -27,7 +27,7 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* 1. Hero Section */}
-      <section className="relative min-h-[85vh] flex items-center pt-32 md:pt-40 pb-20 overflow-hidden bg-primary">
+      <section className="relative min-h-[85vh] flex items-center pt-32 md:pt-40 pb-20 overflow-hidden bg-forest">
         <picture className="absolute inset-0 z-0">
           <source srcSet="/images/gallery/outreach-25-home.avif" type="image/avif" />
           <img
@@ -38,11 +38,11 @@ export default function Home() {
             fetchPriority="high"
           />
         </picture>
-        <div className="absolute inset-0 bg-primary/70 z-0" />
+        <div className="absolute inset-0 bg-forest/75 z-0" />
         
         {/* Beautiful dynamic atmospheric ambient glows */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[350px] bg-primary-light/15 rounded-full blur-[120px] pointer-events-none z-0" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[220px] bg-[#D4A84F]/12 rounded-full blur-[100px] pointer-events-none z-0" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[350px] bg-leaf/15 rounded-full blur-[120px] pointer-events-none z-0" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[220px] bg-terra/12 rounded-full blur-[100px] pointer-events-none z-0" />
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex justify-center">
           <div className="max-w-4xl text-center flex flex-col items-center">
@@ -64,7 +64,7 @@ export default function Home() {
             >
               <Link 
                 to="/projects" 
-                className="bg-primary-light hover:bg-[#7a9d4a] text-white px-8 py-4 rounded-full text-lg transition-colors flex items-center justify-center group"
+                className="bg-primary-light hover:bg-leaf text-white px-8 py-4 rounded-full text-lg transition-colors flex items-center justify-center group"
               >
                 Explore Our Work
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -86,7 +86,7 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-10 rounded-3xl border border-primary/10 bg-cream p-8 shadow-sm md:grid-cols-[1.15fr_0.85fr] md:p-12">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary-light">Why EarthSprings</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-terra">Why EarthSprings</p>
               <h2 className="mt-4 font-serif text-4xl font-semibold leading-tight text-primary md:text-5xl">Practical support for communities facing connected challenges.</h2>
               <p className="mt-6 text-lg leading-relaxed text-charcoal/70">Many families face barriers that overlap: children out of school, limited livelihood opportunities, low agricultural productivity, scarce resources, and social exclusion. ESGGEI works alongside communities to respond with useful, respectful support that strengthens opportunity and dignity.</p>
             </div>
@@ -185,7 +185,7 @@ export default function Home() {
       </AnimatedSection>
 
       <AnimatedSection placeholderHeight="280px">
-        <section className="border-b border-[#8f5721] bg-[#B26F2B] py-24 md:py-28">
+        <section className="border-b border-primary/20 bg-terra py-24 md:py-28">
           <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
             <h2 className="text-center font-serif text-4xl font-bold text-white md:text-5xl lg:text-6xl">Impact in Progress</h2>
             <div className="mt-12 rounded-3xl border border-white/25 bg-cream/95 p-8 shadow-[0_18px_45px_rgba(61,31,8,0.18)] md:p-12">
@@ -199,7 +199,7 @@ export default function Home() {
 
       <AnimatedSection placeholderHeight="300px">
         {/* 4. Projects Preview Section */}
-        <section className="py-24 bg-primary relative overflow-hidden">
+        <section className="py-24 bg-forest relative overflow-hidden">
           {/* Decorative elements to add texture and depth */}
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(255,255,255,0.05),transparent)] pointer-events-none" />
           <div className="absolute -left-64 -bottom-64 w-96 h-96 bg-white/5 rounded-full blur-3xl pointer-events-none" />
@@ -225,7 +225,7 @@ export default function Home() {
                   transition={{ duration: 0.8, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
                   className="group cursor-pointer"
                 >
-                  <div className="border border-white/10 bg-white/5 backdrop-blur-sm p-8 h-full rounded-3xl shadow-[0_10px_35px_rgba(0,0,0,0.15)] hover:bg-white/10 hover:border-white/20 hover:shadow-[0_25px_50px_rgba(0,0,0,0.35)] hover:-translate-y-1 transition-all duration-500">
+                  <div className="border border-leaf/25 bg-white/5 backdrop-blur-sm p-8 h-full rounded-3xl shadow-[0_10px_35px_rgba(0,0,0,0.15)] hover:bg-white/10 hover:border-leaf/45 hover:shadow-[0_25px_50px_rgba(0,0,0,0.35)] hover:-translate-y-1 transition-all duration-500">
                     <h3 className="text-xl font-serif font-medium text-white mb-4 leading-snug">{prog.title}</h3>
                     <p className="text-cream/70 mb-8 font-light leading-relaxed group-hover:text-cream/90 transition-colors duration-500">{prog.shortDescription}</p>
                     <Link to={prog.href} className="text-cream hover:text-white text-sm uppercase tracking-widest border-b border-cream/20 hover:border-white pb-1 transition-all">

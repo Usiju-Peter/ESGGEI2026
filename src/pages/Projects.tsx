@@ -20,8 +20,8 @@ export default function Projects() {
         <section className="border-b border-primary/10 bg-cream py-24 lg:py-32">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="mb-12 flex items-center space-x-4">
-              <div className="h-[3px] w-16 bg-[#D4A84F]" />
-              <span className="font-sans text-sm font-black uppercase tracking-[0.3em] text-[#D4A84F]">Featured Project</span>
+              <div className="h-[3px] w-16 bg-terra" />
+              <span className="font-sans text-sm font-black uppercase tracking-[0.3em] text-terra">Featured Project</span>
             </div>
             <div className="flex flex-col items-center gap-12 lg:flex-row lg:gap-12">
               <div className="group relative w-full overflow-hidden rounded-[1.5rem] bg-beige shadow-[0_16px_40px_rgba(212,168,79,0.12)] lg:w-1/2">
@@ -56,7 +56,7 @@ export default function Projects() {
       </AnimatedSection>
 
       <AnimatedSection>
-        <section className="bg-white py-20 text-center md:py-24">
+        <section className="border-y border-leaf/20 bg-leaf/10 py-20 text-center md:py-24">
           <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary-light">What is ahead</p>
             <h2 className="mt-4 font-serif text-4xl font-semibold text-primary md:text-5xl">Upcoming Projects</h2>
@@ -96,8 +96,8 @@ export default function Projects() {
                 </div>
                 <div className="w-full md:w-1/2 py-8 relative">
                   <div className="flex items-center space-x-4 mb-6 relative z-10">
-                    <div className={`h-[3px] w-16 transition-all ${idx === 0 ? 'bg-[#D4A84F]' : 'bg-primary-light'}`} />
-                    <span className={`font-sans font-black text-sm md:text-base uppercase tracking-[0.3em] transition-colors ${idx === 0 ? 'text-[#D4A84F]' : 'text-primary-light'}`}>
+                    <div className={`h-[3px] w-16 transition-all ${idx === 0 ? 'bg-terra' : 'bg-primary-light'}`} />
+                    <span className={`font-sans font-black text-sm md:text-base uppercase tracking-[0.3em] transition-colors ${idx === 0 ? 'text-terra' : 'text-primary-light'}`}>
                       Upcoming Project {String(idx + 1).padStart(2, '0')}
                     </span>
                   </div>

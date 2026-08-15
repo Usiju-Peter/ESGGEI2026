@@ -9,7 +9,7 @@ interface PageHeroProps {
 
 export default function PageHero({ badge, title, subtitle, image }: PageHeroProps) {
   return (
-    <section className="relative min-h-[85vh] flex items-center pt-32 md:pt-40 pb-20 overflow-hidden bg-primary text-center">
+    <section className="relative min-h-[85vh] flex items-center pt-32 md:pt-40 pb-20 overflow-hidden bg-forest text-center">
       {image && (
         <>
           <motion.div 
@@ -31,17 +31,17 @@ export default function PageHero({ badge, title, subtitle, image }: PageHeroProp
               }} 
             />
           </motion.div>
-          <div className="absolute inset-0 bg-primary/70 z-0" />
+          <div className="absolute inset-0 bg-forest/75 z-0" />
         </>
       )}
       
       {!image && (
-        <div className="absolute inset-0 z-0 opacity-40 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-[#1F4D35] via-[#123524] to-[#123524]" />
+        <div className="absolute inset-0 z-0 opacity-40 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-leaf via-forest to-forest" />
       )}
 
       {/* Beautiful dynamic atmospheric ambient glows */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[350px] bg-primary-light/15 rounded-full blur-[120px] pointer-events-none z-0" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[220px] bg-[#D4A84F]/12 rounded-full blur-[100px] pointer-events-none z-0" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[350px] bg-leaf/15 rounded-full blur-[120px] pointer-events-none z-0" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[220px] bg-terra/12 rounded-full blur-[100px] pointer-events-none z-0" />
 
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
         {badge && (
@@ -51,7 +51,7 @@ export default function PageHero({ badge, title, subtitle, image }: PageHeroProp
             transition={{ duration: 0.6 }}
             className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-1.5 rounded-full mb-8 border border-white/20"
           >
-            <span className="w-2 h-2 rounded-full bg-primary-light" />
+            <span className="w-2 h-2 rounded-full bg-leaf" />
             <span className="text-sm font-medium text-cream tracking-wide uppercase">
               {badge}
             </span>
