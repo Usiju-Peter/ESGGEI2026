@@ -1,10 +1,14 @@
+import { useState } from "react";
 import { motion } from "motion/react";
+import { X } from "lucide-react";
 import PageHero from "../components/PageHero";
 import AnimatedSection from "../components/AnimatedSection";
 import { Link } from "react-router-dom";
 import { useSEO } from "../lib/seo";
+import { teamData } from "../data";
 
 export default function About() {
+  const [selectedMember, setSelectedMember] = useState<typeof teamData[0] | null>(null);
   useSEO("About Us", "Learn about EarthSprings Global Grace Empowerment Initiative (ESGGEI), our identity, story, vision, and mission to empower vulnerable communities through sustainable development.");
   return (
     <div className="flex flex-col min-h-screen">
@@ -46,6 +50,58 @@ export default function About() {
           </div>
         </section>
       </AnimatedSection>
+
+      <AnimatedSection placeholderHeight="300px">
+        <section className="py-24 bg-cream border-t border-primary/20">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
+          >
+            <h2 className="text-4xl md:text-5xl font-serif font-semibold text-primary mb-16">Meet the people behind the mission.</h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16 mb-16 text-left">
+              {teamData.slice(0, 3).map((member, idx) => (
+                <motion.div
+                  key={member.id}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ delay: idx * 0.1, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                  onClick={() => setSelectedMember(member)}
+                  className="flex flex-col h-full bg-white/45 backdrop-blur-sm p-6 rounded-3xl border border-primary/5 shadow-[0_12px_35px_rgba(110,142,66,0.06)] hover:border-primary/25 hover:bg-white hover:shadow-[0_25px_50px_-12px_rgba(110,142,66,0.22)] hover:-translate-y-3 hover:scale-[1.02] transition-all duration-500 ease-[0.16,1,0.3,1] cursor-pointer group"
+                >
+                  <div className="aspect-[4/5] bg-gray-50 overflow-hidden rounded-2xl relative w-full mb-6">
+                    <img src={member.image} alt={member.name} className="w-full h-full object-cover transition-transform duration-700 ease-[0.16,1,0.3,1] group-hover:scale-105" loading="lazy" decoding="async" />
+                    <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-550" />
+                  </div>
+                  <div className="flex flex-col flex-grow">
+                    <h3 className="text-2xl font-serif font-medium text-primary mb-1 group-hover:text-primary-light transition-colors duration-300">{member.name}</h3>
+                    <p className="text-charcoal/70 uppercase tracking-[0.15em] text-[11px] mb-6">{member.role}</p>
+                    <div className="flex-grow" />
+                    <button className="text-primary group-hover:text-primary-light transition-colors text-left uppercase text-[11px] tracking-widest w-max pb-1 border-b border-primary/20 group-hover:border-primary" aria-label={`Read bio of ${member.name}`}>
+                      Read Bio <span className="sr-only">for {member.name}</span>
+                    </button>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+            <Link to="/team" className="border border-primary/20 text-primary hover:bg-primary hover:text-white px-10 py-4 rounded-full transition-colors inline-block uppercase tracking-widest text-sm">Meet Our Team</Link>
+          </motion.div>
+        </section>
+      </AnimatedSection>
+
+      {selectedMember && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6">
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.4 }} onClick={() => setSelectedMember(null)} className="absolute inset-0 bg-charcoal/80 backdrop-blur-sm" />
+          <motion.div initial={{ opacity: 0, scale: 0.98, y: 20 }} animate={{ opacity: 1, scale: 1, y: 0 }} transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }} className="bg-white w-full max-w-2xl max-h-[85vh] overflow-y-auto relative z-10 rounded-2xl shadow-2xl p-8 sm:p-12 border border-gray-100">
+            <button onClick={() => setSelectedMember(null)} className="absolute top-6 right-6 bg-gray-50 hover:bg-gray-100 p-2.5 rounded-full transition-colors z-20"><X className="w-5 h-5 text-charcoal" /></button>
+            <div className="mb-8 text-left"><h3 className="text-3xl sm:text-4xl font-serif font-semibold text-primary mb-2 tracking-tight">{selectedMember.name}</h3><p className="text-charcoal/40 tracking-[0.12em] uppercase text-xs font-semibold">{selectedMember.role}</p><div className="h-1 w-12 bg-primary/20 rounded mt-4" /></div>
+            <div className="prose prose-sm sm:prose-base prose-charcoal text-left">{selectedMember.fullBio.split('\n\n').map((paragraph, i) => <p key={i} className="mb-4 font-light leading-relaxed text-charcoal/85">{paragraph}</p>)}</div>
+          </motion.div>
+        </div>
+      )}
 
       <AnimatedSection>
         <section className="border-t border-primary/10 bg-white py-24 lg:py-28">
