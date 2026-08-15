@@ -105,10 +105,8 @@ export default function About() {
       </AnimatedSection>
 
       <AnimatedSection>
-        <section id="aims-objectives" className="relative scroll-mt-28 overflow-hidden border-b border-primary/20 bg-terra py-24 lg:py-32">
-          <div className="pointer-events-none absolute -right-32 -top-32 h-80 w-80 rounded-full bg-leaf/20 blur-3xl" />
-          <div className="pointer-events-none absolute -bottom-40 -left-40 h-96 w-96 rounded-full bg-forest/15 blur-3xl" />
-          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section id="aims-objectives" className="scroll-mt-28 border-b border-primary/15 bg-cream py-24 lg:py-32">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -116,8 +114,8 @@ export default function About() {
               transition={{ duration: 0.8 }}
               className="text-center mb-20"
             >
-              <h2 className="text-4xl md:text-5xl font-serif font-bold text-white mb-6">Our Aims and Objectives</h2>
-              <p className="text-cream/85 max-w-2xl mx-auto text-lg font-light">Strategic pillars guiding our day-to-day initiatives and community programs.</p>
+              <h2 className="text-4xl md:text-5xl font-serif font-bold text-primary mb-6">Our Aims and Objectives</h2>
+              <p className="text-charcoal/70 max-w-2xl mx-auto text-lg font-light">Strategic pillars guiding our day-to-day initiatives and community programs.</p>
             </motion.div>
             
             <div className="grid md:grid-cols-3 gap-8">
@@ -141,10 +139,10 @@ export default function About() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-100px" }}
                   transition={{ delay: idx * 0.1, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                  className="bg-cream/95 backdrop-blur-sm border border-white/25 border-t-leaf/70 rounded-2xl p-8 hover:bg-white hover:border-leaf/60 hover:shadow-[0_18px_36px_rgba(61,31,8,0.16)] hover:-translate-y-1 transition-all duration-300 flex flex-col gap-4 relative group overflow-hidden"
+                  className="bg-white/70 backdrop-blur-sm border border-primary/10 rounded-2xl p-8 hover:bg-white hover:border-primary/25 hover:shadow-[0_12px_30px_rgba(110,142,66,0.06)] hover:-translate-y-1 transition-all duration-300 flex flex-col gap-4 relative group overflow-hidden"
                 >
-                  <div className="absolute top-0 right-0 w-24 h-24 bg-leaf/10 rounded-full blur-2xl -mr-12 -mt-12 group-hover:bg-leaf/15 transition-colors duration-300" />
-                  <span className="text-sm font-sans tracking-[0.2em] text-terra font-bold">0{idx + 1}</span>
+                  <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-full blur-2xl -mr-12 -mt-12 group-hover:bg-primary/8 transition-colors duration-300" />
+                  <span className="text-sm font-sans tracking-[0.2em] text-primary-light/65 font-bold">0{idx + 1}</span>
                   <h3 className="text-xl font-serif font-semibold text-primary">{aim.title}</h3>
                   <p className="text-charcoal/70 leading-relaxed font-light text-base">
                     {aim.desc}
