@@ -2,7 +2,6 @@ import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
 import {defineConfig} from 'vite';
-import { compression } from 'vite-plugin-compression2';
 
 import { imagetools } from 'vite-imagetools';
 
@@ -71,41 +70,7 @@ const structuredData = () => ({
           alternateName: 'ESGGEI',
           publisher: { '@id': `${siteUrl}/#organization` },
         });
-        graph.push({
-          '@type': 'FAQPage',
-          mainEntity: [
-            {
-              '@type': 'Question',
-              name: 'What does ESGGEI do?',
-              acceptedAnswer: { '@type': 'Answer', text: 'ESGGEI supports vulnerable communities through education, sustainable agriculture, literacy, advocacy, and social support.' },
-            },
-            {
-              '@type': 'Question',
-              name: 'How are ESGGEI programmes shaped for communities?',
-              acceptedAnswer: { '@type': 'Answer', text: 'We listen to local priorities, resources, and gaps, then shape practical programmes around the needs of the communities we serve.' },
-            },
-            {
-              '@type': 'Question',
-              name: 'How can I support ESGGEI?',
-              acceptedAnswer: { '@type': 'Answer', text: 'You can support ESGGEI by partnering, volunteering, sharing expertise, advocating for our work, or making a donation.' },
-            },
-            {
-              '@type': 'Question',
-              name: 'Where does ESGGEI work?',
-              acceptedAnswer: { '@type': 'Answer', text: 'ESGGEI works with vulnerable and marginalised communities in Nigeria through locally shaped education, livelihood, advocacy, and social support programmes.' },
-            },
-            {
-              '@type': 'Question',
-              name: 'Can organisations partner with ESGGEI?',
-              acceptedAnswer: { '@type': 'Answer', text: 'Yes. Organisations can partner through funding, technical expertise, volunteering, advocacy, or in-kind support aligned with community priorities.' },
-            },
-            {
-              '@type': 'Question',
-              name: 'How can I stay connected to ESGGEI?',
-              acceptedAnswer: { '@type': 'Answer', text: 'Follow our stories, outreach updates, and project news through the website, gallery, blog, and social channels.' },
-            },
-          ],
-        });
+
       }
 
       if (route === '/blog/from-purpose-to-action') {
@@ -133,8 +98,7 @@ export default defineConfig(() => {
       react(), 
       tailwindcss(), 
       imagetools(),
-      structuredData(),
-      compression({ algorithms: ['gzip', 'brotliCompress'] })
+      structuredData()
     ],
     resolve: {
       alias: {
