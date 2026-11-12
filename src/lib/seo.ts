@@ -7,6 +7,8 @@ type SEOOptions = {
 };
 
 const siteUrl = 'https://www.esggei.org.ng';
+const siteName = 'EarthSprings Global Grace Empowerment Initiative (ESGGEI)';
+const defaultImage = '/images/logo.png';
 
 const upsertMeta = (attribute: 'name' | 'property', key: string, value: string) => {
   let element = document.head.querySelector<HTMLMetaElement>(`meta[${attribute}="${key}"]`);
@@ -18,24 +20,28 @@ const upsertMeta = (attribute: 'name' | 'property', key: string, value: string) 
   element.setAttribute('content', value);
 };
 
+/** Keeps metadata correct when visitors navigate client-side without reloading. */
 export const useSEO = (title: string, description: string, options: SEOOptions = {}) => {
   useEffect(() => {
-    document.title = `${title} | EarthSprings Global Grace Empowerment Initiative (ESGGEI)`;
+    const fullTitle = title === 'Home' ? siteName : `${title} | ${siteName}`;
+    document.title = fullTitle;
+
+    const requestedPath = options.path ?? window.location.pathname;
+    const normalizedPath = requestedPath === '/' ? '/' : requestedPath.replace(/\/+$/, '');
+    const canonicalUrl = `${siteUrl}${normalizedPath}`;
+    const rawImage = options.image || defaultImage;
+    const absoluteImage = /^https?:\/\//i.test(rawImage) ? rawImage : `${siteUrl}${rawImage.startsWith('/') ? '' : '/'}${rawImage}`;
 
     upsertMeta('name', 'description', description);
-    upsertMeta('property', 'og:title', `${title} | EarthSprings Global Grace Empowerment Initiative (ESGGEI)`);
+    upsertMeta('property', 'og:title', fullTitle);
     upsertMeta('property', 'og:description', description);
     upsertMeta('property', 'og:type', options.type ?? 'website');
-
-    const canonicalUrl = `${siteUrl}${options.path ?? window.location.pathname}`;
     upsertMeta('property', 'og:url', canonicalUrl);
-
-    if (options.image) {
-      upsertMeta('property', 'og:image', `${siteUrl}${options.image}`);
-      upsertMeta('name', 'twitter:image', `${siteUrl}${options.image}`);
-    }
-    upsertMeta('name', 'twitter:title', `${title} | EarthSprings Global Grace Empowerment Initiative (ESGGEI)`);
+    upsertMeta('property', 'og:image', absoluteImage);
+    upsertMeta('name', 'twitter:card', 'summary_large_image');
+    upsertMeta('name', 'twitter:title', fullTitle);
     upsertMeta('name', 'twitter:description', description);
+    upsertMeta('name', 'twitter:image', absoluteImage);
 
     let canonical = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
     if (!canonical) {

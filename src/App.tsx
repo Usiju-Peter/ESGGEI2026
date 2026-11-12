@@ -45,9 +45,9 @@ function ScrollToTop() {
   return null;
 }
 
-export default function App() {
+export function AppContent() {
   return (
-    <Router>
+    <>
       <ScrollToTop />
       {/* Skip-to-content link for keyboard accessibility (WCAG AA 2.4.1 compliance) */}
       <a 
@@ -59,8 +59,8 @@ export default function App() {
       <div className="flex flex-col min-h-screen">
         <Navbar />
         <main id="main-content" tabIndex={-1} className="flex-grow outline-none">
-          <Suspense fallback={<div className="h-screen w-full flex items-center justify-center">Loading...</div>}>
-            <Routes>
+            <Suspense fallback={<div className="h-screen w-full flex items-center justify-center">Loading...</div>}>
+          <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
               <Route path="/projects" element={<Projects />} />
@@ -74,7 +74,11 @@ export default function App() {
         </main>
         <Footer />
       </div>
-    </Router>
+    </>
   );
 }
 
+
+export default function App() {
+  return <Router><AppContent /></Router>;
+}

@@ -1,0 +1,25 @@
+name: SEO checks
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      # Existing package-lock has version mismatches; use npm install until lockfile is regenerated.
+      - run: npm install --no-audit --no-fund
+      - run: npm run seo:check
+      - run: npm run lint
+      - run: npm run build
+      - run: npm run seo:check-built
+      - run: npm install --no-save playwright@latest
+      - run: npx playwright install chromium
+      - run: node scripts/browser-smoke.mjs

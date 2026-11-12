@@ -1,37 +1,17 @@
-import { ReactNode, useEffect, useRef, useState } from "react";
+import type { ReactNode } from "react";
 
+/**
+ * Keep all meaningful content in the initial DOM and in prerendered HTML.
+ * Motion effects can still be applied within children. Lazy-mounting entire
+ * sections behind an IntersectionObserver made them invisible to SSR and
+ * could delay both accessibility and search indexing.
+ */
 export default function AnimatedSection({
-  children,
-  placeholderHeight = "150px"
+  children
 }: {
   children: ReactNode;
   placeholderHeight?: string;
   key?: string | number;
 }) {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const section = sectionRef.current;
-    if (!section || !("IntersectionObserver" in window)) {
-      setIsVisible(true);
-      return;
-    }
-
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        setIsVisible(true);
-        observer.disconnect();
-      }
-    }, { rootMargin: "200px 0px" });
-
-    observer.observe(section);
-    return () => observer.disconnect();
-  }, []);
-
-  return (
-    <div ref={sectionRef} className="w-full">
-      {isVisible ? children : <div aria-hidden="true" style={{ minHeight: placeholderHeight }} />}
-    </div>
-  );
+  return <div className="w-full">{children}</div>;
 }
