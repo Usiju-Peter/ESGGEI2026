@@ -1,12 +1,16 @@
 import assert from 'node:assert/strict';
 import { readFileSync, writeFileSync } from 'node:fs';
 import { createServer } from 'vite';
+import react from '@vitejs/plugin-react';
 
 const routes = ['/', '/about', '/projects', '/gallery', '/blog', '/blog/from-purpose-to-action', '/team', '/partner'];
 const server = await createServer({
+  configFile: false,
+  plugins: [react()],
+  optimizeDeps: { noDiscovery: true, include: [], entries: [] },
   server: { middlewareMode: true, hmr: false },
   appType: 'custom',
-  logLevel: 'warn'
+  logLevel: 'error'
 });
 
 try {
@@ -22,6 +26,9 @@ try {
     writeFileSync(filename, updated);
     console.log('Prerendered', route, rendered.length, 'bytes');
   }
+} catch (error) {
+  console.error('SSR_PRERENDER_FAILED:', error);
+  process.exitCode = 1;
 } finally {
   await server.close();
 }
