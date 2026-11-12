@@ -1,35 +1,56 @@
-# ESGGEI SEO audit and implementation plan
+# ESGGEI SEO audit — 12 November 2026
 
-Audit date: 2026-11-12. Target site: https://www.esggei.org.ng/. Repository: `Usiju-Peter/ESGGEI2026`.
+Website: https://www.esggei.org.ng/
+Repository: Usiju-Peter/ESGGEI2026
+Branch: seo/comprehensive-audit-2026-11
 
-## Verified from repository
+## Architecture recommendation
 
-- React 19, React Router 7, Vite 6, Express 4, and distinct Vite HTML entrypoints for eight public routes.
-- Existing page-specific title, description, canonical, Open Graph and social cards.
-- Existing robots.txt permits crawling and references the sitemap.
-- Existing site-wide NGO and page-level structured data. Review for duplication and ensure FAQ markup corresponds to visible content.
-- Existing Google Search Console verification token; analytics snippet remains a commented placeholder.
-- Sitemap contained five routes, omitting `/gallery`, `/blog` and `/blog/from-purpose-to-action`. Fixed on this branch.
-- Production Express fallback sends `index.html` for any unmatched route. Confirm how Vercel actually serves static page entrypoints; do not assume a deep URL is prerendered just because a corresponding HTML file exists.
-- `public/_redirects` also contains a catch-all rewrite; confirm hosting precedence before altering redirects.
-- The blog content is maintained in `src/blogData.ts`; ensure sitemap and metadata update when articles are added.
-- Homepage preloads the logo and AVIF hero; verify competing high-priority preloads against actual LCP element.
+Keep React 19 + Vite 6 + React Router 7 for the eight-page NGO site. A full Next.js migration would add risk and rewrite work without a demonstrated SEO advantage over the working static prerender pipeline. Reconsider when the site needs extensive CMS-driven publication, frequent dynamic pages, or full server rendering for user-specific content.
 
-## Prioritized next actions
+## Verified findings and fixes
 
-1. **P0:** Verify each deployed route's raw HTTP response, response code, canonical and visible indexable content without JavaScript. Fix routing or implement pre-rendering/SSR where necessary.
-2. **P0:** Confirm unknown URLs return a real HTTP 404 rather than an indexable duplicate home page.
-3. **P1:** Test web performance on mobile and desktop using Lighthouse/PageSpeed Insights and real-user Core Web Vitals. Measure LCP, INP and CLS rather than assuming a score.
-4. **P1:** Validate NGO/WebSite/WebPage/BlogPosting/Breadcrumb schemas against page contents and Google's supported rich-result types; remove unsupported or fabricated claims.
-5. **P1:** Configure accurate GA4 measurement with user approval and privacy considerations, and check Google Search Console indexing, coverage and submitted sitemap.
-6. **P1:** Check all navigation, image paths, internal links, heading hierarchy, text contrast, form labels, focus visibility and mobile layouts.
-7. **P2:** Prepare an editorial plan for education, agriculture, livelihoods, gender advocacy, and local community work based on real first-hand project information, avoiding thin automated copy.
-8. **P2:** Add comprehensive CI checks for production builds, crawls, accessibility, structured data, link integrity and performance budgets.
+1. All eight published routes previously returned HTTP 200 with an empty React root in raw HTML. The build now uses React streaming SSR to prerender each route into its static HTML entrypoint and hydrates on the client. On preview deployment dpl_Fxu5XFRzSHo13QTdTHJcbeFNhrKa, all eight routes returned HTTP 200, a prerendered root, a semantic main and one H1. Unknown routes returned HTTP 404.
+2. The old sitemap contained only five URLs. It now includes all eight, and a prebuild generator checks article slugs so new articles cannot be silently skipped.
+3. Five HTML entrypoints shared generic meta descriptions. Added distinct, page-specific descriptions for About, Projects, Gallery, Team, and Partner.
+4. Client-side metadata now preserves the proper home title, normalizes canonical URLs, and always resets social imagery on navigation.
+5. Sections previously lazy-mounted behind IntersectionObserver were missing from raw HTML. Now every content section is rendered immediately; nonessential motion effects remain inside the sections.
+6. Removed homepage FAQPage structured data that was not verified against a visible FAQ. Removed redundant gzip/Brotli static output generation that could otherwise contain pre-prerender HTML.
+7. Added source metadata/sitemap checks, built-HTML SSR checks, and a GitHub Actions pipeline for SEO checks, TypeScript and builds.
 
-## Verification
+## Verification performed
 
-Run `npm run seo:check` to validate the public route sitemap, static HTML metadata and social tags. This script checks source files, **not** actual live server behavior.
+- Vercel preview build at commit 268c4fb38392b24f712f2cad39bc510c65f9e2d5 completed successfully.
+- Raw HTTP preview checks passed on the eight listed routes with meaningful HTML content and one H1.
+- The nonexistent /does-not-exist route produced HTTP 404.
+- robots.txt and sitemap.xml returned HTTP 200 on an earlier preview.
+- A subsequent Vite config change removing unsupported FAQ markup and precompressed HTML requires revalidation on the latest preview.
+- These tests do NOT guarantee browser hydration has no warnings, nor that Core Web Vitals meet targets.
 
-Run `npm run lint` and `npm run build` after changes. These have not been executed in this connector-only session.
+## Outstanding checks and improvements
 
-Do not claim Google indexing, performance scores, or ranking changes without measured evidence. Do not merge or deploy unchecked changes automatically.
+P0: Run real Chromium browser tests on mobile and desktop, including hydration warnings, navigation, forms, images and accessibility.
+
+P1: Capture Google PageSpeed Insights/Lighthouse and real-user LCP, INP, CLS measurements; optimize bottlenecks found. No measurements were obtained in this session.
+
+P1: Verify Google Search Console property ownership, coverage and indexing. Verification meta and a verification file exist, but authenticated property reports were not available.
+
+P1: Configure GA4 if approved and an actual Measurement ID is provided. Do not fabricate an ID or send personal data unnecessarily.
+
+P1: Confirm non-www to www canonical redirects and verify the sitemap is submitted. Review structured data in Google Rich Results Test.
+
+P2: Conduct content strategy and internal link improvements based on genuine NGO programmes, dated project outcomes and subject matter expertise.
+
+P2: Review image alt text and accessibility manually, and use Lighthouse CI or Playwright to automate regression checks.
+
+## Commands for review
+
+```bash
+npm ci
+npm run seo:check
+npm run lint
+npm run build
+npm run seo:check-built
+```
+
+Production changes are deliberately NOT deployed or merged without browser QA. Technical SEO cannot guarantee Google rankings.
