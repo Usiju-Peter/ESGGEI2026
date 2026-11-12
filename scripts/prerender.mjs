@@ -7,7 +7,8 @@ const routes = ['/', '/about', '/projects', '/gallery', '/blog', '/blog/from-pur
 const server = await createServer({
   configFile: false,
   plugins: [react()],
-  ssr: { noExternal: ['react-router', 'react-router-dom'] },
+  resolve: { alias: { 'react-router-dom': 'react-router' } },
+  ssr: { noExternal: ['react-router'] },
   optimizeDeps: { noDiscovery: true, include: [], entries: [] },
   server: { middlewareMode: true, hmr: false },
   appType: 'custom',
