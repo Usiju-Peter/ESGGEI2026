@@ -9,6 +9,12 @@ export default function AnalyticsConsent() {
   useEffect(() => { setConsent(getAnalyticsConsent()); }, []);
 
   useEffect(() => {
+    const openPreferences = () => setConsent(null);
+    window.addEventListener('esggei:analytics-preferences', openPreferences);
+    return () => window.removeEventListener('esggei:analytics-preferences', openPreferences);
+  }, []);
+
+  useEffect(() => {
     // Wait for route metadata to settle; analytics only runs after explicit consent.
     if (consent !== 'accepted') return;
     const frame = requestAnimationFrame(trackPageView);
