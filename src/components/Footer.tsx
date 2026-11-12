@@ -1,7 +1,8 @@
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { navLinks } from "../data";
-import { Facebook, Instagram, Linkedin } from "lucide-react";
+import { Instagram, Linkedin } from "lucide-react";
 import type { SVGProps } from "react";
+import { analyticsConfigured } from "../lib/analytics";
 
 const XIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg
@@ -15,17 +16,6 @@ const XIcon = (props: SVGProps<SVGSVGElement>) => (
 );
 
 export default function Footer() {
-  const navigate = useNavigate();
-  const location = useLocation();
-
-  const handleNavigation = (path: string) => {
-    if (location.pathname === path) {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else {
-      navigate(path);
-    }
-  };
-
   return (
     <footer className="bg-primary text-white/80 pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -61,15 +51,15 @@ export default function Footer() {
             <ul className="space-y-4">
               {navLinks.map((link) => (
                 <li key={link.name}>
-                  <button onClick={() => handleNavigation(link.href)} className="text-base md:text-lg text-cream/80 hover:text-white transition-colors font-light text-left w-full">
+                  <Link to={link.href} className="text-base md:text-lg text-cream/80 hover:text-white transition-colors font-light text-left">
                     {link.name}
-                  </button>
+                  </Link>
                 </li>
               ))}
               <li>
-                <button onClick={() => handleNavigation("/partner")} className="text-base md:text-lg text-cream/80 hover:text-white transition-colors font-light text-left w-full">
+                <Link to="/partner" className="text-base md:text-lg text-cream/80 hover:text-white transition-colors font-light text-left">
                   Contact Us
-                </button>
+                </Link>
               </li>
             </ul>
           </div>
@@ -80,13 +70,11 @@ export default function Footer() {
               <li><a href="mailto:esgeei@gmail.com" className="text-cream/80 hover:text-white transition-colors font-light">esgeei@gmail.com</a></li>
               <li><a href="tel:08064676210" className="text-cream/80 hover:text-white transition-colors font-light">0806 467 6210</a></li>
               <li>
-                <button 
-                  onClick={() => handleNavigation("/")} 
-                  className="text-cream/80 hover:text-white transition-colors font-light text-left"
-                >
+                <Link to="/" className="text-cream/80 hover:text-white transition-colors font-light text-left">
                   www.esggei.org.ng
-                </button>
+                </Link>
               </li>
+              {analyticsConfigured && <li><button type="button" onClick={() => window.dispatchEvent(new Event('esggei:analytics-preferences'))} className="text-cream/80 hover:text-white underline underline-offset-4 focus-visible:outline focus-visible:outline-2">Analytics preferences</button></li>}
               <li className="text-cream/80 font-light leading-relaxed mt-4">
                 No 16 MD Umar Close,<br />
                 NAF Valley Estate.<br />
@@ -98,17 +86,7 @@ export default function Footer() {
           <div>
             <h3 className="text-white font-serif font-semibold text-xl md:text-2xl mb-6">Social Media</h3>
             <div className="flex flex-col space-y-4">
-              <a 
-                href="https://facebook.com" 
-                target="_blank" 
-                rel="noreferrer"
-                className="group flex items-center space-x-3.5 text-cream/80 hover:text-white transition-colors text-base md:text-lg font-light w-max"
-              >
-                <div className="w-10 h-10 rounded-full bg-[#1877F2] text-white flex items-center justify-center shadow-md transition-all group-hover:scale-110 group-hover:shadow-[0_0_12px_rgba(24,119,242,0.6)]">
-                  <Facebook size={18} fill="currentColor" stroke="none" />
-                </div>
-                <span className="font-serif font-medium tracking-wide">Facebook</span>
-              </a>
+              
 
               <a 
                 href="https://x.com/esggei" 

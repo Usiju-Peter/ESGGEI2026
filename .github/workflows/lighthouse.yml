@@ -1,0 +1,54 @@
+name: Lighthouse SEO performance audit
+on:
+  pull_request:
+  push:
+    branches: [main, seo/phase2-performance-content-20261112]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Install Lighthouse and Chromium
+        run: |
+          npm install --no-save lighthouse@latest playwright@latest
+          npx playwright install chromium
+      - name: Measure mobile and desktop homepage
+        run: |
+          mkdir -p lighthouse-results
+          export CHROME_PATH="$(node -e "import('playwright').then(m=>process.stdout.write(m.chromium.executablePath()))")"
+          npx lighthouse https://www.esggei.org.ng/ --only-categories=performance,accessibility,best-practices,seo --form-factor=mobile --screenEmulation.mobile=true --throttling-method=simulate --chrome-flags="--headless --no-sandbox --disable-dev-shm-usage" --output=json --output-path=lighthouse-results/mobile.json --quiet
+          npx lighthouse https://www.esggei.org.ng/ --preset=desktop --chrome-flags="--headless --no-sandbox --disable-dev-shm-usage" --output=json --output-path=lighthouse-results/desktop.json --quiet
+      - name: Print measured scores and metrics
+        run: |
+          node - <<'NODE'
+          const fs = require('node:fs');
+          for (const mode of ['mobile','desktop']) {
+            const report = JSON.parse(fs.readFileSync('lighthouse-results/'+mode+'.json','utf8'));
+            console.log(JSON.stringify({
+              mode,
+              testedUrl: report.finalUrl,
+              fetchedAt: report.fetchTime,
+              scores: Object.fromEntries(Object.entries(report.categories).map(([key,value])=>[key,Math.round(value.score*100)])),
+              lcpMs: report.audits['largest-contentful-paint']?.numericValue,
+              cls: report.audits['cumulative-layout-shift']?.numericValue,
+              tbtMs: report.audits['total-blocking-time']?.numericValue,
+              fcpMs: report.audits['first-contentful-paint']?.numericValue,
+              speedIndexMs: report.audits['speed-index']?.numericValue,
+              accessibilityFindings: (report.categories.accessibility?.auditRefs ?? []).filter(x => report.audits[x.id]?.score !== null && report.audits[x.id]?.score < 1).map(x => ({ id:x.id,title:report.audits[x.id]?.title,score:report.audits[x.id]?.score,description:report.audits[x.id]?.description })).slice(0,20),
+              contrastNodes: (report.audits['color-contrast']?.details?.items ?? []).slice(0,25).map(x => ({ selector:x.node?.selector, snippet:x.node?.snippet, explanation:x.node?.explanation, failureSummary:x.node?.failureSummary })),
+              diagnostics: report.runWarnings
+            },null,2));
+          }
+          NODE
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: esggei-lighthouse-reports
+          path: lighthouse-results
