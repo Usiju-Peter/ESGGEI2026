@@ -1,0 +1,10 @@
+320 6979 overflow 0 axe []
+375 6548 overflow 0 axe []
+390 6492 overflow 0 axe []
+430 6364 overflow 0 axe []
+768 4997 overflow 0 axe []
+1024 5312 overflow 0 axe []
+1440 6072 overflow 0 axe []
+1920 6182 overflow 0 axe []
+.p-belief .p-link focus contrast 9.25
+footer a focus contrast 9.25

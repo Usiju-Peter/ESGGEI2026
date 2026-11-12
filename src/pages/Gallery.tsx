@@ -1,3 +1,4 @@
+import DocumentaryImage from "../components/DocumentaryImage";
 import { Link } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
@@ -79,11 +80,12 @@ export default function Gallery() {
   return (
     <>
       <PageHero
+        badge="03 / A visual record"
         title="Gallery"
         subtitle="Moments from our work, outreach and community."
       />
 
-      <section className="section section-white">
+      <section className="section section-white gallery-feature">
         <div className="site-container grid items-center gap-6 md:grid-cols-2 md:gap-10">
           <button
             type="button"
@@ -91,7 +93,8 @@ export default function Gallery() {
             className="group relative aspect-[4/3] overflow-hidden rounded-[1.5rem] bg-beige text-left transition-shadow duration-150 hover:shadow-md focus:outline-none focus-visible:ring-4 focus-visible:ring-terra/40"
             aria-label={`Open featured image: ${featuredImage.alt}`}
           >
-            <img
+            <DocumentaryImage
+              fetchPriority="high"
               src={featuredImage.src}
               alt={featuredImage.alt}
               width={featuredImage.width}
@@ -120,25 +123,36 @@ export default function Gallery() {
 
       <section className="section">
         <div className="site-container">
-          <div className="columns-2 gap-4 md:columns-3 lg:columns-4">
+          <div className="documentary-grid">
             {galleryImages.map((image, index) => (
               <button
                 key={image.src}
                 type="button"
                 onClick={() => setActiveIndex(index)}
-                className="group relative mb-4 block w-full break-inside-avoid overflow-hidden rounded-xl bg-beige text-left focus-visible:ring-4 focus-visible:ring-primary/40"
-                aria-label={`Open image ${index + 1}: ${image.alt}`}
+                className="group gallery-tile"
+                aria-labelledby={`gallery-label-${index}`}
               >
-                <img
+                <DocumentaryImage
+                  sizes={
+                    index % 7 === 0
+                      ? "(max-width: 767px) calc(100vw - 40px), (max-width: 1099px) 66vw, 50vw"
+                      : "(max-width: 767px) calc((100vw - 56px) / 2), (max-width: 1099px) 33vw, 25vw"
+                  }
                   src={image.src}
-                  alt={image.alt}
+                  alt=""
                   width={image.width}
                   height={image.height}
                   loading="lazy"
                   decoding="async"
                   className="h-auto w-full transition-transform duration-500 group-hover:scale-[1.025]"
                 />
-                <span className="pointer-events-none absolute inset-0 bg-forest/0 transition-colors duration-300 group-hover:bg-forest/10" />
+                <span
+                  id={`gallery-label-${index}`}
+                  className="gallery-tile-caption"
+                >
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <span>{image.alt}</span>
+                </span>
               </button>
             ))}
           </div>

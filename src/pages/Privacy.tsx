@@ -7,7 +7,7 @@ export default function Privacy() {
     "How ESGGEI’s website handles enquiries, optional analytics and your privacy choices.",
   );
   return (
-    <article className="section section-white">
+    <article className="section section-white policy-page">
       <div className="site-container reading-width reading-copy space-y-5">
         <h1 className="page-title">Website privacy notice</h1>
         <p>
@@ -40,8 +40,7 @@ export default function Privacy() {
         <p>
           The website is hosted on Vercel. Your browser sends connection
           information, such as your IP address and requested URL, when it
-          retrieves pages and resources. Some photographs and backgrounds are
-          served by external image hosts. Following social media links takes you
+          retrieves pages and resources. Following social media links takes you
           to services governed by their own privacy notices.
         </p>
         <h2 className="pt-5 text-2xl font-semibold">

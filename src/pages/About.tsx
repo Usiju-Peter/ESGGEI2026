@@ -1,3 +1,4 @@
+import DocumentaryImage from "../components/DocumentaryImage";
 import PageHero from "../components/PageHero";
 import TeamGrid from "../components/TeamGrid";
 import { ActionLink, CallToAction, SectionHeading } from "../components/UI";
@@ -10,6 +11,7 @@ export default function About() {
   return (
     <>
       <PageHero
+        badge="01 / Who we are"
         title="About Us"
         subtitle="We work with communities on education, sustainable livelihoods, literacy, advocacy and social support."
       />
@@ -28,8 +30,8 @@ export default function About() {
           ))}
         </nav>
       </div>
-      <section id="identity" className="section section-white">
-        <div className="site-container grid gap-8 md:grid-cols-2 md:gap-12">
+      <section id="identity" className="section section-white about-identity">
+        <div className="site-container about-narrative">
           <div>
             <h2 className="section-title">Who we are</h2>
             <p className="mt-4 text-muted">
@@ -59,7 +61,19 @@ export default function About() {
           </div>
         </div>
       </section>
-      <section id="how-we-work" className="section">
+      <figure className="site-container about-documentary">
+        <DocumentaryImage
+          src="/images/gallery/outreach-24.webp"
+          width="1200"
+          height="900"
+          alt="Community members gathered beneath the EarthSprings outreach canopy"
+          loading="lazy"
+        />
+        <figcaption>
+          Local voices. Shared priorities. · Guruku Gbayi, Nasarawa State
+        </figcaption>
+      </figure>
+      <section id="how-we-work" className="section about-approach">
         <div className="site-container">
           <SectionHeading
             eyebrow="Our approach"
@@ -70,7 +84,7 @@ export default function About() {
               each community’s context.
             </p>
           </SectionHeading>
-          <div className="card-grid">
+          <div className="principle-list">
             {[
               [
                 "Community-led",
@@ -84,8 +98,11 @@ export default function About() {
                 "Built to last",
                 "We focus on practical skills, shared ownership and approaches that can continue beyond a single intervention.",
               ],
-            ].map(([title, text]) => (
-              <div className="card" key={title}>
+            ].map(([title, text], index) => (
+              <div className="principle-row" key={title}>
+                <span className="principle-number" aria-hidden="true">
+                  0{index + 1}
+                </span>
                 <h3 className="card-title">{title}</h3>
                 <p className="mt-3 text-muted">{text}</p>
               </div>
@@ -93,7 +110,7 @@ export default function About() {
           </div>
         </div>
       </section>
-      <section id="vision-mission" className="section section-white">
+      <section id="vision-mission" className="section statement-section">
         <div className="site-container grid gap-8 md:grid-cols-2 md:gap-12">
           <div>
             <h2 className="section-title">Our vision</h2>
@@ -113,10 +130,10 @@ export default function About() {
           </div>
         </div>
       </section>
-      <section id="aims-objectives" className="section">
+      <section id="aims-objectives" className="section about-objectives">
         <div className="site-container">
           <SectionHeading title="Our aims and objectives" />
-          <div className="card-grid">
+          <div className="objectives-grid">
             {[
               [
                 "Community and agriculture",
@@ -131,7 +148,7 @@ export default function About() {
                 "Improve the wellbeing of out-of-school children, widows, the aged and the girl child through targeted interventions.",
               ],
             ].map(([title, text]) => (
-              <div className="card" key={title}>
+              <div className="objective-item" key={title}>
                 <h3 className="card-title">{title}</h3>
                 <p className="mt-3 text-muted">{text}</p>
               </div>

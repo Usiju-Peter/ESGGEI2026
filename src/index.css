@@ -2,8 +2,8 @@
 @import "./design-system.css";
 
 @theme {
-  --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --font-serif: Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-sans: "DM Sans", sans-serif;
+  --font-serif: Manrope, sans-serif;
 
   --color-primary: #123524;
   --color-primary-dark: #1F4D35;

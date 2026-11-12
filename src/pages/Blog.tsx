@@ -13,12 +13,13 @@ export default function Blog() {
   return (
     <>
       <PageHero
+        badge="04 / The EarthSprings journal"
         title="Blog"
         subtitle="Stories and reflections from our work and the communities we serve."
       />
       <section className="section section-white">
         <div className="site-container">
-          <article className="project-feature">
+          <article className="project-feature journal-feature">
             <Link to={`/blog/${post.slug}`} aria-label={`Read ${post.title}`}>
               <img
                 src={post.heroImage}
@@ -26,7 +27,7 @@ export default function Blog() {
                 width={post.heroWidth}
                 height={post.heroHeight}
                 loading="eager"
-                className="aspect-[4/3] w-full rounded-2xl object-cover"
+                className="journal-cover"
               />
             </Link>
             <div className="project-feature-copy">

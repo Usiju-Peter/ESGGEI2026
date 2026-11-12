@@ -1,0 +1,155 @@
+{
+  "scans": [
+    {
+      "route": "/",
+      "width": 390,
+      "violations": []
+    },
+    {
+      "route": "/about",
+      "width": 390,
+      "violations": []
+    },
+    {
+      "route": "/projects",
+      "width": 390,
+      "violations": []
+    },
+    {
+      "route": "/projects/guruku-gbayi-outreach",
+      "width": 390,
+      "violations": []
+    },
+    {
+      "route": "/gallery",
+      "width": 390,
+      "violations": []
+    },
+    {
+      "route": "/blog",
+      "width": 390,
+      "violations": []
+    },
+    {
+      "route": "/blog/from-purpose-to-action",
+      "width": 390,
+      "violations": []
+    },
+    {
+      "route": "/team",
+      "width": 390,
+      "violations": []
+    },
+    {
+      "route": "/partner",
+      "width": 390,
+      "violations": []
+    },
+    {
+      "route": "/privacy",
+      "width": 390,
+      "violations": []
+    },
+    {
+      "route": "/",
+      "width": 768,
+      "violations": []
+    },
+    {
+      "route": "/about",
+      "width": 768,
+      "violations": []
+    },
+    {
+      "route": "/projects",
+      "width": 768,
+      "violations": []
+    },
+    {
+      "route": "/projects/guruku-gbayi-outreach",
+      "width": 768,
+      "violations": []
+    },
+    {
+      "route": "/gallery",
+      "width": 768,
+      "violations": []
+    },
+    {
+      "route": "/blog",
+      "width": 768,
+      "violations": []
+    },
+    {
+      "route": "/blog/from-purpose-to-action",
+      "width": 768,
+      "violations": []
+    },
+    {
+      "route": "/team",
+      "width": 768,
+      "violations": []
+    },
+    {
+      "route": "/partner",
+      "width": 768,
+      "violations": []
+    },
+    {
+      "route": "/privacy",
+      "width": 768,
+      "violations": []
+    },
+    {
+      "route": "/",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "route": "/about",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "route": "/projects",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "route": "/projects/guruku-gbayi-outreach",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "route": "/gallery",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "route": "/blog",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "route": "/blog/from-purpose-to-action",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "route": "/team",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "route": "/partner",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "route": "/privacy",
+      "width": 1440,
+      "violations": []
+    }
+  ],
+  "count": 30
+}

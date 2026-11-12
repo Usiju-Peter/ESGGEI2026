@@ -1,13 +1,20 @@
-import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
 import { useEffect, lazy, Suspense } from "react";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import AnalyticsConsent from "./components/AnalyticsConsent";
-import Breadcrumbs from './components/Breadcrumbs';
+import Breadcrumbs from "./components/Breadcrumbs";
 import Home from "./pages/Home";
+import "./styles/premium-system.css";
+import "./styles/premium-pages.css";
 
-const Outreach = lazy(() => import('./pages/Outreach'));
-const Privacy = lazy(() => import('./pages/Privacy'));
+const Outreach = lazy(() => import("./pages/Outreach"));
+const Privacy = lazy(() => import("./pages/Privacy"));
 const About = lazy(() => import("./pages/About"));
 const Projects = lazy(() => import("./pages/Projects"));
 const Gallery = lazy(() => import("./pages/Gallery"));
@@ -25,7 +32,15 @@ function ScrollToTop() {
     }
     if (hash) {
       const scrollToSection = () => {
-        document.getElementById(hash.slice(1))?.scrollIntoView({ behavior: "smooth", block: "start" });
+        document
+          .getElementById(hash.slice(1))
+          ?.scrollIntoView({
+            behavior: window.matchMedia("(prefers-reduced-motion: reduce)")
+              .matches
+              ? "instant"
+              : "smooth",
+            block: "start",
+          });
       };
       const animationId = requestAnimationFrame(scrollToSection);
       const timeoutId = setTimeout(scrollToSection, 150);
@@ -50,13 +65,14 @@ function ScrollToTop() {
 }
 
 export function AppContent() {
+  const { pathname } = useLocation();
   return (
-    <>
+    <div className={`premium-site page-${pathname.split("/")[1] || "home"}`}>
       <ScrollToTop />
       <AnalyticsConsent />
       {/* Skip-to-content link for keyboard accessibility (WCAG AA 2.4.1 compliance) */}
-      <a 
-        href="#main-content" 
+      <a
+        href="#main-content"
         className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:bg-white focus:text-primary focus:px-6 focus:py-3.5 focus:rounded-xl focus:shadow-2xl focus:font-bold focus:z-[9999] border border-gray-100 focus:outline-none focus:ring-2 focus:ring-[#D4A84F]"
       >
         Skip to main content
@@ -64,12 +80,25 @@ export function AppContent() {
       <div className="flex flex-col min-h-screen">
         <Navbar />
         <Breadcrumbs />
-        <main id="main-content" tabIndex={-1} className="flex-grow outline-none">
-            <Suspense fallback={<div className="h-screen w-full flex items-center justify-center">Loading...</div>}>
-          <Routes>
+        <main
+          id="main-content"
+          tabIndex={-1}
+          className="flex-grow outline-none"
+        >
+          <Suspense
+            fallback={
+              <div className="h-screen w-full flex items-center justify-center">
+                Loading...
+              </div>
+            }
+          >
+            <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
-              <Route path="/projects/guruku-gbayi-outreach" element={<Outreach />} />
+              <Route
+                path="/projects/guruku-gbayi-outreach"
+                element={<Outreach />}
+              />
               <Route path="/privacy" element={<Privacy />} />
               <Route path="/projects" element={<Projects />} />
               <Route path="/gallery" element={<Gallery />} />
@@ -82,11 +111,14 @@ export function AppContent() {
         </main>
         <Footer />
       </div>
-    </>
+    </div>
   );
 }
 
-
 export default function App() {
-  return <Router><AppContent /></Router>;
+  return (
+    <Router>
+      <AppContent />
+    </Router>
+  );
 }
