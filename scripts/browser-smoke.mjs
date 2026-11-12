@@ -1,22 +1,23 @@
 import assert from 'node:assert/strict';
-import { spawn } from 'node:child_process';
+import { resolve } from 'node:path';
+import express from 'express';
 import { chromium } from 'playwright';
 
 const base = 'http://127.0.0.1:4173';
 const routes = ['/', '/about', '/projects', '/gallery', '/blog', '/blog/from-purpose-to-action', '/team', '/partner'];
-const child = spawn('npm', ['run', 'preview', '--', '--host', '127.0.0.1', '--port', '4173', '--strictPort'], { stdio: 'inherit' });
-
-const ready = async () => {
-  for (let i = 0; i < 60; i++) {
-    try { const response = await fetch(base); if (response.ok) return; } catch {}
-    await new Promise(resolve => setTimeout(resolve, 250));
-  }
-  throw new Error('Vite preview failed to start');
-};
+const app = express();
+app.get(routes, (req, res) => {
+  const file = req.path === '/' ? 'index.html' : req.path.slice(1) + '/index.html';
+  res.sendFile(resolve('dist', file));
+});
+app.use(express.static('dist', { redirect: false }));
+app.use((_req, res) => res.status(404).send('Not found'));
+const server = await new Promise(resolve => {
+  const instance = app.listen(4173, '127.0.0.1', () => resolve(instance));
+});
 
 let browser;
 try {
-  await ready();
   browser = await chromium.launch({ headless: true });
   const page = await browser.newPage();
   const errors = [];
@@ -33,6 +34,8 @@ try {
     assert.equal(response.status(), 200, route + ' must return HTTP 200');
     assert.equal(await page.locator('main h1').count(), 1, route + ' must have exactly one main H1');
     assert.equal(await page.locator('#root[data-prerendered="true"]').count(), 1, route + ' should hydrate an SSR root');
+    const expectedCanonical = 'https://www.esggei.org.ng' + route;
+    assert.equal(await page.locator('link[rel="canonical"]').getAttribute('href'), expectedCanonical, 'Wrong source HTML for ' + route);
     await page.waitForTimeout(150);
     console.log('Hydration diagnostics', route, errors.slice(beforeErrors));
   }
@@ -42,10 +45,12 @@ try {
   await page.waitForURL('**/projects');
   assert.equal(await page.locator('main h1').count(), 1, 'Client-side navigation must render the destination');
 
+  const missing = await page.goto(base + '/seo-smoke-test-unknown', { waitUntil: 'domcontentloaded' });
+  assert.equal(missing.status(), 404, 'Unknown pages must return a real HTTP 404');
 
   assert.deepEqual(errors, [], 'No hydration or uncaught runtime errors allowed');
   console.log('Browser SEO smoke test passed on ' + routes.length + ' routes.');
 } finally {
   await browser?.close();
-  child.kill();
+  await new Promise(resolve => server.close(resolve));
 }
