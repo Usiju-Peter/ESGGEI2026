@@ -23,7 +23,7 @@ jobs:
         run: |
           mkdir -p lighthouse-results
           export CHROME_PATH="$(node -e "import('playwright').then(m=>process.stdout.write(m.chromium.executablePath()))")"
-          npx lighthouse https://www.esggei.org.ng/ --preset=perf --form-factor=mobile --screenEmulation.mobile=true --throttling-method=simulate --chrome-flags="--headless --no-sandbox --disable-dev-shm-usage" --output=json --output-path=lighthouse-results/mobile.json --quiet
+          npx lighthouse https://www.esggei.org.ng/ --only-categories=performance,accessibility,best-practices,seo --form-factor=mobile --screenEmulation.mobile=true --throttling-method=simulate --chrome-flags="--headless --no-sandbox --disable-dev-shm-usage" --output=json --output-path=lighthouse-results/mobile.json --quiet
           npx lighthouse https://www.esggei.org.ng/ --preset=desktop --chrome-flags="--headless --no-sandbox --disable-dev-shm-usage" --output=json --output-path=lighthouse-results/desktop.json --quiet
       - name: Print measured scores and metrics
         run: |
@@ -41,6 +41,7 @@ jobs:
               tbtMs: report.audits['total-blocking-time']?.numericValue,
               fcpMs: report.audits['first-contentful-paint']?.numericValue,
               speedIndexMs: report.audits['speed-index']?.numericValue,
+              accessibilityFindings: (report.categories.accessibility?.auditRefs ?? []).filter(x => report.audits[x.id]?.score !== null && report.audits[x.id]?.score < 1).map(x => ({ id:x.id,title:report.audits[x.id]?.title,score:report.audits[x.id]?.score,description:report.audits[x.id]?.description })).slice(0,20),
               diagnostics: report.runWarnings
             },null,2));
           }
