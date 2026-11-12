@@ -46,8 +46,8 @@ export default function Projects() {
                     <dd className="mt-1 font-serif text-lg text-charcoal/80">{featuredProject.date}</dd>
                   </div>
                 </dl>
-                <Link to="/gallery" className="mt-10 inline-flex items-center text-sm font-semibold uppercase tracking-widest text-primary-light transition-colors hover:text-primary">
-                  View Outreach Photos <span className="ml-2 text-lg" aria-hidden="true">→</span>
+                <Link to="/projects/guruku-gbayi-outreach" className="mt-10 inline-flex items-center text-sm font-semibold uppercase tracking-widest text-primary-light transition-colors hover:text-primary">
+                  Read the Outreach Report <span className="ml-2 text-lg" aria-hidden="true">→</span>
                 </Link>
               </div>
             </div>

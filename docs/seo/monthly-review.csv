@@ -1,0 +1,10 @@
+period,source,metric,value,unit,notes
+2026-11,Search Console,Indexed pages,,pages,Await verified report
+2026-11,Search Console,Search clicks,,clicks,Unavailable is not zero
+2026-11,Search Console,Search impressions,,impressions,
+2026-11,Search Console,Search CTR,,percent,
+2026-11,Search Console,Branded query clicks,,clicks,Define branded terms consistently
+2026-11,Enquiry inbox,Qualified enquiries,,enquiries,Do not include personal details
+2026-11,Field performance,Mobile LCP p75,,milliseconds,Record sample size and window
+2026-11,Field performance,Mobile INP p75,,milliseconds,May be absent without interactions
+2026-11,Field performance,Mobile CLS p75,,unitless,Do not average scores

@@ -3,6 +3,8 @@ on:
   pull_request:
   push:
     branches: [main, seo/phase2-performance-content-20261112]
+  schedule:
+    - cron: '0 7 * * 1'
   workflow_dispatch:
 permissions:
   contents: read

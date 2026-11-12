@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import * as React from "react";
 import { useState } from "react";
 import { motion } from "motion/react";
@@ -9,6 +10,8 @@ import { useSEO } from "../lib/seo";
 export default function Partner() {
   useSEO("Contact Us & Partners", "Get in touch with EarthSprings Global Grace Empowerment Initiative (ESGGEI) to partner, volunteer, donate, or learn more about our mission in Nigeria.");
   const [formStatus, setFormStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const successRef = React.useRef<HTMLDivElement>(null);
+  React.useEffect(() => { if (formStatus === 'success') successRef.current?.focus(); }, [formStatus]);
   const [copiedText, setCopiedText] = useState<string | null>(null);
   const contactFormEndpoint = import.meta.env.VITE_CONTACT_FORM_ENDPOINT || "https://formsubmit.co/ajax/usijup3@gmail.com";
 
@@ -47,7 +50,7 @@ export default function Partner() {
       });
 
       const result = await response.json().catch(() => null);
-      if (!response.ok || result?.success === false || result?.success === "false") {
+      if (!response.ok || (result?.success !== true && result?.success !== "true")) {
         throw new Error("Message delivery failed");
       }
 
@@ -66,6 +69,11 @@ export default function Partner() {
         image="/images/gallery/outreach-29.webp"
       />
 
+      <section className="bg-cream px-6 py-12"><div className="mx-auto max-w-5xl">
+        <h2 className="text-3xl font-semibold">Start a partnership conversation</h2>
+        <p className="mt-5 leading-relaxed">Tell us about your organisation or interests, the community or location you have in mind, the support you can offer and any proposed timing. Our team can discuss how your enquiry relates to ESGGEI’s programme priorities.</p>
+        <div className="mt-5 flex flex-wrap gap-5"><Link className="font-semibold underline" to="/projects">Explore programme priorities</Link><Link className="font-semibold underline" to="/projects/guruku-gbayi-outreach">See a documented outreach</Link><a className="font-semibold underline" href="/esggei-organisation-profile.txt" download>Download the organisation overview (text)</a></div>
+      </div></section>
       <AnimatedSection>
       <section className="py-24 bg-cream">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -101,7 +109,7 @@ export default function Partner() {
                 </div>
                 <div>
                   <h3 className="font-serif font-bold text-primary mb-1 text-lg">Call Us</h3>
-                  <a href="tel:08064676210" className="text-charcoal/70 hover:text-primary transition-colors">0806 467 6210</a>
+                  <a href="tel:+2348064676210" className="text-charcoal/70 hover:text-primary transition-colors">0806 467 6210</a>
                 </div>
               </motion.div>
 
@@ -121,7 +129,7 @@ export default function Partner() {
               <div className="mt-8 pt-8 border-t border-gray-200">
                 <h3 className="font-serif font-bold text-primary mb-4 text-lg">Quick Contact</h3>
                 <div className="space-y-3">
-                  <a href="tel:08064676210" className="w-full flex items-center justify-center space-x-2 bg-primary text-white py-3 rounded-xl font-medium hover:bg-primary-dark transition-colors">
+                  <a href="tel:+2348064676210" className="w-full flex items-center justify-center space-x-2 bg-primary text-white py-3 rounded-xl font-medium hover:bg-primary-dark transition-colors">
                     <Phone size={18} />
                     <span>Call ESGGEI</span>
                   </a>
@@ -140,17 +148,18 @@ export default function Partner() {
               className="lg:col-span-2"
             >
               {formStatus === "success" ? (
-                <div className="bg-white p-12 rounded-3xl shadow-lg border border-gray-100 h-full flex flex-col items-center justify-center text-center">
+                <div role="status" tabIndex={-1} ref={successRef} className="bg-white p-12 rounded-3xl shadow-lg border border-gray-100 h-full flex flex-col items-center justify-center text-center">
                   <div className="w-20 h-20 bg-primary/10 text-primary rounded-full flex items-center justify-center mb-6">
                     <CheckCircle2 size={40} />
                   </div>
                   <h3 className="text-2xl font-serif font-bold text-primary mb-4">Thank you for reaching out.</h3>
-                  <p className="text-charcoal/70 max-w-md">Your message has been sent successfully. ESGGEI will get back to you soon.</p>
+                  <p className="text-charcoal/70 max-w-md">The form service has accepted your message. If you need to follow up, use the email or telephone details on this page.</p>
                   <button type="button" onClick={() => setFormStatus("idle")} className="mt-8 rounded-full border border-primary/20 px-6 py-3 text-sm font-medium text-primary transition-colors hover:bg-primary hover:text-white">Send Another Message</button>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="bg-white p-8 md:p-12 rounded-3xl shadow-lg border border-gray-100 space-y-6">
                   <h3 className="sr-only">Inquiry Form</h3>
+                  <p className="text-sm leading-relaxed text-charcoal/80">Use this form for general enquiries. Please avoid sensitive personal information. Your message is processed by FormSubmit. <Link to="/privacy" className="font-semibold underline">Read the privacy notice</Link>.</p>
                   <div className="hidden" aria-hidden="true">
                     <label htmlFor="website">Leave this field empty</label>
                     <input id="website" name="website" type="text" tabIndex={-1} autoComplete="off" />
@@ -168,8 +177,8 @@ export default function Partner() {
                   
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
-                      <label htmlFor="phone" className="block text-sm font-medium text-charcoal mb-2">Phone Number</label>
-                      <input id="phone" name="phone" required type="tel" autoComplete="tel" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all bg-gray-50/50" />
+                      <label htmlFor="phone" className="block text-sm font-medium text-charcoal mb-2">Phone Number (optional)</label>
+                      <input id="phone" name="phone" type="tel" autoComplete="tel" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all bg-gray-50/50" />
                     </div>
                     <div>
                       <label htmlFor="subject" className="block text-sm font-medium text-charcoal mb-2">Subject</label>
@@ -330,6 +339,12 @@ export default function Partner() {
       </section>
       </AnimatedSection>
 
+      <section className="bg-cream px-6 py-16"><div className="mx-auto max-w-4xl space-y-6">
+        <h2 className="text-3xl font-semibold">Partnership and volunteering questions</h2>
+        <details className="rounded-xl border border-primary/20 p-5"><summary className="cursor-pointer font-semibold">How can an organisation work with ESGGEI?</summary><p className="mt-4 leading-relaxed">Contact the team about funding, technical expertise, products, events or other support related to education, agriculture, advocacy and community wellbeing. Describe your proposal so the team can discuss its suitability.</p></details>
+        <details className="rounded-xl border border-primary/20 p-5"><summary className="cursor-pointer font-semibold">Can I volunteer or ask about an internship?</summary><p className="mt-4 leading-relaxed">You can enquire using the contact details or form above. Include your skills, location and availability. Current roles and requirements must be confirmed by the team; an enquiry is not a placement offer.</p></details>
+        <details className="rounded-xl border border-primary/20 p-5"><summary className="cursor-pointer font-semibold">Where can I see ESGGEI’s previous work?</summary><p className="mt-4 leading-relaxed">Read the <Link className="underline" to="/projects/guruku-gbayi-outreach">Guruku Gbayi outreach report</Link> and explore the <Link className="underline" to="/gallery">photograph gallery</Link>. Contact the team for questions about current activities.</p></details>
+      </div></section>
     </div>
   );
 }

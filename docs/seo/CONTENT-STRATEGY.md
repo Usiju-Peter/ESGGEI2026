@@ -57,3 +57,6 @@ With properly authorized Search Console access, record monthly branded/non-brand
 - Confirm current programme availability before offering applications or donations.
 - Avoid false testimonials, fake ratings or unsupported FAQ rich-result markup.
 - Keep social media links restricted to verified ESGGEI profiles.
+
+## Implemented visibility follow-up
+The Guruku Gbayi outreach report, partnership FAQs and downloadable organisation overview now reuse existing website evidence. See [visibility operations and remaining account tasks](VISIBILITY-OPERATIONS.md) for the evidence trail, release status, monthly review template and unsent promotion drafts.

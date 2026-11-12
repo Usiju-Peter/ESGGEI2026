@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { navLinks } from "../data";
@@ -7,6 +7,7 @@ import { cn } from "../lib/utils";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isAboutOpen, setIsAboutOpen] = useState(false);
+  const menuButton = useRef<HTMLButtonElement>(null);
   const location = useLocation();
 
   // Close every navigation layer after a route or in-page destination changes.
@@ -14,6 +15,16 @@ export default function Navbar() {
     setIsOpen(false);
     setIsAboutOpen(false);
   }, [location.pathname, location.hash]);
+
+  useEffect(() => {
+    const escape = (event: KeyboardEvent) => {
+      if (event.key !== 'Escape') return;
+      if (isOpen) { setIsOpen(false); menuButton.current?.focus(); }
+      setIsAboutOpen(false);
+    };
+    document.addEventListener('keydown', escape);
+    return () => document.removeEventListener('keydown', escape);
+  }, [isOpen]);
 
   return (
     <header className="sticky top-0 left-0 right-0 z-50 w-full bg-forest/95 backdrop-blur border-b border-white/5 py-4 px-6 md:px-12">
@@ -57,7 +68,7 @@ export default function Navbar() {
                     <Link
                       to={link.href}
                       onClick={() => setIsAboutOpen(false)}
-                      aria-haspopup="true"
+                      aria-controls="about-navigation"
                       aria-expanded={isAboutOpen}
                       className={cn(
                         "relative pb-1 transition-colors tracking-wide duration-300 after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-terra after:transition-transform after:duration-300 hover:after:scale-x-100",
@@ -66,7 +77,7 @@ export default function Navbar() {
                     >
                       {link.name}
                     </Link>
-                    <div className={cn(
+                    <div id="about-navigation" className={cn(
                       "absolute left-1/2 top-full z-50 w-60 -translate-x-1/2 pt-4 transition-opacity duration-200",
                       isAboutOpen ? "visible opacity-100" : "invisible pointer-events-none opacity-0"
                     )}>
@@ -112,6 +123,9 @@ export default function Navbar() {
         <button
           className="lg:hidden z-50 p-3 -mr-3 text-white"
           onClick={() => setIsOpen(!isOpen)}
+          ref={menuButton}
+          aria-expanded={isOpen}
+          aria-controls="mobile-navigation"
           aria-label="Toggle menu"
         >
           {isOpen ? <X size={28} /> : <Menu size={28} />}
@@ -121,6 +135,7 @@ export default function Navbar() {
       {/* Mobile Nav Dropdown */}
       {isOpen && (
           <div
+            id="mobile-navigation"
             className="absolute top-full left-4 right-4 mt-2 bg-white/95 backdrop-blur-xl shadow-2xl border border-gray-100/50 rounded-2xl py-6 px-6 lg:hidden flex flex-col space-y-1 z-50"
           >
             {navLinks.map((link) => (
@@ -146,7 +161,7 @@ export default function Navbar() {
                       ["Aims & Objectives", "aims-objectives"],
                       ["Our Team", "our-team"],
                     ].map(([label, section]) => (
-                      <Link key={section} to={`/about#${section}`} onClick={() => setIsOpen(false)} className="block rounded-lg px-3 py-2 text-sm text-charcoal/60 hover:bg-cream hover:text-primary">{label}</Link>
+                      <Link key={section} to={`/about#${section}`} onClick={() => setIsOpen(false)} className="block rounded-lg px-3 py-2 text-sm text-charcoal/80 hover:bg-cream hover:text-primary">{label}</Link>
                     ))}
                   </div>
                 )}

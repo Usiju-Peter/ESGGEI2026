@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 
-const routes = ['/', '/about', '/projects', '/gallery', '/blog', '/blog/from-purpose-to-action', '/team', '/partner'];
+import { routes } from './routes.mjs';
 for (const route of routes) {
   const filename = route === '/' ? 'dist/index.html' : `dist${route}/index.html`;
   const html = readFileSync(filename, 'utf8');

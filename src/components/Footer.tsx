@@ -67,8 +67,9 @@ export default function Footer() {
           <div>
             <h3 className="text-white font-serif font-semibold text-xl md:text-2xl mb-6">Get In Touch</h3>
             <ul className="space-y-4 text-base md:text-lg">
+              <li><Link to="/privacy" className="text-cream hover:text-white underline underline-offset-4">Privacy notice</Link></li>
               <li><a href="mailto:esgeei@gmail.com" className="text-cream/80 hover:text-white transition-colors font-light">esgeei@gmail.com</a></li>
-              <li><a href="tel:08064676210" className="text-cream/80 hover:text-white transition-colors font-light">0806 467 6210</a></li>
+              <li><a href="tel:+2348064676210" className="text-cream/80 hover:text-white transition-colors font-light">0806 467 6210</a></li>
               <li>
                 <Link to="/" className="text-cream/80 hover:text-white transition-colors font-light text-left">
                   www.esggei.org.ng

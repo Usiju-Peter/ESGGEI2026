@@ -3,8 +3,12 @@ import { useEffect, lazy, Suspense } from "react";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import AnalyticsConsent from "./components/AnalyticsConsent";
+import Breadcrumbs from './components/Breadcrumbs';
+import { MotionConfig } from "motion/react";
 import Home from "./pages/Home";
 
+const Outreach = lazy(() => import('./pages/Outreach'));
+const Privacy = lazy(() => import('./pages/Privacy'));
 const About = lazy(() => import("./pages/About"));
 const Projects = lazy(() => import("./pages/Projects"));
 const Gallery = lazy(() => import("./pages/Gallery"));
@@ -60,11 +64,14 @@ export function AppContent() {
       </a>
       <div className="flex flex-col min-h-screen">
         <Navbar />
+        <Breadcrumbs />
         <main id="main-content" tabIndex={-1} className="flex-grow outline-none">
             <Suspense fallback={<div className="h-screen w-full flex items-center justify-center">Loading...</div>}>
           <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
+              <Route path="/projects/guruku-gbayi-outreach" element={<Outreach />} />
+              <Route path="/privacy" element={<Privacy />} />
               <Route path="/projects" element={<Projects />} />
               <Route path="/gallery" element={<Gallery />} />
               <Route path="/blog" element={<Blog />} />
@@ -82,5 +89,5 @@ export function AppContent() {
 
 
 export default function App() {
-  return <Router><AppContent /></Router>;
+  return <Router><MotionConfig reducedMotion="user"><AppContent /></MotionConfig></Router>;
 }
