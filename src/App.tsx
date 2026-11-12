@@ -45,9 +45,9 @@ function ScrollToTop() {
   return null;
 }
 
-export default function App() {
+export function AppContent() {
   return (
-    <Router>
+    <>
       <ScrollToTop />
       {/* Skip-to-content link for keyboard accessibility (WCAG AA 2.4.1 compliance) */}
       <a 
@@ -74,7 +74,11 @@ export default function App() {
         </main>
         <Footer />
       </div>
-    </Router>
+    </>
   );
 }
 
+
+export default function App() {
+  return <Router><AppContent /></Router>;
+}
