@@ -32,7 +32,11 @@ export default function Team() {
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ delay: idx * 0.1, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                 onClick={() => setSelectedMember(member)}
-                className="flex flex-col h-full bg-white/45 backdrop-blur-sm p-6 rounded-3xl border border-primary/5 shadow-[0_12px_35px_rgba(110,142,66,0.06)] hover:border-primary/25 hover:bg-white hover:shadow-[0_25px_50px_-12px_rgba(110,142,66,0.22)] hover:-translate-y-3 hover:scale-[1.02] transition-all duration-500 ease-[0.16,1,0.3,1] cursor-pointer group"
+                onKeyDown={(event) => { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); setSelectedMember(member); } }}
+                role="button"
+                tabIndex={0}
+                aria-label={`Read biography of ${member.name}`}
+                className="flex flex-col h-full bg-white/45 backdrop-blur-sm p-6 rounded-3xl border border-primary/5 shadow-[0_12px_35px_rgba(110,142,66,0.06)] hover:border-primary/25 hover:bg-white hover:shadow-[0_25px_50px_-12px_rgba(110,142,66,0.22)] hover:-translate-y-3 hover:scale-[1.02] transition-all duration-500 ease-[0.16,1,0.3,1] cursor-pointer group focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-terra"
               >
                 <div className="aspect-[4/5] bg-gray-50 overflow-hidden rounded-2xl relative w-full mb-6">
                   <img 
@@ -47,12 +51,9 @@ export default function Team() {
                   <h3 className="text-2xl font-serif font-medium text-primary mb-1 group-hover:text-primary-light transition-colors duration-300">{member.name}</h3>
                   <p className="text-charcoal/50 uppercase tracking-[0.15em] text-[11px] mb-6">{member.role}</p>
                   <div className="flex-grow" />
-                  <button 
-                    className="text-primary group-hover:text-primary-light transition-colors text-left uppercase text-[11px] tracking-widest w-max pb-1 border-b border-primary/20 group-hover:border-primary"
-                    aria-label={`Read bio of ${member.name}`}
-                  >
+                  <span className="text-primary group-hover:text-primary-light transition-colors text-left uppercase text-[11px] tracking-widest w-max pb-1 border-b border-primary/20 group-hover:border-primary">
                     Read Bio <span className="sr-only">for {member.name}</span>
-                  </button>
+                  </span>
                 </div>
               </motion.div>
             ))}
@@ -113,6 +114,7 @@ export default function Team() {
             >
               <button 
                 onClick={() => setSelectedMember(null)}
+                aria-label="Close biography"
                 className="absolute top-6 right-6 bg-gray-50 hover:bg-gray-100 p-2.5 rounded-full transition-colors z-20"
               >
                 <X className="w-5 h-5 text-charcoal" />
