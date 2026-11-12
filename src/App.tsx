@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from "react-route
 import { useEffect, lazy, Suspense } from "react";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import AnalyticsConsent from "./components/AnalyticsConsent";
 import Home from "./pages/Home";
 
 const About = lazy(() => import("./pages/About"));
@@ -49,6 +50,7 @@ export function AppContent() {
   return (
     <>
       <ScrollToTop />
+      <AnalyticsConsent />
       {/* Skip-to-content link for keyboard accessibility (WCAG AA 2.4.1 compliance) */}
       <a 
         href="#main-content" 
