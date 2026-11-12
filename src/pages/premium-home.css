@@ -33,9 +33,15 @@
   letter-spacing: -0.045em;
   color: var(--p-emerald);
 }
-.premium-site :focus-visible {
-  outline: 3px solid #865017 !important;
-  outline-offset: 5px !important;
+@layer base {
+  .premium-site :focus-visible {
+    outline: 3px solid #865017 !important;
+    outline-offset: 5px !important;
+  }
+  .premium-site .p-belief :focus-visible,
+  .premium-site footer :focus-visible {
+    outline-color: var(--p-citrus) !important;
+  }
 }
 .premium-site .site-header {
   background: var(--p-cream);

@@ -120,6 +120,42 @@ try {
       .evaluate((el) => getComputedStyle(el).outlineStyle),
     "none",
   );
+  for (const selector of [".p-belief .p-link", "footer a"]) {
+    const link = motionPage.locator(selector).first();
+    await link.focus();
+    const ratio = await link.evaluate((el) => {
+      const luminance = (color) =>
+        color
+          .match(/[\d.]+/g)
+          .slice(0, 3)
+          .map(Number)
+          .map((value) => value / 255)
+          .map((value) =>
+            value <= 0.04045 ? value / 12.92 : ((value + 0.055) / 1.055) ** 2.4,
+          )
+          .reduce(
+            (sum, value, i) => sum + value * [0.2126, 0.7152, 0.0722][i],
+            0,
+          );
+      const outline = luminance(getComputedStyle(el).outlineColor);
+      let parent = el.parentElement;
+      while (
+        parent &&
+        getComputedStyle(parent).backgroundColor === "rgba(0, 0, 0, 0)"
+      )
+        parent = parent.parentElement;
+      const surface = luminance(getComputedStyle(parent).backgroundColor);
+      return (
+        (Math.max(outline, surface) + 0.05) /
+        (Math.min(outline, surface) + 0.05)
+      );
+    });
+    assert.ok(
+      ratio >= 3,
+      `${selector} focus outline must contrast with its surface`,
+    );
+    console.log(selector, "focus contrast", ratio.toFixed(2));
+  }
   await motionPage.close();
   writeFileSync(resolve(out, "results.json"), JSON.stringify(results, null, 2));
   assert.ok(

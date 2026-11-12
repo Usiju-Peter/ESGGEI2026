@@ -18,7 +18,7 @@ Date: 12 November 2026. This is a tested homepage draft, not the completed site-
 
 Full-page Chromium screenshots were captured and visually inspected at 320, 375, 390, 430, 768, 1024, 1440 and 1920px. Review copies are in [screenshots](screenshots), with machine measurements in [evidence](evidence). No horizontal overflow, broken main images or JavaScript page errors occurred at these widths.
 
-Initial critique found an awkward desktop headline wrap, a missing decorative glyph and a caption arrow that suggested interaction without a destination. Corrections: reduced the desktop headline maximum to 68px; replaced the unsupported glyph; turned the photo caption into a working gallery link. Final screenshots were captured after these corrections and reviewed again. Mobile uses stacked actions at narrow widths, smaller editorial headings, a two-column focus strip and a vertical involvement list. Tablet retains the split hero; its narrower headline column intentionally wraps to three lines. Desktop uses a two-line headline and larger photographic composition.
+Initial critique found an awkward desktop headline wrap, a missing decorative glyph and a caption arrow that suggested interaction without a destination. Corrections: reduced the desktop headline maximum to 68px; replaced the unsupported glyph; turned the photo caption into a working gallery link. A final focus-state review changed dark-surface outlines to citrus. The rendered contrast check measured 9.25:1 for vision and footer links, exceeding the 3:1 indicator target. Final screenshots were captured after these corrections and reviewed again. Mobile uses stacked actions at narrow widths, smaller editorial headings, a two-column focus strip and a vertical involvement list. Tablet retains the split hero; its narrower headline column intentionally wraps to three lines. Desktop uses a two-line headline and larger photographic composition.
 
 Anti-generic review: programme rows use rules and text instead of repeated rounded cards; about, outreach, vision, journal and involvement sections have distinct structures. The palette stays coherent across light, pale-green, emerald and citrus surfaces. Only existing documentary photographs are used. There are no fabricated counters, testimonials or partner logos. Remaining editorial limitation: outreach and journal photography comes from the same documented event; future approved photography would broaden the story.
 
@@ -36,6 +36,8 @@ Lighthouse 13.6.0 default mobile simulation, local built/prerendered pages, the 
 The draft adds 61,464 bytes of self-hosted WOFF2 fonts and a small amount of CSS/JS. The compressed comparison still shows a cost relative to baseline. Lab LCP is about 47ms above the 2.5s target; further deployed-network measurement and optimization remain required before production. TBT is not INP. No real-user p75 LCP/INP/CLS result is available, and the field Core Web Vitals targets are not claimed achieved. No runtime dependency was added for the new design or motion.
 
 ## Preservation and limits
+
+The hosted preview returned HTTP 200 for all ten routes with their main headings, no horizontal overflow at 1440px and no JavaScript page errors. The new visual scope was present on home only.
 
 All ten URLs, reports, article records, contact details, footer social destinations, consent controls and form integration are retained. No production credentials, domain settings, contact recipient or donation details were changed. The existing committed privacy correction is preserved in the branch base.
 

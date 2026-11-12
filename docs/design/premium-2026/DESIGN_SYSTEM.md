@@ -2,7 +2,7 @@
 
 Implementation: src/pages/premium-home.css, scoped beneath .premium-site and .premium-home. Internal pages retain their previous system until homepage approval.
 
-Tokens: emerald #103F35; citrus #C9F36A; cream #F7F5ED; ink #17231E; muted #4B6057; line #CED8CE; orange #F4A261 (reserved, not used indiscriminately). Primary action white on emerald; hover white on #245A49. Secondary action emerald on cream; hover #E6EDDC. Focus #865017, 3px outline with 5px offset. Existing success/error/consent states remain in the preserved internal pages; they have not been restyled at this checkpoint.
+Tokens: emerald #103F35; citrus #C9F36A; cream #F7F5ED; ink #17231E; muted #4B6057; line #CED8CE; orange #F4A261 (reserved, not used indiscriminately). Primary action white on emerald; hover white on #245A49. Secondary action emerald on cream; hover #E6EDDC. Focus #865017 on light surfaces and citrus on dark surfaces, 3px outline with 5px offset. Existing success/error/consent states remain in the preserved internal pages; they have not been restyled at this checkpoint.
 
 Manrope variable 400–800 for headings; DM Sans variable 400–800 for body. WOFF2 Latin payload totals 61,464 bytes, font-display swap; licenses are in public/fonts/premium. Display heading fluid 44–68px on desktop and 37–55px on small screens. Section headings 32–55px, body 16px, lead 19–23px, supporting metadata 12–14px. These sizes are design choices, not WCAG requirements.
 
