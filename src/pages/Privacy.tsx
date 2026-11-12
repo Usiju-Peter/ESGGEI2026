@@ -40,8 +40,7 @@ export default function Privacy() {
         <p>
           The website is hosted on Vercel. Your browser sends connection
           information, such as your IP address and requested URL, when it
-          retrieves pages and resources. Some photographs and backgrounds are
-          served by external image hosts. Following social media links takes you
+          retrieves pages and resources. Following social media links takes you
           to services governed by their own privacy notices.
         </p>
         <h2 className="pt-5 text-2xl font-semibold">
