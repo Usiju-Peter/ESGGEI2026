@@ -1,4 +1,4 @@
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { navLinks } from "../data";
 import { Facebook, Instagram, Linkedin } from "lucide-react";
 import type { SVGProps } from "react";
@@ -15,17 +15,6 @@ const XIcon = (props: SVGProps<SVGSVGElement>) => (
 );
 
 export default function Footer() {
-  const navigate = useNavigate();
-  const location = useLocation();
-
-  const handleNavigation = (path: string) => {
-    if (location.pathname === path) {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else {
-      navigate(path);
-    }
-  };
-
   return (
     <footer className="bg-primary text-white/80 pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -61,15 +50,15 @@ export default function Footer() {
             <ul className="space-y-4">
               {navLinks.map((link) => (
                 <li key={link.name}>
-                  <button onClick={() => handleNavigation(link.href)} className="text-base md:text-lg text-cream/80 hover:text-white transition-colors font-light text-left w-full">
+                  <Link to={link.href} className="text-base md:text-lg text-cream/80 hover:text-white transition-colors font-light text-left">
                     {link.name}
-                  </button>
+                  </Link>
                 </li>
               ))}
               <li>
-                <button onClick={() => handleNavigation("/partner")} className="text-base md:text-lg text-cream/80 hover:text-white transition-colors font-light text-left w-full">
+                <Link to="/partner" className="text-base md:text-lg text-cream/80 hover:text-white transition-colors font-light text-left">
                   Contact Us
-                </button>
+                </Link>
               </li>
             </ul>
           </div>
@@ -80,12 +69,9 @@ export default function Footer() {
               <li><a href="mailto:esgeei@gmail.com" className="text-cream/80 hover:text-white transition-colors font-light">esgeei@gmail.com</a></li>
               <li><a href="tel:08064676210" className="text-cream/80 hover:text-white transition-colors font-light">0806 467 6210</a></li>
               <li>
-                <button 
-                  onClick={() => handleNavigation("/")} 
-                  className="text-cream/80 hover:text-white transition-colors font-light text-left"
-                >
+                <Link to="/" className="text-cream/80 hover:text-white transition-colors font-light text-left">
                   www.esggei.org.ng
-                </button>
+                </Link>
               </li>
               <li className="text-cream/80 font-light leading-relaxed mt-4">
                 No 16 MD Umar Close,<br />
