@@ -1,5 +1,6 @@
 name: Lighthouse SEO performance audit
 on:
+  pull_request:
   push:
     branches: [seo/phase2-performance-content-20261112]
   workflow_dispatch:
