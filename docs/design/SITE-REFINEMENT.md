@@ -13,7 +13,7 @@ Baseline: production commit `18d1565`, reviewed 12 November 2026. Architecture: 
 - Make direct email and telephone contact available near the top; show the mobile enquiry form before the longer partnership guidance. Preserve form endpoint, recipient, donation bank/name/number and social-profile destinations.
 - Share native biography buttons/cards/dialogs between About and Team. Preserve focus containment, Escape dismissal, scroll locking and focus return. Keep roles in readable sentence-case text.
 - Serve unchanged existing portraits from local public assets instead of depending on the external image host.
-- Use narrower reading columns for articles and privacy content. Retain the complete blog article text, dates, original photo descriptions and SEO metadata. Add captions to documentary article photos.
+- Use narrower reading columns for articles and privacy content. Align the outreach report headings, metadata, prose and photographs in one shared reading column, with a regression check for desktop alignment. Retain the complete blog article text, dates, original photo descriptions and SEO metadata. Add captions to documentary article photos.
 - Keep the gallery lightbox and its keyboard interactions; add a visible description and use smaller responsive thumbnails.
 - Compact the footer into grouped mobile columns, retain all social destinations, and make the navigation state visible on desktop and mobile.
 

@@ -58,6 +58,13 @@ try {
             .querySelector('main a[href="mailto:esgeei@gmail.com"]')
             ?.getBoundingClientRect().top ?? null,
       }));
+      if (route === '/projects/guruku-gbayi-outreach' && width === 1440) {
+        const alignment = await page.evaluate(() => ({
+          heading: document.querySelector('main h1').getBoundingClientRect().left,
+          prose: document.querySelector('main article .reading-width > p:not(.eyebrow)').getBoundingClientRect().left
+        }));
+        assert.ok(Math.abs(alignment.heading - alignment.prose) <= 1, 'Outreach headings and prose must share a reading column');
+      }
       results.push({ route, ...metric });
       assert.ok(
         metric.scrollWidth <= width,
