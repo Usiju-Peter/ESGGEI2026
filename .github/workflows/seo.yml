@@ -14,7 +14,8 @@ jobs:
         with:
           node-version: '24'
           cache: npm
-      - run: npm ci
+      # Existing package-lock has version mismatches; use npm install until lockfile is regenerated.
+      - run: npm install --no-audit --no-fund
       - run: npm run seo:check
       - run: npm run lint
       - run: npm run build
