@@ -25,7 +25,9 @@ jobs:
       - run: node scripts/analytics-check.mjs
       - run: node scripts/design-regression.mjs
       - run: node scripts/premium-check.mjs
+      - run: node scripts/redesign-check.mjs
       - run: node scripts/accessibility.mjs
+      - run: node scripts/interaction-check.mjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:

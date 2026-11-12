@@ -82,8 +82,8 @@ try {
         );
         if (route === "/")
           assert.ok(
-            metric.height < 6500,
-            "Home should not regain the audited excessive length",
+            metric.height < 6800,
+            "Home should stay compact while allowing 44px footer touch targets",
           );
         if (route === "/partner")
           assert.ok(

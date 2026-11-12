@@ -1,7 +1,8 @@
+import DocumentaryImage from "./DocumentaryImage";
 import { Link, type LinkProps } from "react-router-dom";
 import type { ReactNode } from "react";
 import { ArrowRight } from "lucide-react";
-import { featuredProject, projectsData } from "../data";
+import { featuredProject } from "../data";
 
 export function ActionLink({
   variant = "primary",
@@ -53,29 +54,11 @@ export function CallToAction({
     </section>
   );
 }
-export function ProgrammeCard({
-  programme,
-}: {
-  programme: (typeof projectsData)[number];
-}) {
-  const Icon = programme.icon;
-  return (
-    <article className="card programme-card">
-      <Icon className="programme-icon" size={28} aria-hidden="true" />
-      <h3 className="card-title">{programme.title}</h3>
-      <p>{programme.shortDescription}</p>
-      <ActionLink to={programme.href} variant="text">
-        Explore programme<span className="sr-only">: {programme.title}</span>
-        <ArrowRight aria-hidden="true" size={18} />
-      </ActionLink>
-    </article>
-  );
-}
 export function ProjectFeature() {
   return (
     <article className="project-feature">
       <figure>
-        <img
+        <DocumentaryImage
           src="/images/gallery/outreach-25.webp"
           alt="EarthSprings team and community leaders gathered at the Guruku Gbayi outreach"
           width="1200"

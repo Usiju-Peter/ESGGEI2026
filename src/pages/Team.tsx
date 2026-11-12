@@ -10,13 +10,14 @@ export default function Team() {
   return (
     <>
       <PageHero
+        badge="05 / People behind the purpose"
         title="Our Team"
         subtitle="Meet the people guiding ESGGEI’s work in education, livelihoods and community development."
       />
-      <section className="section section-white">
+      <section className="section section-white leadership-section">
         <div className="site-container">
           <h2 className="sr-only">Our core leadership team</h2>
-          <TeamGrid />
+          <TeamGrid summaries />
         </div>
       </section>
       <CallToAction

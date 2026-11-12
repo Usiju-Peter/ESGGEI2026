@@ -1,3 +1,5 @@
+import DocumentaryImage from "../components/DocumentaryImage";
+import ArticleShare from "../components/ArticleShare";
 import { Link } from "react-router-dom";
 import { featuredProject, galleryImages } from "../data";
 import { useSEO } from "../lib/seo";
@@ -8,12 +10,10 @@ export default function Outreach() {
     { image: featuredProject.image },
   );
   return (
-    <article className="section section-white">
+    <article className="section section-white editorial-article outreach-article">
       <div className="site-container">
         <div className="reading-width">
-          <p className="eyebrow">
-            Community outreach · Nasarawa State
-          </p>
+          <p className="eyebrow">Community outreach · Nasarawa State</p>
           <h1 className="page-title">
             Integrated Agriculture &amp; Medical Outreach in Guruku Gbayi
           </h1>
@@ -31,12 +31,12 @@ export default function Outreach() {
           </dl>
           <p className="text-lg leading-relaxed">
             EarthSprings Global Grace Empowerment Initiative brought community
-            members, volunteers and health workers together in Guruku Gbayi for an
-            integrated agriculture and medical outreach. Registration, health
+            members, volunteers and health workers together in Guruku Gbayi for
+            an integrated agriculture and medical outreach. Registration, health
             screening, care and support formed part of the community gathering.
           </p>
           <figure className="my-8">
-            <img
+            <DocumentaryImage
               src={featuredProject.image}
               alt={featuredProject.imageAlt}
               width="1200"
@@ -67,7 +67,7 @@ export default function Outreach() {
               galleryImages[24],
             ].map((image) => (
               <figure key={image.src}>
-                <img
+                <DocumentaryImage
                   {...image}
                   loading="lazy"
                   decoding="async"
@@ -89,9 +89,10 @@ export default function Outreach() {
             gender advocacy connect to its wider mission.
           </p>
           <p className="mt-4 leading-relaxed">
-            For questions about this outreach, current activities or opportunities
-            to collaborate, contact the ESGGEI team. Programme availability and
-            partnership arrangements should be confirmed directly.
+            For questions about this outreach, current activities or
+            opportunities to collaborate, contact the ESGGEI team. Programme
+            availability and partnership arrangements should be confirmed
+            directly.
           </p>
           <div className="mt-6 flex flex-wrap gap-4">
             <Link
@@ -113,6 +114,10 @@ export default function Outreach() {
               Discuss a partnership
             </Link>
           </div>
+          <ArticleShare
+            title={featuredProject.title}
+            path="/projects/guruku-gbayi-outreach"
+          />
           <p className="mt-8 text-sm text-muted">
             Published by EarthSprings Global Grace Empowerment Initiative.
           </p>

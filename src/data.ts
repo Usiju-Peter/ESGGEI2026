@@ -147,6 +147,8 @@ Pearl began her career teaching at Nigerian Air Force Primary and Secondary Scho
 
 Deeply committed to the belief that quality education and sustainable livelihoods are powerful catalysts for national development, Pearl continues to bridge grassroots action with strategic leadership to create lasting, measurable transformation in Nigeria.`,
     image: "/images/team/pearl-chukwuka.jpg",
+    imageWidth: 640,
+    imageHeight: 800,
   },
   {
     id: "kelvin",
@@ -163,6 +165,8 @@ He also leverages digital tools and data management practices to improve farm ef
 
 At the Nigerian Armed Forces Resettlement Centre, Oshodi, Lagos, he has successfully led daily farm operations, overseeing activities from nursery development to large-scale harvest logistics, demonstrating strong leadership, organizational, and technical capabilities in dynamic agricultural environments.`,
     image: "/images/team/kelvin-iduemre.jpg",
+    imageWidth: 600,
+    imageHeight: 800,
   },
   {
     id: "samuel",
@@ -171,6 +175,8 @@ At the Nigerian Armed Forces Resettlement Centre, Oshodi, Lagos, he has successf
     shortBio: "Committed to advancing ESGGEI’s mission through service, community engagement, and sustainable development.",
     fullBio: "Committed to advancing ESGGEI’s mission through service, community engagement, and sustainable development. Works closely with field operatives and partners to ensure project successful delivery and impact continuity.",
     image: "/images/team/samuel-chukwuka.jpg",
+    imageWidth: 533,
+    imageHeight: 800,
   }
 ];
 

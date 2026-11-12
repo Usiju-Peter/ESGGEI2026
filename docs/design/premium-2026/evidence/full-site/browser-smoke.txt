@@ -1,0 +1,13 @@
+Hydration diagnostics / []
+Hydration diagnostics /about []
+Hydration diagnostics /projects []
+Hydration diagnostics /projects/guruku-gbayi-outreach []
+Hydration diagnostics /gallery []
+Hydration diagnostics /blog []
+Hydration diagnostics /blog/from-purpose-to-action []
+Hydration diagnostics /team []
+Hydration diagnostics /partner []
+Hydration diagnostics /privacy []
+Mobile navigation, schema updates and mocked contact success/failure checks passed.
+FAQ keyboard and gallery focus wrapping, Escape and restoration passed.
+Browser SEO smoke test passed on 10 routes.

@@ -1,46 +1,90 @@
-# QA report: homepage approval checkpoint
+# QA report: full-site redesign
 
-Date: 12 November 2026. This is a tested homepage draft, not the completed site-wide redesign. Production is unchanged. Internal-page redesign and final production readiness are pending the Phase 14.5 homepage approval.
+12 November 2026. The user provisionally approved the homepage direction before internal-page implementation. All ten public routes now use the design system. This is a review build on redesign/premium-2026; production deployment requires separate explicit approval.
 
-## Verification performed
+## Build, preservation and functional verification
 
-- TypeScript: `npm run lint` passed.
-- Source SEO: `npm run seo:check` passed for ten routes.
-- Production build and prerendering: `npm run build` passed; `npm run seo:check-built` passed for ten routes.
-- `node scripts/site-quality.mjs` passed: ten structured-data documents, 248 internal links and 100 asset references.
-- `node scripts/browser-smoke.mjs` passed: ten routes, hydration, navigation, not-found state, mobile navigation, project FAQ and gallery keyboard/lightbox interactions. Contact submission success/error paths use mocked responses; no real message was sent and inbox delivery remains unverified.
-- `node scripts/analytics-check.mjs` passed using mocked Google endpoints: consent gating, withdrawal and redaction. No live GA4 account/property configuration was changed or verified.
-- `node scripts/design-regression.mjs` passed ten routes at 390, 768, 1024 and 1440px, increased text spacing at 390px and primary-action default/hover/focus contrast. Measured contrast: 11.77:1 default, 7.97:1 hover/focus.
-- `node scripts/accessibility.mjs` passed twenty axe scans (ten routes at 390 and 1440px), with no reported violations. Additional homepage axe scans at 390, 768 and 1440px found no violations using WCAG 2/2.1/2.2 A/AA tags. Automated results are not proof of complete WCAG compliance.
-- `node scripts/premium-check.mjs` checks the homepage at all eight requested widths, image loading, overflow, one main H1, JavaScript page errors, menu/Escape behavior and accessibility. Reduced-motion screenshots are stable. A follow-up check verifies reduced-motion animation suppression and normal-motion content/focus visibility.
+- TypeScript, source SEO, production build/prerendering and built HTML SEO checks passed for all ten routes.
+- Site-quality checks passed: ten route schema documents, 256 internal links and 101 local asset references. No URLs changed, so no new redirects were required.
+- Browser smoke passed across ten routes: hydration, navigation, metadata changes, mobile menu, FAQs, gallery keyboard behavior and mocked enquiry success/failure paths.
+- Analytics tests passed for consent, withdrawal, reacceptance and query redaction with Google endpoints mocked. No live GA4 account was configured or verified.
+- Content comparison against the preserved homepage-checkpoint revision 6008c01 found no missing main-content paragraphs, headings, list items or definition-list values across ten routes. Source data changes add verified portrait dimensions, not revised organisational claims.
+- Layout regression passed at 320, 390, 768, 1024 and 1440px, including increased text spacing at 390px. The homepage height budget was adjusted from 6500 to 6800px to accommodate 44px footer navigation targets; measured height at 390px was 6562px.
+- Interactive-state checks passed: keyboard skip link; all three biographies with focus wrapping, Escape and restoration; gallery arrow keys and restoration; required form validation; disabled sending state; error and accepted-message states; and copying the existing donation account number to the browser clipboard.
+- Contact requests were intercepted and mocked. No real enquiry was sent; actual inbox delivery and service activation remain unverified.
 
-## Actual screenshot review and iteration
+## Responsive screenshots and visual review
 
-Full-page Chromium screenshots were captured and visually inspected at 320, 375, 390, 430, 768, 1024, 1440 and 1920px. Review copies are in [screenshots](screenshots), with machine measurements in [evidence](evidence). No horizontal overflow, broken main images or JavaScript page errors occurred at these widths.
+The complete rendered matrix covers ten routes at 320, 375, 390, 430, 768, 1024, 1440 and 1920px: 80 full-page screenshots, with no horizontal overflow, missing main H1, broken main images, empty/placeholder anchors or JavaScript page errors. Text-spacing checks also passed at 320px. Evidence is in `evidence/full-site`; CI uploads full-resolution screenshots as artifacts. Committed screenshots are review copies, scaled on larger viewports to keep repository size reasonable.
 
-Initial critique found an awkward desktop headline wrap, a missing decorative glyph and a caption arrow that suggested interaction without a destination. Corrections: reduced the desktop headline maximum to 68px; replaced the unsupported glyph; turned the photo caption into a working gallery link. A final focus-state review changed dark-surface outlines to citrus. The rendered contrast check measured 9.25:1 for vision and footer links, exceeding the 3:1 indicator target. Final screenshots were captured after these corrections and reviewed again. Mobile uses stacked actions at narrow widths, smaller editorial headings, a two-column focus strip and a vertical involvement list. Tablet retains the split hero; its narrower headline column intentionally wraps to three lines. Desktop uses a two-line headline and larger photographic composition.
+Review used eight-width first-view contact sheets for every page and detailed full-page mobile/tablet/desktop captures. It checked heading wraps, alignment, gutters, section rhythm, image context/crops, form order, navigation and footer. Review corrections include the initial homepage headline wrap and caption interaction, dark-surface focus, article contents navigation, full-image decoding/painting for capture, responsive photographic derivatives and matching preload hints. Gallery and report captures were repeated at all eight widths after strengthening the paint/decode wait. One intermediate run overlapped a rebuild and produced a temporary 404; that run was discarded and rerun against a stable build.
 
-Anti-generic review: programme rows use rules and text instead of repeated rounded cards; about, outreach, vision, journal and involvement sections have distinct structures. The palette stays coherent across light, pale-green, emerald and citrus surfaces. Only existing documentary photographs are used. There are no fabricated counters, testimonials or partner logos. Remaining editorial limitation: outreach and journal photography comes from the same documented event; future approved photography would broaden the story.
+The About page has distinct narrative/principle/vision compositions; Projects uses a directory rather than repeated promotional cards; Gallery uses varied photo scale; the journal has one genuine feature; profiles use open portrait frames; Contact keeps direct access above the mobile enquiry flow; reports and privacy use restrained reading layouts. The repeated green/cream/citrus system is deliberate. There are no fabricated metrics, testimonials, partner logos or synthetic documentary images. The archive still centres on one outreach, limiting story variety.
+
+## Accessibility
+
+Thirty static axe scans covered all ten routes at 390, 768 and 1440px using WCAG 2/2.1/2.2 A/AA tags, with zero violations. Six additional interactive-state scans covered three biographies, gallery viewer, form failure and form success, also with zero violations. Existing keyboard/axe regression checks supplement these tests.
+
+Primary action text contrast: 11.77:1 default and 7.97:1 hover/focus. Dark-surface focus indicators measure 9.25:1. Visible gallery captions label their buttons directly. Reduced-motion support suppresses entrances and smooth anchor scrolling; meaningful content is present in prerendered HTML.
+
+These checks do not prove complete WCAG 2.2 AA conformance. A screen-reader session, native browser zoom review and physical-device testing remain outstanding. Narrow-layout reflow and increased text spacing were tested, rather than represented as a substitute for every assistive-technology scenario.
 
 ## Performance measurements
 
-Lighthouse 13.6.0 default mobile simulation, local built/prerendered pages, the same Chromium installation and machine. Baseline is the preserved pre-redesign commit 128992f; draft includes font preloads. Each configuration is a single run, not a statistical benchmark. Exact settings and measurement timestamps are recorded in `evidence/lighthouse-summary.json`.
+Lighthouse 13.6.0, default simulated mobile settings, Chromium, built/prerendered files served locally with gzip HTML/CSS/JS. Settings and timestamps are recorded in the evidence JSON. These are single-run lab observations on a shared execution host, not a statistical benchmark or real-user p75. Some first-sweep measurements overlapped other QA browsers; the three slowest LCP pages were repeated after those browsers closed.
 
-| Delivery | Page | Performance | Accessibility | Best practices | SEO | LCP | CLS | TBT |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Uncompressed local static server | Baseline | 87 | 100 | 100 | 100 | 4.12s | 0 | 4.5ms |
-| Uncompressed local static server | Initial draft | 84 | 100 | 100 | 100 | 4.61s | 0.00069 | 7ms |
-| Identical gzip HTML/CSS/JS delivery | Baseline | 100 | 100 | 100 | 100 | 1.92s | 0 | 47ms |
-| Identical gzip HTML/CSS/JS delivery | Draft with font preloads | 97 | 100 | 100 | 100 | 2.55s | 0 | 102.5ms |
+The first internal draft measured gallery performance 89 and article performance 84. Image and preload inspection found large originals still competing with previews. Responsive AVIF/WebP, portrait derivatives, corrected responsive preloads and a compact favicon were implemented. Originals remain available, including full-resolution gallery viewing.
 
-The draft adds 61,464 bytes of self-hosted WOFF2 fonts and a small amount of CSS/JS. The compressed comparison still shows a cost relative to baseline. Lab LCP is about 47ms above the 2.5s target; further deployed-network measurement and optimization remain required before production. TBT is not INP. No real-user p75 LCP/INP/CLS result is available, and the field Core Web Vitals targets are not claimed achieved. No runtime dependency was added for the new design or motion.
+| Route | Final sweep performance | LCP | CLS | TBT |
+| --- | --- | --- | --- | --- |
+| / | 92 | 2.75s | 0.000 | 238ms |
+| /about | 100 | 0.76s | 0.000 | 2ms |
+| /projects | 99 | 2.26s | 0.000 | 8ms |
+| /projects/guruku-gbayi-outreach | 99 | 0.76s | 0.000 | 148ms |
+| /gallery | 91 | 2.92s | 0.000 | 227ms |
+| /blog | 98 | 2.28s | 0.000 | 8ms |
+| /blog/from-purpose-to-action | 97 | 2.51s | 0.000 | 16ms |
+| /team | 98 | 2.25s | 0.000 | 112ms |
+| /partner | 100 | 0.76s | 0.000 | 86ms |
+| /privacy | 100 | 0.77s | 0.000 | 6ms |
 
-## Preservation and limits
+Every route scored 100 for accessibility, best practices and SEO in this sweep.
 
-The hosted preview returned HTTP 200 for all ten routes with their main headings, no horizontal overflow at 1440px and no JavaScript page errors. The new visual scope was present on home only.
+| Repeat without other QA browsers | Performance | LCP | CLS | TBT |
+| --- | --- | --- | --- | --- |
+| / | 96 | 2.60s | 0.000 | 79ms |
+| /gallery | 96 | 2.84s | 0.000 | 15ms |
+| /blog/from-purpose-to-action | 99 | 2.26s | 0.000 | 30ms |
 
-All ten URLs, reports, article records, contact details, footer social destinations, consent controls and form integration are retained. No production credentials, domain settings, contact recipient or donation details were changed. The existing committed privacy correction is preserved in the branch base.
+Homepage and gallery lab LCP remain above the 2.5s target in the repeat (approximately 2.60s and 2.84s). The article repeat was 2.26s. No field INP or p75 CWV result is available; TBT is not INP. Real-user targets are not claimed achieved. Compared with the previous compact gallery, the richer typography/composition still has a measured loading cost. Further deployed-network profiling is warranted rather than treating a 90+ score as proof of good field CWV.
 
-Browser automation used Chromium only; Safari/Firefox and physical-device testing remain outstanding. Screen-reader testing, a full manual keyboard audit, browser zoom review and end-to-end inbox delivery need additional validation. Reference analysis is based on rendered first-view desktop/mobile captures of Ecclesia, Charity:Water and Acumen; no claim is made to have exhaustively inspected their lower-page animations. Mobbin research was unavailable because the connection required a paid plan; no proprietary reference assets were copied.
+Pull-request Lighthouse now measures the built revision using the committed compressed-server runner. The weekly scheduled audit continues to measure production. A successful measurement workflow means reports were produced, not that every aspirational performance target was certified.
 
-The internal pages intentionally keep the previous visual system at this checkpoint. All-page screenshots at all eight widths, page-specific redesign, final consistency review, broader browser testing and final production QA are next-stage tasks after homepage approval. Design 9/10+ is an aspiration requiring human review, not a measured result. Search Console account state and GA4 account access were not independently verified in this redesign task.
+## Critical design review
+
+These are provisional reviewer judgements, not objective measurements or an independent design award. The homepage direction has user approval; the complete site awaits review.
+
+| Category | Provisional judgement | Reason / remaining constraint |
+| --- | --- | --- |
+| Visual sophistication | 8.5/10 | Cohesive art direction; archive breadth limits storytelling variety |
+| Brand distinctiveness | 8.5/10 | Original editorial system and recognisable logo; no custom commissioned visual library |
+| Typography | 9/10 | Consistent fluid hierarchy, deliberate wrapping and comfortable article measures |
+| Colour harmony | 9/10 | Controlled emerald/citrus/cream surfaces and measured contrast |
+| Layout composition | 8.5/10 | Distinct page types; long institutional content still produces substantial mobile pages |
+| Motion | 8.5/10 | Intentional, restrained and reduced-motion aware; no unnecessary elaborate effects |
+| Mobile experience | 9/10 | Eight-width reflow, spacing, menu and target checks; physical devices still need review |
+| Navigation/usability | 9/10 | Clear native links, anchors, contents navigation, dialogs and contact states |
+| Content clarity | 8.5/10 | Clear programme priorities versus documented work; existing long prose retained |
+| Institutional credibility | 8/10 | Genuine work, team and contact details; more verified outcomes/reports would strengthen it |
+
+The 9+/10 aspiration has not been declared objectively achieved. Future refinements should be driven by owner feedback, approved organisational evidence and actual visitors, not invented content or decorative complexity.
+
+## Browser and release limits
+
+Chromium was exercised. Firefox and WebKit downloads were attempted. Firefox could not open its profile folder in this runtime, including a retry with a workspace profile. WebKit could not launch because the host lacks libgtk-4, libgraphene, libharfbuzz-icu, libmanette, libhyphen and libGLESv2. The scoped package installer was unavailable. These are recorded limits; Safari/Firefox compatibility is not claimed verified.
+
+No credentials were added or changed. The public Google verification token, original contact recipient, donation values, social profiles and content records are retained. A dedicated historical repository secret scan was not performed. Search Console account status, GA4 property configuration, live inbox delivery and real-user CWV require separate account/service evidence.
+
+Reference analysis uses actual desktop/mobile captures of Ecclesia, Charity:Water and Acumen. Lower-page reference motion was not exhaustively audited; no proprietary reference asset or exact layout was copied. Mobbin research was unavailable because it required a paid plan.
+
+Before production: review the complete preview, accept or refine the remaining design/performance limits, obtain explicit deployment approval, deploy the approved revision, and repeat hosted smoke/SEO/image checks. Production is unchanged at the time of this report.

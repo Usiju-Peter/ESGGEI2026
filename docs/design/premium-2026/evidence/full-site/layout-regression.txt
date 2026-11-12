@@ -1,0 +1,8 @@
+Responsive layout passed at 320px across 10 routes.
+Responsive layout passed at 390px across 10 routes.
+Responsive layout passed at 768px across 10 routes.
+Responsive layout passed at 1024px across 10 routes.
+Primary action default: 11.77:1
+Primary action hover: 7.97:1
+Primary action focus: 7.97:1
+Responsive layout passed at 1440px across 10 routes.

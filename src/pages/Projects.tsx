@@ -15,15 +15,16 @@ export default function Projects() {
   return (
     <>
       <PageHero
+        badge="02 / Programmes & documented work"
         title="Our Projects"
         subtitle="Explore a documented outreach and the programme priorities guiding our work with communities."
       />
-      <section className="section section-white">
+      <section className="section section-white projects-feature-section">
         <div className="site-container">
           <ProjectFeature />
         </div>
       </section>
-      <section className="section">
+      <section className="section programme-directory">
         <div className="site-container">
           <SectionHeading eyebrow="Areas of focus" title="Programme priorities">
             <p>
@@ -31,16 +32,28 @@ export default function Projects() {
               ask about current activities or discuss a partnership.
             </p>
           </SectionHeading>
-          <div className="grid gap-6">
-            {projectsData.map((programme) => {
+          <nav className="section-nav" aria-label="Programme priorities">
+            {projectsData.map((p) => (
+              <a key={p.id} href={`#${p.id}`}>
+                {p.id === "education"
+                  ? "Education"
+                  : p.id === "agriculture"
+                    ? "Agriculture"
+                    : "Gender equity"}
+              </a>
+            ))}
+          </nav>
+          <div className="programme-entries">
+            {projectsData.map((programme, index) => {
               const Icon = programme.icon;
               return (
                 <article
                   id={programme.id}
                   key={programme.id}
-                  className="card programme-detail"
+                  className="programme-detail"
                 >
                   <div>
+                    <p className="eyebrow">Programme priority / 0{index + 1}</p>
                     <Icon
                       size={28}
                       className="programme-icon mb-4"

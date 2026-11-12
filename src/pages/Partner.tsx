@@ -82,10 +82,11 @@ export default function Partner() {
   return (
     <>
       <PageHero
+        badge="06 / Let’s work together"
         title="Contact Us"
         subtitle="Talk to the ESGGEI team about partnerships, volunteering or our community work."
       />
-      <section className="section section-white">
+      <section className="section section-white contact-main">
         <div className="site-container contact-layout">
           <div className="contact-direct contact-details">
             <div>
@@ -241,7 +242,7 @@ export default function Partner() {
           </div>
         </div>
       </section>
-      <section className="section">
+      <section className="section support-section">
         <div className="site-container grid gap-8 md:grid-cols-2 md:gap-12">
           <div>
             <SectionHeading title="Support our work">

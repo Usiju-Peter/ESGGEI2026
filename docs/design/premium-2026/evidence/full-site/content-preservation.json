@@ -1,0 +1,52 @@
+[
+  {
+    "route": "/",
+    "checked": 38,
+    "missing": []
+  },
+  {
+    "route": "/about",
+    "checked": 35,
+    "missing": []
+  },
+  {
+    "route": "/projects",
+    "checked": 44,
+    "missing": []
+  },
+  {
+    "route": "/projects/guruku-gbayi-outreach",
+    "checked": 13,
+    "missing": []
+  },
+  {
+    "route": "/gallery",
+    "checked": 5,
+    "missing": []
+  },
+  {
+    "route": "/blog",
+    "checked": 7,
+    "missing": []
+  },
+  {
+    "route": "/blog/from-purpose-to-action",
+    "checked": 24,
+    "missing": []
+  },
+  {
+    "route": "/team",
+    "checked": 11,
+    "missing": []
+  },
+  {
+    "route": "/partner",
+    "checked": 23,
+    "missing": []
+  },
+  {
+    "route": "/privacy",
+    "checked": 13,
+    "missing": []
+  }
+]

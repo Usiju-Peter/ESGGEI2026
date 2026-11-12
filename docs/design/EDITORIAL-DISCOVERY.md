@@ -62,3 +62,5 @@ Motion should be progressive enhancement: content visible in static HTML, modest
 Capture all ten routes at mobile/tablet/desktop; check all eight requested widths (320,375,390,430,768,1024,1440,1920), increased text spacing and zoom. Keep existing source/built SEO checks and interaction tests; add semantic-token contrast checks including hover/focus, content-preservation checks and reduced-motion verification. Measure lab performance before and after with the same configuration. Field p75 targets remain unconfirmed until sufficient real-user data exists. Aesthetic 9/10 is an ambition, not a test result.
 
 The continuation brief supplies Phases 11–16. Implementation pauses at the explicit Phase 14.5 homepage approval checkpoint before extending the visual system to internal pages.
+
+12 November 2026 continuation: the user provisionally approved the homepage direction, subject to change, and authorised internal-page implementation. The full-site design and QA documentation is in premium-2026/. Production publication remains a separate approval.

@@ -7,7 +7,7 @@ export default function Privacy() {
     "How ESGGEI’s website handles enquiries, optional analytics and your privacy choices.",
   );
   return (
-    <article className="section section-white">
+    <article className="section section-white policy-page">
       <div className="site-container reading-width reading-copy space-y-5">
         <h1 className="page-title">Website privacy notice</h1>
         <p>

@@ -2,7 +2,11 @@ import { useCallback, useState } from "react";
 import { X } from "lucide-react";
 import { teamData } from "../data";
 import { useDialogFocus } from "../lib/useDialogFocus";
-export default function TeamGrid() {
+export default function TeamGrid({
+  summaries = false,
+}: {
+  summaries?: boolean;
+}) {
   const [selected, setSelected] = useState<(typeof teamData)[number] | null>(
     null,
   );
@@ -12,18 +16,23 @@ export default function TeamGrid() {
     <>
       <div className="team-grid">
         {teamData.map((member) => (
-          <article className="card team-card" key={member.id}>
+          <article className="team-card" key={member.id}>
             <img
-              src={member.image}
+              src={member.image
+                .replace(".jpg", "-full.webp")
+                .replace("/team/", "/team/previews/")}
+              srcSet={`${member.image.replace(".jpg", "-480.webp").replace("/team/", "/team/previews/")} 480w, ${member.image.replace(".jpg", "-full.webp").replace("/team/", "/team/previews/")} ${member.imageWidth}w`}
+              sizes="(max-width: 767px) calc(100vw - 40px), 33vw"
               alt={member.name}
-              width="640"
-              height="480"
+              width={member.imageWidth}
+              height={member.imageHeight}
               loading="lazy"
               decoding="async"
             />
             <div className="team-card-copy">
               <h3 className="card-title">{member.name}</h3>
               <p>{member.role}</p>
+              {summaries && <p className="team-summary">{member.shortBio}</p>}
               <button
                 type="button"
                 className="button button-text"

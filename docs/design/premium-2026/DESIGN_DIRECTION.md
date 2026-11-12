@@ -27,3 +27,7 @@ Emerald editorial mastheads, citrus action surfaces, warm neutral reading areas 
 Motion should be progressive enhancement: content visible in static HTML, modest opacity/transform entrances, native navigation and accordion semantics, reduced-motion handling and no scroll hijacking. No new animation dependency is necessary unless measured implementation needs it.
 
 Chosen checkpoint direction: A, emerald and citrus. Manrope headings and DM Sans body use self-hosted Latin variable WOFF2 files with OFL licenses. The logo remains unchanged. Photographs are existing ESGGEI assets. No copied reference assets, invented statistics, testimonials or affiliations.
+
+## Approved direction and full-site extension
+
+The user provisionally approved direction A and the homepage composition on 12 November 2026, subject to later refinement. The implementation now carries this system across all ten routes. Institutional copy uses open columns and rules; documented outreach has photographic emphasis; long articles favour reading comfort; contact uses a clear labelled form. Citrus marks involvement and vision instead of appearing as a random accent everywhere. Photography remains the existing ESGGEI archive and portraits. Available evidence is concentrated in one outreach, which limits storytelling variety; no new story, statistic or testimonial was invented to hide that limitation.
