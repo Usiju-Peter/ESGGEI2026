@@ -11,7 +11,8 @@
     "lint": "tsc --noEmit",
     "seo:check": "node scripts/generate-sitemap.mjs --check && node scripts/seo-check.mjs",
     "seo:sitemap": "node scripts/generate-sitemap.mjs",
-    "prebuild": "node scripts/generate-sitemap.mjs"
+    "prebuild": "node scripts/generate-sitemap.mjs",
+    "seo:check-built": "node scripts/seo-check-built.mjs"
   },
   "dependencies": {
     "@google/genai": "^2.4.0",
