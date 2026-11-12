@@ -146,7 +146,7 @@ Her entrepreneurial track record includes successfully founding and managing Ear
 Pearl began her career teaching at Nigerian Air Force Primary and Secondary Schools, where she inspired students through engaging instruction, mentorship, and holistic development programs. She holds a Master’s degree in Educational Planning and Administration, complemented by qualifications in Education and Sociology.
 
 Deeply committed to the belief that quality education and sustainable livelihoods are powerful catalysts for national development, Pearl continues to bridge grassroots action with strategic leadership to create lasting, measurable transformation in Nigeria.`,
-    image: "https://i.postimg.cc/xdG7Npbx/IMG-20260612-WA0097.jpg",
+    image: "/images/team/pearl-chukwuka.jpg",
   },
   {
     id: "kelvin",
@@ -162,7 +162,7 @@ Kelvin’s professional background spans the full spectrum of greenhouse and ope
 He also leverages digital tools and data management practices to improve farm efficiency and decision-making.
 
 At the Nigerian Armed Forces Resettlement Centre, Oshodi, Lagos, he has successfully led daily farm operations, overseeing activities from nursery development to large-scale harvest logistics, demonstrating strong leadership, organizational, and technical capabilities in dynamic agricultural environments.`,
-    image: "https://i.postimg.cc/bNM47thb/IMG-20260612-WA0099.jpg",
+    image: "/images/team/kelvin-iduemre.jpg",
   },
   {
     id: "samuel",
@@ -170,7 +170,7 @@ At the Nigerian Armed Forces Resettlement Centre, Oshodi, Lagos, he has successf
     role: "ESGGEI Leadership Team",
     shortBio: "Committed to advancing ESGGEI’s mission through service, community engagement, and sustainable development.",
     fullBio: "Committed to advancing ESGGEI’s mission through service, community engagement, and sustainable development. Works closely with field operatives and partners to ensure project successful delivery and impact continuity.",
-    image: "https://i.postimg.cc/90QvhP0n/IMG-20260612-WA0098.jpg",
+    image: "/images/team/samuel-chukwuka.jpg",
   }
 ];
 

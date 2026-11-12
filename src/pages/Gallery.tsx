@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import PageHero from "../components/PageHero";
@@ -6,29 +6,38 @@ import { galleryImages } from "../data";
 import { useSEO } from "../lib/seo";
 
 export default function Gallery() {
-  useSEO("Gallery", "Explore moments from EarthSprings Global Grace Empowerment Initiative's outreach and community work.");
+  useSEO(
+    "Gallery",
+    "Explore moments from EarthSprings Global Grace Empowerment Initiative's outreach and community work.",
+  );
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const previousFocusRef = useRef<HTMLElement | null>(null);
   const isLightboxOpen = activeIndex !== null;
-  const featuredImage = galleryImages[0];
+  const featuredIndex = 24;
+  const featuredImage = galleryImages[featuredIndex];
 
   const closeLightbox = () => setActiveIndex(null);
   const showPrevious = () => {
     setActiveIndex((current) =>
-      current === null ? null : (current - 1 + galleryImages.length) % galleryImages.length
+      current === null
+        ? null
+        : (current - 1 + galleryImages.length) % galleryImages.length,
     );
   };
   const showNext = () => {
     setActiveIndex((current) =>
-      current === null ? null : (current + 1) % galleryImages.length
+      current === null ? null : (current + 1) % galleryImages.length,
     );
   };
 
   useEffect(() => {
     if (!isLightboxOpen) return;
 
-    previousFocusRef.current = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    previousFocusRef.current =
+      document.activeElement instanceof HTMLElement
+        ? document.activeElement
+        : null;
     const originalBodyOverflow = document.body.style.overflow;
     const originalHtmlOverflow = document.documentElement.style.overflow;
     document.body.style.overflow = "hidden";
@@ -36,10 +45,18 @@ export default function Gallery() {
 
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Tab") {
-        const controls = document.querySelectorAll<HTMLButtonElement>('[role="dialog"] button');
-        const first = controls[0], last = controls[controls.length - 1];
-        if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last?.focus(); }
-        else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus(); }
+        const controls = document.querySelectorAll<HTMLButtonElement>(
+          '[role="dialog"] button',
+        );
+        const first = controls[0],
+          last = controls[controls.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last?.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first?.focus();
+        }
       }
       if (event.key === "Escape") closeLightbox();
       if (event.key === "ArrowLeft") showPrevious();
@@ -64,16 +81,14 @@ export default function Gallery() {
       <PageHero
         title="Gallery"
         subtitle="Moments from our work, outreach and community."
-        image="/images/gallery/outreach-03.webp"
       />
 
-      <section className="bg-white py-14 md:py-20">
-        <p className="mx-auto mb-8 max-w-7xl px-6 text-primary"><Link className="font-semibold underline underline-offset-4" to="/projects/guruku-gbayi-outreach">Read the context behind these outreach photographs</Link></p>
-        <div className="mx-auto grid max-w-7xl items-center gap-9 px-6 lg:grid-cols-[1.25fr_0.75fr] lg:px-8">
+      <section className="section section-white">
+        <div className="site-container grid items-center gap-6 md:grid-cols-2 md:gap-10">
           <button
             type="button"
-            onClick={() => setActiveIndex(0)}
-            className="group relative aspect-[4/3] overflow-hidden rounded-[1.5rem] bg-beige text-left shadow-sm transition-shadow duration-300 hover:shadow-xl focus:outline-none focus-visible:ring-4 focus-visible:ring-terra/40"
+            onClick={() => setActiveIndex(featuredIndex)}
+            className="group relative aspect-[4/3] overflow-hidden rounded-[1.5rem] bg-beige text-left transition-shadow duration-150 hover:shadow-md focus:outline-none focus-visible:ring-4 focus-visible:ring-terra/40"
             aria-label={`Open featured image: ${featuredImage.alt}`}
           >
             <img
@@ -87,24 +102,31 @@ export default function Gallery() {
             />
           </button>
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#87521f]">Featured</p>
-            <h2 className="mt-3 font-serif text-4xl leading-tight text-forest">Recent Outreach</h2>
-            <p className="mt-5 text-base leading-relaxed text-charcoal/75">
-              Guruku Gbayi Community, Karu LGA, Nasarawa State &middot; June 2026
+            <p className="eyebrow">Featured</p>
+            <h2 className="section-title">Recent Outreach</h2>
+            <p className="mt-4 text-muted">
+              Guruku Gbayi Community, Karu LGA, Nasarawa State &middot; June
+              2026
             </p>
+            <Link
+              className="button button-text mt-3"
+              to="/projects/guruku-gbayi-outreach"
+            >
+              Read the outreach report
+            </Link>
           </div>
         </div>
       </section>
 
-      <section className="bg-cream py-16 md:py-24">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="columns-2 gap-5 md:gap-7 lg:columns-3 2xl:columns-4">
+      <section className="section">
+        <div className="site-container">
+          <div className="columns-2 gap-4 md:columns-3 lg:columns-4">
             {galleryImages.map((image, index) => (
               <button
                 key={image.src}
                 type="button"
                 onClick={() => setActiveIndex(index)}
-                className="group relative mb-4 block w-full break-inside-avoid overflow-hidden rounded-[1.25rem] bg-beige text-left shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg focus:outline-none focus-visible:ring-4 focus-visible:ring-terra/40 md:mb-6"
+                className="group relative mb-4 block w-full break-inside-avoid overflow-hidden rounded-xl bg-beige text-left focus-visible:ring-4 focus-visible:ring-primary/40"
                 aria-label={`Open image ${index + 1}: ${image.alt}`}
               >
                 <img
@@ -129,11 +151,15 @@ export default function Gallery() {
           role="dialog"
           aria-modal="true"
           aria-label="Gallery image viewer"
+          aria-describedby="gallery-caption"
           onMouseDown={(event) => {
             if (event.target === event.currentTarget) closeLightbox();
           }}
         >
-          <div className="relative flex h-full w-full max-w-6xl items-center justify-center" onMouseDown={(event) => event.stopPropagation()}>
+          <div
+            className="relative flex h-full w-full max-w-6xl items-center justify-center"
+            onMouseDown={(event) => event.stopPropagation()}
+          >
             <button
               ref={closeButtonRef}
               type="button"
@@ -156,8 +182,14 @@ export default function Gallery() {
               alt={activeImage.alt}
               width={activeImage.width}
               height={activeImage.height}
-              className="max-h-full max-w-full rounded-xl object-contain shadow-2xl"
+              className="max-h-[calc(100%_-_5rem)] max-w-full rounded-xl object-contain"
             />
+            <p
+              id="gallery-caption"
+              className="absolute bottom-0 max-w-3xl rounded-lg bg-charcoal/90 px-4 py-2 text-center text-sm text-white"
+            >
+              {activeImage.alt}
+            </p>
             <button
               type="button"
               onClick={showNext}

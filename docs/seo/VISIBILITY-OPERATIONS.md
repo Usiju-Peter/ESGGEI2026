@@ -75,3 +75,6 @@ Before using any draft, confirm that the page is live, the destination and accou
 ## Validation evidence
 
 Local TypeScript, source SEO/sitemap checks, production build and ten-route prerender checks passed. The site-quality check validated 10 route schemas, 299 internal links and 111 local asset references. Axe completed 20 scans (10 routes at mobile and desktop widths) with zero detected A/AA violations; 14 incomplete checks remain human-review items. Chromium checks passed all routes with no observed hydration or runtime errors, plus mobile navigation, route-schema updates, mocked contact success/failure/ambiguous responses, FAQ keyboard activation, gallery focus wrapping/Escape/restoration and HTTP 404. Analytics consent/withdrawal/redaction checks passed with Google requests mocked. These tests do not confirm actual email delivery, Google indexing, GA4 delivery or full assistive-technology conformance.
+
+## Design follow-up
+See [the site design refinement](../design/SITE-REFINEMENT.md) for the layout changes, retained content and measured before/after comparison. The earlier build-rate blocker described above is historical: commit `18d1565` was subsequently deployed and checked on the public domain.
