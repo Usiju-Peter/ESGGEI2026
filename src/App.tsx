@@ -4,7 +4,6 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import AnalyticsConsent from "./components/AnalyticsConsent";
 import Breadcrumbs from './components/Breadcrumbs';
-import { MotionConfig } from "motion/react";
 import Home from "./pages/Home";
 
 const Outreach = lazy(() => import('./pages/Outreach'));
@@ -89,5 +88,5 @@ export function AppContent() {
 
 
 export default function App() {
-  return <Router><MotionConfig reducedMotion="user"><AppContent /></MotionConfig></Router>;
+  return <Router><AppContent /></Router>;
 }
