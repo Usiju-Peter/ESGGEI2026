@@ -283,17 +283,7 @@ export default function Partner() {
               </div>
 
               <div className="grid grid-cols-2 gap-4 my-2">
-                <a 
-                  href="https://facebook.com" 
-                  target="_blank" 
-                  rel="noreferrer" 
-                  className="p-6 bg-[#1877F2]/5 hover:bg-[#1877F2]/10 border border-transparent hover:border-[#1877F2]/30 rounded-2xl flex flex-col items-center justify-center text-center transition-all group scale-100 hover:scale-[1.02]"
-                >
-                  <div className="w-12 h-12 rounded-full bg-[#1877F2] text-white flex items-center justify-center shadow-md mb-3 group-hover:scale-110 transition-transform">
-                    <Facebook size={22} fill="currentColor" stroke="none" />
-                  </div>
-                  <span className="font-serif font-bold text-primary block text-base md:text-lg">Facebook</span>
-                </a>
+                
 
                 <a 
                   href="https://www.instagram.com/esggei/" 
