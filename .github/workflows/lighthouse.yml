@@ -42,6 +42,7 @@ jobs:
               fcpMs: report.audits['first-contentful-paint']?.numericValue,
               speedIndexMs: report.audits['speed-index']?.numericValue,
               accessibilityFindings: (report.categories.accessibility?.auditRefs ?? []).filter(x => report.audits[x.id]?.score !== null && report.audits[x.id]?.score < 1).map(x => ({ id:x.id,title:report.audits[x.id]?.title,score:report.audits[x.id]?.score,description:report.audits[x.id]?.description })).slice(0,20),
+              contrastNodes: (report.audits['color-contrast']?.details?.items ?? []).slice(0,25).map(x => ({ selector:x.node?.selector, snippet:x.node?.snippet, explanation:x.node?.explanation, failureSummary:x.node?.failureSummary })),
               diagnostics: report.runWarnings
             },null,2));
           }
