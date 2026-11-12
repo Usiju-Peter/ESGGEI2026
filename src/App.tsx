@@ -1,16 +1,16 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
-import { useEffect, lazy, Suspense } from "react";
+import { useEffect } from "react";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
 
-const About = lazy(() => import("./pages/About"));
-const Projects = lazy(() => import("./pages/Projects"));
-const Gallery = lazy(() => import("./pages/Gallery"));
-const Blog = lazy(() => import("./pages/Blog"));
-const BlogArticle = lazy(() => import("./pages/BlogArticle"));
-const Team = lazy(() => import("./pages/Team"));
-const Partner = lazy(() => import("./pages/Partner"));
+import About from "./pages/About";
+import Projects from "./pages/Projects";
+import Gallery from "./pages/Gallery";
+import Blog from "./pages/Blog";
+import BlogArticle from "./pages/BlogArticle";
+import Team from "./pages/Team";
+import Partner from "./pages/Partner";
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
@@ -59,7 +59,6 @@ export function AppContent() {
       <div className="flex flex-col min-h-screen">
         <Navbar />
         <main id="main-content" tabIndex={-1} className="flex-grow outline-none">
-          <Suspense fallback={<div className="h-screen w-full flex items-center justify-center">Loading...</div>}>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
@@ -70,7 +69,6 @@ export function AppContent() {
               <Route path="/team" element={<Team />} />
               <Route path="/partner" element={<Partner />} />
             </Routes>
-          </Suspense>
         </main>
         <Footer />
       </div>
