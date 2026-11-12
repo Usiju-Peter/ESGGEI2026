@@ -1,0 +1,33 @@
+import assert from 'node:assert/strict';
+import express from 'express';
+import { build } from 'esbuild';
+import { chromium } from 'playwright';
+const result = await build({ entryPoints: ['src/lib/analytics.ts'], bundle: true, format: 'esm', write: false, define: { 'import.meta.env.VITE_GA4_MEASUREMENT_ID': '"G-TEST123"' } });
+const app = express();
+app.get('/analytics.js', (_req, res) => res.type('js').send(result.outputFiles[0].text));
+app.get('/test', (_req, res) => res.send('<html><head><title>Analytics test</title></head><body><h1>Test</h1></body></html>'));
+const server = app.listen(4175, '127.0.0.1');
+const browser = await chromium.launch();
+try {
+  const context = await browser.newContext();
+  const page = await context.newPage();
+  const googleRequests = [];
+  await page.route(/https:\/\/.*google.*/, route => { googleRequests.push(route.request().url()); return route.fulfill({ body: '', contentType: 'application/javascript' }); });
+  await page.goto('http://127.0.0.1:4175/test?email=private@example.com#private');
+  await page.evaluate(async () => { window.analytics = await import('/analytics.js'); window.analytics.trackPageView(); });
+  assert.equal(googleRequests.length, 0, 'No tracking before consent');
+  await page.evaluate(() => { window.analytics.setAnalyticsConsent('accepted'); window.analytics.trackPageView(); });
+  await page.waitForTimeout(300);
+  assert.equal(googleRequests.length, 1, 'Load GA only once after acceptance');
+  const views = await page.evaluate(() => window.dataLayer.filter(x => x[1] === 'page_view'));
+  assert.equal(views.length, 1);
+  assert.equal(views[0][2].page_location, 'http://127.0.0.1:4175/test');
+  await page.evaluate(() => { window.analytics.setAnalyticsConsent('declined'); window.analytics.trackPageView(); });
+  assert.equal(await page.evaluate(() => window['ga-disable-G-TEST123']), true);
+  assert.equal(await page.evaluate(() => window.dataLayer.filter(x => x[1] === 'page_view').length), 1);
+  await page.evaluate(() => { window.analytics.setAnalyticsConsent('accepted'); window.analytics.trackPageView(); });
+  assert.equal(await page.evaluate(() => window['ga-disable-G-TEST123']), false);
+  assert.equal(googleRequests.length, 1);
+  await context.close();
+  console.log('Consent, withdrawal, reacceptance and query redaction passed (Google requests mocked).');
+} finally { await browser.close(); server.close(); }

@@ -21,7 +21,7 @@ export default function Projects() {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="mb-12 flex items-center space-x-4">
               <div className="h-[3px] w-16 bg-terra" />
-              <span className="font-sans text-sm font-black uppercase tracking-[0.3em] text-terra">Featured Project</span>
+              <span className="font-sans text-sm font-black uppercase tracking-[0.3em] text-[#87521f]">Featured Project</span>
             </div>
             <div className="flex flex-col items-center gap-12 lg:flex-row lg:gap-12">
               <div className="group relative w-full overflow-hidden rounded-[1.5rem] bg-beige shadow-[0_16px_40px_rgba(212,168,79,0.12)] lg:w-1/2">
@@ -38,11 +38,11 @@ export default function Projects() {
                 <p className="mt-7 text-lg font-light leading-relaxed text-charcoal/70">{featuredProject.description}</p>
                 <dl className="mt-10 space-y-5 border-l-2 border-primary/20 pl-5">
                   <div>
-                    <dt className="text-xs font-semibold uppercase tracking-widest text-primary/50">Location</dt>
+                    <dt className="text-xs font-semibold uppercase tracking-widest text-primary/80">Location</dt>
                     <dd className="mt-1 font-serif text-lg text-charcoal/80">{featuredProject.location}</dd>
                   </div>
                   <div>
-                    <dt className="text-xs font-semibold uppercase tracking-widest text-primary/50">Date</dt>
+                    <dt className="text-xs font-semibold uppercase tracking-widest text-primary/80">Date</dt>
                     <dd className="mt-1 font-serif text-lg text-charcoal/80">{featuredProject.date}</dd>
                   </div>
                 </dl>
@@ -58,9 +58,9 @@ export default function Projects() {
       <AnimatedSection>
         <section className="border-y border-leaf/20 bg-leaf/10 py-20 text-center md:py-24">
           <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary-light">What is ahead</p>
-            <h2 className="mt-4 font-serif text-4xl font-semibold text-primary md:text-5xl">Upcoming Projects</h2>
-            <p className="mt-5 text-lg font-light leading-relaxed text-charcoal/70">Programme areas that guide the next stages of our work with communities.</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary">Areas of focus</p>
+            <h2 className="mt-4 font-serif text-4xl font-semibold text-primary md:text-5xl">Programme Priorities</h2>
+            <p className="mt-5 text-lg font-light leading-relaxed text-charcoal/70">Explore our programme areas below. To ask about current activities or discuss a partnership, contact our team.</p>
           </div>
         </section>
       </AnimatedSection>
@@ -97,15 +97,15 @@ export default function Projects() {
                 <div className="w-full md:w-1/2 py-8 relative">
                   <div className="flex items-center space-x-4 mb-6 relative z-10">
                     <div className={`h-[3px] w-16 transition-all ${idx === 0 ? 'bg-terra' : 'bg-primary-light'}`} />
-                    <span className={`font-sans font-black text-sm md:text-base uppercase tracking-[0.3em] transition-colors ${idx === 0 ? 'text-terra' : 'text-primary-light'}`}>
-                      Upcoming Project {String(idx + 1).padStart(2, '0')}
+                    <span className={`font-sans font-black text-sm md:text-base uppercase tracking-[0.3em] transition-colors ${idx === 0 ? 'text-[#87521f]' : 'text-primary-light'}`}>
+                      Programme Area {String(idx + 1).padStart(2, '0')}
                     </span>
                   </div>
                   <h2 className="text-3xl md:text-5xl font-serif font-bold text-primary mb-8 leading-tight relative z-10">{prog.title}</h2>
                   <p className="text-charcoal/70 text-lg leading-relaxed mb-10 font-light relative z-10">{prog.description}</p>
                   
                   <div className="mb-12 relative z-10">
-                    <h3 className="font-sans font-semibold text-primary/60 text-xs uppercase tracking-widest mb-6 border-b border-primary/20 pb-2">Key Activities</h3>
+                    <h3 className="font-sans font-semibold text-primary/80 text-xs uppercase tracking-widest mb-6 border-b border-primary/20 pb-2">Key Activities</h3>
                     <ul className="space-y-4">
                       {prog.keyActivities.map((act, i) => (
                         <li key={i} className="flex items-start">
@@ -118,11 +118,11 @@ export default function Projects() {
                   
                   <div className="grid grid-cols-2 gap-8 mb-12 relative z-10">
                     <div className="border-l-2 border-primary/20 pl-4">
-                      <span className="font-semibold text-primary/50 text-xs uppercase tracking-widest block mb-2">Target Group</span>
+                      <span className="font-semibold text-primary/80 text-xs uppercase tracking-widest block mb-2">Target Group</span>
                       <span className="text-charcoal/80 font-serif text-lg">{prog.supports}</span>
                     </div>
                     <div className="border-l-2 border-primary/20 pl-4">
-                      <span className="font-semibold text-primary/50 text-xs uppercase tracking-widest block mb-2">Desired Impact</span>
+                      <span className="font-semibold text-primary/80 text-xs uppercase tracking-widest block mb-2">Desired Impact</span>
                       <span className="text-charcoal/80 font-serif text-lg">{prog.expectedImpact}</span>
                     </div>
                   </div>

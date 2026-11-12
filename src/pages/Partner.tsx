@@ -228,20 +228,20 @@ export default function Partner() {
                     <div className="bg-primary/10 w-max p-2.5 rounded-2xl text-primary mb-6">
                       <CreditCard size={20} />
                     </div>
-                    <span className="text-xs uppercase tracking-[0.15em] text-primary/60 font-semibold block mb-5">Donation Account Details</span>
+                    <span className="text-xs uppercase tracking-[0.15em] text-primary/80 font-semibold block mb-5">Donation Account Details</span>
                     <div className="space-y-4 text-base">
                       <div className="flex flex-col sm:flex-row sm:items-baseline border-b border-gray-100 pb-3 gap-2">
-                        <span className="text-charcoal/40 font-semibold uppercase tracking-wider text-xs w-24 shrink-0">Bank</span>
+                        <span className="text-charcoal/70 font-semibold uppercase tracking-wider text-xs w-24 shrink-0">Bank</span>
                         <span className="text-primary font-serif font-semibold text-lg">Fidelity Bank</span>
                       </div>
                       
                       <div className="flex flex-col sm:flex-row sm:items-baseline border-b border-gray-100 pb-3 gap-2">
-                        <span className="text-charcoal/40 font-semibold uppercase tracking-wider text-xs w-24 shrink-0">Name</span>
+                        <span className="text-charcoal/70 font-semibold uppercase tracking-wider text-xs w-24 shrink-0">Name</span>
                         <span className="text-charcoal/80 font-medium font-serif leading-tight">Earthsprings Global Empowerment Initiative</span>
                       </div>
                       
                       <div className="flex flex-col sm:flex-row sm:items-baseline pb-1 gap-2">
-                        <span className="text-charcoal/40 font-semibold uppercase tracking-wider text-xs w-24 shrink-0">Account</span>
+                        <span className="text-charcoal/70 font-semibold uppercase tracking-wider text-xs w-24 shrink-0">Account</span>
                         <span className="font-mono text-primary font-bold text-xl tracking-wider select-all">5601549746</span>
                       </div>
                     </div>

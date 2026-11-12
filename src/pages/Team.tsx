@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useDialogFocus } from '../lib/useDialogFocus';
+import { useCallback, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Link } from "react-router-dom";
 import PageHero from "../components/PageHero";
@@ -10,6 +11,9 @@ import { useSEO } from "../lib/seo";
 export default function Team() {
   useSEO("Our Team", "Meet the dedicated team behind EarthSprings Global Grace Empowerment Initiative (ESGGEI) working to restore dignity and sustainable livelihood in communities.");
   const [selectedMember, setSelectedMember] = useState<typeof teamData[0] | null>(null);
+
+  const closeBiography = useCallback(() => setSelectedMember(null), []);
+  const dialogRef = useDialogFocus(selectedMember !== null, closeBiography);
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -49,7 +53,7 @@ export default function Team() {
                 </div>
                 <div className="flex flex-col flex-grow">
                   <h3 className="text-2xl font-serif font-medium text-primary mb-1 group-hover:text-primary-light transition-colors duration-300">{member.name}</h3>
-                  <p className="text-charcoal/50 uppercase tracking-[0.15em] text-[11px] mb-6">{member.role}</p>
+                  <p className="text-charcoal/70 uppercase tracking-[0.15em] text-[11px] mb-6">{member.role}</p>
                   <div className="flex-grow" />
                   <span className="text-primary group-hover:text-primary-light transition-colors text-left uppercase text-[11px] tracking-widest w-max pb-1 border-b border-primary/20 group-hover:border-primary">
                     Read Bio <span className="sr-only">for {member.name}</span>
@@ -110,6 +114,10 @@ export default function Team() {
               animate={{ opacity: 1, scale: 1, y: 0 }} 
               exit={{ opacity: 0, scale: 0.98, y: 20 }}
               transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              ref={dialogRef}
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="biography-title"
               className="bg-white w-full max-w-2xl max-h-[85vh] overflow-y-auto relative z-10 rounded-2xl shadow-2xl p-8 sm:p-12 border border-gray-100"
             >
               <button 
@@ -121,8 +129,8 @@ export default function Team() {
               </button>
               
               <div className="mb-8 text-left">
-                <h2 className="text-3xl sm:text-4xl font-serif font-semibold text-primary mb-2 tracking-tight">{selectedMember.name}</h2>
-                <p className="text-charcoal/40 tracking-[0.12em] uppercase text-xs font-semibold">{selectedMember.role}</p>
+                <h2 id="biography-title" className="text-3xl sm:text-4xl font-serif font-semibold text-primary mb-2 tracking-tight">{selectedMember.name}</h2>
+                <p className="text-charcoal/70 tracking-[0.12em] uppercase text-xs font-semibold">{selectedMember.role}</p>
                 <div className="h-1 w-12 bg-primary/20 rounded mt-4" />
               </div>
               <div className="prose prose-sm sm:prose-base prose-charcoal text-left">

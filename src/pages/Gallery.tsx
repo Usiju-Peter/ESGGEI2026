@@ -34,6 +34,12 @@ export default function Gallery() {
     document.documentElement.style.overflow = "hidden";
 
     const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Tab") {
+        const controls = document.querySelectorAll<HTMLButtonElement>('[role="dialog"] button');
+        const first = controls[0], last = controls[controls.length - 1];
+        if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last?.focus(); }
+        else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus(); }
+      }
       if (event.key === "Escape") closeLightbox();
       if (event.key === "ArrowLeft") showPrevious();
       if (event.key === "ArrowRight") showNext();
@@ -79,7 +85,7 @@ export default function Gallery() {
             />
           </button>
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-terra">Featured</p>
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#87521f]">Featured</p>
             <h2 className="mt-3 font-serif text-4xl leading-tight text-forest">Recent Outreach</h2>
             <p className="mt-5 text-base leading-relaxed text-charcoal/75">
               Guruku Gbayi Community, Karu LGA, Nasarawa State &middot; June 2026
