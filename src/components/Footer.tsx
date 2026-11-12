@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { navLinks } from "../data";
-import { Facebook, Instagram, Linkedin } from "lucide-react";
+import { Instagram, Linkedin } from "lucide-react";
 import type { SVGProps } from "react";
 
 const XIcon = (props: SVGProps<SVGSVGElement>) => (
@@ -84,17 +84,7 @@ export default function Footer() {
           <div>
             <h3 className="text-white font-serif font-semibold text-xl md:text-2xl mb-6">Social Media</h3>
             <div className="flex flex-col space-y-4">
-              <a 
-                href="https://facebook.com" 
-                target="_blank" 
-                rel="noreferrer"
-                className="group flex items-center space-x-3.5 text-cream/80 hover:text-white transition-colors text-base md:text-lg font-light w-max"
-              >
-                <div className="w-10 h-10 rounded-full bg-[#1877F2] text-white flex items-center justify-center shadow-md transition-all group-hover:scale-110 group-hover:shadow-[0_0_12px_rgba(24,119,242,0.6)]">
-                  <Facebook size={18} fill="currentColor" stroke="none" />
-                </div>
-                <span className="font-serif font-medium tracking-wide">Facebook</span>
-              </a>
+              
 
               <a 
                 href="https://x.com/esggei" 
