@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { buildStructuredData } from './structuredData';
 
 type SEOOptions = {
   path?: string;
@@ -50,5 +51,13 @@ export const useSEO = (title: string, description: string, options: SEOOptions =
       document.head.appendChild(canonical);
     }
     canonical.href = canonicalUrl;
+    let schema = document.getElementById('page-structured-data');
+    if (!schema) {
+      schema = document.createElement('script');
+      schema.id = 'page-structured-data';
+      schema.setAttribute('type', 'application/ld+json');
+      document.head.appendChild(schema);
+    }
+    schema.textContent = JSON.stringify(buildStructuredData(normalizedPath)).replace(/</g, '\\u003c');
   }, [title, description, options.path, options.image, options.type]);
 };

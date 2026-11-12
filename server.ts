@@ -41,7 +41,7 @@ async function startServer() {
     app.use(express.static(distPath));
     // Fallback for all other routes to index.html (SPA routing support)
     app.get("*", (req, res) => {
-      res.sendFile(path.join(distPath, "index.html"));
+      res.status(404).type("html").send('<h1>Page not found</h1><a href="/">Return to ESGGEI</a>');
     });
   }
 

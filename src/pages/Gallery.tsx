@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import PageHero from "../components/PageHero";
@@ -67,6 +68,7 @@ export default function Gallery() {
       />
 
       <section className="bg-white py-14 md:py-20">
+        <p className="mx-auto mb-8 max-w-7xl px-6 text-primary"><Link className="font-semibold underline underline-offset-4" to="/projects/guruku-gbayi-outreach">Read the context behind these outreach photographs</Link></p>
         <div className="mx-auto grid max-w-7xl items-center gap-9 px-6 lg:grid-cols-[1.25fr_0.75fr] lg:px-8">
           <button
             type="button"

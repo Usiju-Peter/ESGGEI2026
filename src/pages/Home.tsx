@@ -193,6 +193,7 @@ export default function Home() {
               <div className="relative z-10">
                 <h3 className="font-serif text-3xl font-semibold text-white md:text-4xl">A community outreach built around dignity.</h3>
                 <p className="mt-6 text-lg leading-relaxed text-cream/80">At the Integrated Agriculture &amp; Medical Outreach in Guruku Gbayi Community, Karu LGA, Nasarawa State, ESGGEI brought community members, volunteers, and health workers together for registration, health screening, care, and support. The outreach reflects what makes our approach distinct: connected services, community participation, and practical action that responds to real needs.</p>
+                <Link to="/projects/guruku-gbayi-outreach" className="mt-6 inline-block font-semibold text-white underline underline-offset-4">Read about the Guruku Gbayi outreach</Link>
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row"><Link to="/gallery" className="inline-flex items-center justify-center rounded-full bg-cream px-6 py-3 text-sm font-medium text-forest transition-colors hover:bg-white">View Outreach Photos</Link><Link to="/blog" className="inline-flex items-center justify-center rounded-full border border-cream/35 px-6 py-3 text-sm font-medium text-cream transition-colors hover:bg-cream hover:text-forest">Read Our Story</Link></div>
               </div>
             </div>

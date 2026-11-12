@@ -4,7 +4,7 @@ import express from 'express';
 import { resolve } from 'node:path';
 import { chromium } from 'playwright';
 import AxeBuilder from '@axe-core/playwright';
-const routes = ['/', '/about', '/projects', '/gallery', '/blog', '/blog/from-purpose-to-action', '/team', '/partner'];
+import { routes } from './routes.mjs';
 const app = express();
 app.use(express.static(resolve('dist')));
 const server = app.listen(4174, '127.0.0.1');

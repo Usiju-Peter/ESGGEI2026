@@ -3,16 +3,8 @@ import { readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 
 const base = 'https://www.esggei.org.ng';
-const pages = [
-  ['/', 'index.html'],
-  ['/about', 'about/index.html'],
-  ['/projects', 'projects/index.html'],
-  ['/gallery', 'gallery/index.html'],
-  ['/blog', 'blog/index.html'],
-  ['/blog/from-purpose-to-action', 'blog/from-purpose-to-action/index.html'],
-  ['/team', 'team/index.html'],
-  ['/partner', 'partner/index.html'],
-];
+import { routes } from './routes.mjs';
+const pages = routes.map(route => [route, route === '/' ? 'index.html' : route.slice(1) + '/index.html']);
 
 const sitemap = readFileSync('public/sitemap.xml', 'utf8');
 const robots = readFileSync('public/robots.txt', 'utf8');

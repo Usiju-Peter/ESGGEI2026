@@ -2,11 +2,11 @@ import assert from 'node:assert/strict';
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 
 const domain = 'https://www.esggei.org.ng';
-const basePages = ['/', '/about', '/projects', '/gallery', '/blog', '/team', '/partner'];
+import { routes as pages } from './routes.mjs';
 const source = readFileSync('src/blogData.ts', 'utf8');
-const slugs = [...source.matchAll(/^\s*slug:\s*["']([a-z0-9-]+)["']/gm)].map(m => m[1]);
-assert.equal(new Set(slugs).size, slugs.length, 'Duplicate blog slugs');
-const pages = [...basePages, ...slugs.map(slug => `/blog/${slug}`)];
+for (const [, slug] of source.matchAll(/^\s*slug:\s*["']([a-z0-9-]+)["']/gm)) {
+  assert.ok(pages.includes(`/blog/${slug}`), `Published article missing from route registry: ${slug}`);
+}
 assert.equal(new Set(pages).size, pages.length, 'Duplicate public routes');
 for (const route of pages) {
   const entry = route === '/' ? 'index.html' : `${route.slice(1)}/index.html`;

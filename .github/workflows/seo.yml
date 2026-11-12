@@ -19,6 +19,7 @@ jobs:
       - run: npm run lint
       - run: npm run build
       - run: npm run seo:check-built
+      - run: node scripts/site-quality.mjs
       - run: npx playwright install chromium
       - run: node scripts/browser-smoke.mjs
       - run: node scripts/analytics-check.mjs
