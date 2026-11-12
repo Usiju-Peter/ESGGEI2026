@@ -50,8 +50,9 @@ function ScrollToTop() {
 }
 
 export function AppContent() {
+  const { pathname } = useLocation();
   return (
-    <>
+    <div className={pathname === "/" ? "premium-site" : undefined}>
       <ScrollToTop />
       <AnalyticsConsent />
       {/* Skip-to-content link for keyboard accessibility (WCAG AA 2.4.1 compliance) */}
@@ -82,7 +83,7 @@ export function AppContent() {
         </main>
         <Footer />
       </div>
-    </>
+    </div>
   );
 }
 
