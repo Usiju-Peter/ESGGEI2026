@@ -28,11 +28,13 @@ try {
   });
 
   for (const route of routes) {
+    const beforeErrors = errors.length;
     const response = await page.goto(base + route, { waitUntil: 'networkidle' });
     assert.equal(response.status(), 200, route + ' must return HTTP 200');
     assert.equal(await page.locator('main h1').count(), 1, route + ' must have exactly one main H1');
     assert.equal(await page.locator('#root[data-prerendered="true"]').count(), 1, route + ' should hydrate an SSR root');
     await page.waitForTimeout(150);
+    console.log('Hydration diagnostics', route, errors.slice(beforeErrors));
   }
 
   await page.goto(base, { waitUntil: 'networkidle' });
