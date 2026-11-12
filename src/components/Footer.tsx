@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { navLinks } from "../data";
 import { Instagram, Linkedin } from "lucide-react";
 import type { SVGProps } from "react";
+import { analyticsConfigured } from "../lib/analytics";
 
 const XIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg
@@ -73,6 +74,7 @@ export default function Footer() {
                   www.esggei.org.ng
                 </Link>
               </li>
+              {analyticsConfigured && <li><button type="button" onClick={() => window.dispatchEvent(new Event('esggei:analytics-preferences'))} className="text-cream/80 hover:text-white underline underline-offset-4 focus-visible:outline focus-visible:outline-2">Analytics preferences</button></li>}
               <li className="text-cream/80 font-light leading-relaxed mt-4">
                 No 16 MD Umar Close,<br />
                 NAF Valley Estate.<br />
