@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useDialogFocus } from '../lib/useDialogFocus';
+import { useCallback, useState } from "react";
 import { motion } from "motion/react";
 import { X } from "lucide-react";
 import PageHero from "../components/PageHero";
@@ -10,6 +11,9 @@ import { teamData } from "../data";
 export default function About() {
   const [selectedMember, setSelectedMember] = useState<typeof teamData[0] | null>(null);
   useSEO("About Us", "Learn about EarthSprings Global Grace Empowerment Initiative (ESGGEI), our identity, story, vision, and mission to empower vulnerable communities through sustainable development.");
+  const closeBiography = useCallback(() => setSelectedMember(null), []);
+  const dialogRef = useDialogFocus(selectedMember !== null, closeBiography);
+
   return (
     <div className="flex flex-col min-h-screen">
       <PageHero 
@@ -28,7 +32,7 @@ export default function About() {
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               >
-                <span className="text-primary/50 text-[11px] uppercase tracking-[0.2em] mb-4 block font-semibold">Our Identity</span>
+                <span className="text-primary/80 text-[11px] uppercase tracking-[0.2em] mb-4 block font-semibold">Our Identity</span>
                 <h2 className="text-4xl font-serif font-semibold text-primary mb-8 leading-tight">Who We Are</h2>
                 <p className="text-charcoal/70 leading-relaxed text-lg font-light">
                   EarthSprings Global Grace Empowerment Initiative is a non-profit, non-governmental organization committed to transforming lives through empowerment programs that target vulnerable and marginalized populations. Our mission is rooted in promoting access to education, sustainable farming, gender equity, and social welfare for underserved communities across Nigeria and beyond.
@@ -40,7 +44,7 @@ export default function About() {
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
               >
-                <span className="text-primary/50 text-[11px] uppercase tracking-[0.2em] mb-4 block font-semibold">Our Origin</span>
+                <span className="text-primary/80 text-[11px] uppercase tracking-[0.2em] mb-4 block font-semibold">Our Origin</span>
                 <h2 className="text-4xl font-serif font-semibold text-primary mb-8 leading-tight">Our Story</h2>
                 <p className="text-charcoal/70 leading-relaxed text-lg font-light">
                   Across Nigeria’s rural communities, many families carry deep potential but face barriers such as poor access to education, low agricultural productivity, economic instability, limited resources, and social exclusion. ESGGEI was created to respond to these challenges with practical, compassionate, and sustainable interventions.
@@ -142,7 +146,7 @@ export default function About() {
                   className="bg-white/70 backdrop-blur-sm border border-primary/10 rounded-2xl p-8 hover:bg-white hover:border-primary/25 hover:shadow-[0_12px_30px_rgba(110,142,66,0.06)] hover:-translate-y-1 transition-all duration-300 flex flex-col gap-4 relative group overflow-hidden"
                 >
                   <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-full blur-2xl -mr-12 -mt-12 group-hover:bg-primary/8 transition-colors duration-300" />
-                  <span className="text-sm font-sans tracking-[0.2em] text-primary-light/65 font-bold">0{idx + 1}</span>
+                  <span className="text-sm font-sans tracking-[0.2em] text-primary-light font-bold">0{idx + 1}</span>
                   <h3 className="text-xl font-serif font-semibold text-primary">{aim.title}</h3>
                   <p className="text-charcoal/70 leading-relaxed font-light text-base">
                     {aim.desc}
@@ -196,9 +200,9 @@ export default function About() {
       {selectedMember && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6">
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.4 }} onClick={() => setSelectedMember(null)} className="absolute inset-0 bg-charcoal/80 backdrop-blur-sm" />
-          <motion.div initial={{ opacity: 0, scale: 0.98, y: 20 }} animate={{ opacity: 1, scale: 1, y: 0 }} transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }} className="relative z-10 max-h-[85vh] w-full max-w-2xl overflow-y-auto rounded-2xl border border-gray-100 bg-white p-8 shadow-2xl sm:p-12">
+          <motion.div initial={{ opacity: 0, scale: 0.98, y: 20 }} animate={{ opacity: 1, scale: 1, y: 0 }} transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }} ref={dialogRef} role="dialog" aria-modal="true" aria-labelledby="biography-title" className="relative z-10 max-h-[85vh] w-full max-w-2xl overflow-y-auto rounded-2xl border border-gray-100 bg-white p-8 shadow-2xl sm:p-12">
             <button onClick={() => setSelectedMember(null)} className="absolute right-6 top-6 z-20 rounded-full bg-gray-50 p-2.5 transition-colors hover:bg-gray-100" aria-label="Close biography"><X className="h-5 w-5 text-charcoal" /></button>
-            <div className="mb-8 text-left"><h3 className="mb-2 font-serif text-3xl font-semibold tracking-tight text-primary sm:text-4xl">{selectedMember.name}</h3><p className="text-xs font-semibold uppercase tracking-[0.12em] text-charcoal/40">{selectedMember.role}</p><div className="mt-4 h-1 w-12 rounded bg-primary/20" /></div>
+            <div className="mb-8 text-left"><h3 id="biography-title" className="mb-2 font-serif text-3xl font-semibold tracking-tight text-primary sm:text-4xl">{selectedMember.name}</h3><p className="text-xs font-semibold uppercase tracking-[0.12em] text-charcoal/70">{selectedMember.role}</p><div className="mt-4 h-1 w-12 rounded bg-primary/20" /></div>
             <div className="prose prose-sm prose-charcoal text-left sm:prose-base">{selectedMember.fullBio.split('\n\n').map((paragraph, i) => <p key={i} className="mb-4 font-light leading-relaxed text-charcoal/85">{paragraph}</p>)}</div>
           </motion.div>
         </div>

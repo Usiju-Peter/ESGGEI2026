@@ -25,3 +25,6 @@ The first successful GitHub Actions Lighthouse run #43225219045 measured:
 - Mobile simulated performance: 99/100; LCP 2120 ms, FCP 964 ms, CLS 0, TBT 19.5 ms.
 - Desktop simulated performance: 100/100; accessibility 96, best practices 100, SEO 100; LCP 618 ms, FCP 323 ms, CLS 0.
 These are lab results, not field Core Web Vitals or INP measurements. Future runs may vary by network and configuration. See the workflow artifact for full audit JSON.
+
+## Follow-up
+See [phase 3 validation and account completion steps](PHASE3-VALIDATION.md) for full-site accessibility results, consent-gated real-user instrumentation, current access limitations and the confirmed Vercel project.
