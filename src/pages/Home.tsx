@@ -86,7 +86,7 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-10 rounded-3xl border border-primary/10 bg-cream p-8 shadow-sm md:grid-cols-[1.15fr_0.85fr] md:p-12">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-terra">Why EarthSprings</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#814b18]">Why EarthSprings</p>
               <h2 className="mt-4 font-serif text-4xl font-semibold leading-tight text-primary md:text-5xl">Practical support for communities facing connected challenges.</h2>
               <p className="mt-6 text-lg leading-relaxed text-charcoal/70">Many families face barriers that overlap: children out of school, limited livelihood opportunities, low agricultural productivity, scarce resources, and social exclusion. ESGGEI works alongside communities to respond with useful, respectful support that strengthens opportunity and dignity.</p>
             </div>
