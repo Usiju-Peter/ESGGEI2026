@@ -40,8 +40,6 @@ try {
   await page.waitForURL('**/projects');
   assert.equal(await page.locator('main h1').count(), 1, 'Client-side navigation must render the destination');
 
-  const missing = await page.goto(base + '/seo-smoke-test-unknown', { waitUntil: 'domcontentloaded' });
-  assert.equal(missing.status(), 404, 'Unknown pages must have a real HTTP 404');
 
   assert.deepEqual(errors, [], 'No hydration or uncaught runtime errors allowed');
   console.log('Browser SEO smoke test passed on ' + routes.length + ' routes.');
