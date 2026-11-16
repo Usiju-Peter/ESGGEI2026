@@ -2,10 +2,7 @@ import { Link } from "react-router-dom";
 import { analyticsConfigured } from "../lib/analytics";
 import { useSEO } from "../lib/seo";
 export default function Privacy() {
-  useSEO(
-    "Website Privacy Notice",
-    "How ESGGEI’s website handles enquiries, optional analytics and your privacy choices.",
-  );
+  useSEO("/privacy");
   return (
     <article className="section section-white policy-page">
       <div className="site-container reading-width reading-copy space-y-5">

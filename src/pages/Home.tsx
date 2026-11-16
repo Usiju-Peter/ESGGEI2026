@@ -32,10 +32,7 @@ function Action({
   );
 }
 export default function Home() {
-  useSEO(
-    "Home",
-    "Join EarthSprings Global Grace Empowerment Initiative (ESGGEI) as we transform lives in Nigeria through empowerment programs targeting education, sustainable farming, and social welfare.",
-  );
+  useSEO("/");
   const root = useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (
@@ -70,7 +67,7 @@ export default function Home() {
       <section className="p-hero p-wrap">
         <div className="p-hero-copy">
           <p className="p-kicker">
-            <span /> EarthSprings · Community empowerment in Nigeria
+            <span /> ESGGEI · Community empowerment in Nigeria
           </p>
           <h1>
             Empowering lives.
@@ -82,7 +79,7 @@ export default function Home() {
             communities.
           </p>
           <p className="p-intro">
-            EarthSprings Global Grace Empowerment Initiative connects education,
+            EarthSprings Global Grace Empowerment Initiative (ESGGEI) connects education,
             sustainable agriculture, literacy, advocacy and social support for
             vulnerable communities.
           </p>

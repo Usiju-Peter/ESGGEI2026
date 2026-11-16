@@ -10,10 +10,7 @@ import { socialLinks } from "../components/Footer";
 import { useSEO } from "../lib/seo";
 
 export default function Partner() {
-  useSEO(
-    "Contact Us & Partners",
-    "Get in touch with EarthSprings Global Grace Empowerment Initiative (ESGGEI) to partner, volunteer, donate, or learn more about our mission in Nigeria.",
-  );
+  useSEO("/partner");
   const [formStatus, setFormStatus] = useState<
     "idle" | "submitting" | "success" | "error"
   >("idle");

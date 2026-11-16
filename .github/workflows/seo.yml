@@ -22,6 +22,7 @@ jobs:
       - run: node scripts/site-quality.mjs
       - run: npx playwright install chromium
       - run: node scripts/browser-smoke.mjs
+      - run: npm run seo:check-brand
       - run: node scripts/analytics-check.mjs
       - run: node scripts/design-regression.mjs
       - run: node scripts/premium-check.mjs

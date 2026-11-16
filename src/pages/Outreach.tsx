@@ -4,11 +4,7 @@ import { Link } from "react-router-dom";
 import { featuredProject, galleryImages } from "../data";
 import { useSEO } from "../lib/seo";
 export default function Outreach() {
-  useSEO(
-    "Guruku Gbayi Agriculture & Medical Outreach",
-    "ESGGEI’s integrated agriculture and medical outreach in Guruku Gbayi, Karu LGA, Nasarawa State, on 27 June 2026. Explore activities and outreach photographs.",
-    { image: featuredProject.image },
-  );
+  useSEO("/projects/guruku-gbayi-outreach");
   return (
     <article className="section section-white editorial-article outreach-article">
       <div className="site-container">

@@ -3,10 +3,7 @@ import TeamGrid from "../components/TeamGrid";
 import { CallToAction } from "../components/UI";
 import { useSEO } from "../lib/seo";
 export default function Team() {
-  useSEO(
-    "Our Team",
-    "Meet the dedicated team behind EarthSprings Global Grace Empowerment Initiative (ESGGEI) working to restore dignity and sustainable livelihood in communities.",
-  );
+  useSEO("/team");
   return (
     <>
       <PageHero

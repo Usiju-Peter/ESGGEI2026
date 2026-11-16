@@ -24,6 +24,7 @@ try {
     const rendered = await renderPage(route);
     assert.ok(/<h1(?:\s|>)/.test(rendered), 'Prerendered page lacks an H1: ' + route);
     assert.ok(rendered.length > 500, 'Prerendered HTML unexpectedly small: ' + route);
+    assert.doesNotMatch(rendered, /id="[BS]:|<!--\$[?!]-->/, 'Static HTML must not require a React reveal script: ' + route);
     const updated = original.replace('<div id="root"></div>', `<div id="root" data-prerendered="true">${rendered}</div>`);
     writeFileSync(filename, updated);
     console.log('Prerendered', route, rendered.length, 'bytes');

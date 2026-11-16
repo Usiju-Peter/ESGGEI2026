@@ -22,6 +22,10 @@ export function renderPage(pathname: string): Promise<string> {
         </StaticRouter>
       </StrictMode>,
       {
+        // This is a static document, not a progressively streamed HTTP response.
+        // React otherwise outlines large resolved boundaries into hidden segments
+        // that need JavaScript to replace the visible Loading fallback.
+        progressiveChunkSize: Number.MAX_SAFE_INTEGER,
         onAllReady() { pipe(stream); },
         onError(error) { didError = true; console.error('SSR error:', pathname, error); }
       }

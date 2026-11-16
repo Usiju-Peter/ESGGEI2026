@@ -7,10 +7,7 @@ import { galleryImages } from "../data";
 import { useSEO } from "../lib/seo";
 
 export default function Gallery() {
-  useSEO(
-    "Gallery",
-    "Explore moments from EarthSprings Global Grace Empowerment Initiative's outreach and community work.",
-  );
+  useSEO("/gallery");
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const previousFocusRef = useRef<HTMLElement | null>(null);

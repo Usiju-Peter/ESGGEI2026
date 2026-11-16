@@ -7,14 +7,7 @@ import { ActionLink } from "../components/UI";
 export default function BlogArticle() {
   const { slug = "" } = useParams();
   const post = getBlogPost(slug);
-  useSEO(
-    post?.title ?? "Blog",
-    post?.description ??
-      "Stories, ideas and reflections from EarthSprings Global Grace Empowerment Initiative.",
-    post
-      ? { path: `/blog/${post.slug}`, image: post.heroImage, type: "article" }
-      : { path: "/blog" },
-  );
+  useSEO(post ? `/blog/${post.slug}` : "/blog");
   if (!post) return <Navigate to="/blog" replace />;
   return (
     <article className="section section-white editorial-article journal-article">

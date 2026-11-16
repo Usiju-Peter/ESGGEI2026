@@ -1,0 +1,413 @@
+{
+  "auditedBase": "ac19833d748d1b0492427135c78c54201e922bbe",
+  "date": "2026-11-16",
+  "note": "Public HTTP checks before changes. H1 presence alone does not prove visibility; streaming segments are explicitly flagged. Redirects count is the number followed by curl.",
+  "checks": [
+    {
+      "url": "https://www.esggei.org.ng/",
+      "status": 200,
+      "effectiveUrl": "https://www.esggei.org.ng/",
+      "redirects": 0,
+      "title": "EarthSprings Global Grace Empowerment Initiative (ESGGEI)",
+      "description": "Empowering vulnerable communities through education, agriculture, literacy, advocacy, and social support in Nigeria and beyond. Join EarthSprings Global Grace Empowerment Initiative in our mission to transform lives.",
+      "canonical": [
+        "https://www.esggei.org.ng/"
+      ],
+      "robots": null,
+      "headerRobots": [],
+      "h1": [
+        "Empowering lives.Restoring hope."
+      ],
+      "prerendered": true,
+      "mainPresent": true,
+      "contentBytes": 21321,
+      "hasHiddenReactStreamSegment": true
+    },
+    {
+      "url": "https://www.esggei.org.ng/about",
+      "status": 200,
+      "effectiveUrl": "https://www.esggei.org.ng/about",
+      "redirects": 0,
+      "title": "About - EarthSprings Global Grace Empowerment Initiative (ESGGEI)",
+      "description": "Learn about EarthSprings Global Grace Empowerment Initiative, our mission, vision and community-led approach to education, sustainable agriculture and social support.",
+      "canonical": [
+        "https://www.esggei.org.ng/about"
+      ],
+      "robots": null,
+      "headerRobots": [],
+      "h1": [
+        "About Us"
+      ],
+      "prerendered": true,
+      "mainPresent": true,
+      "contentBytes": 15905,
+      "hasHiddenReactStreamSegment": false
+    },
+    {
+      "url": "https://www.esggei.org.ng/projects",
+      "status": 200,
+      "effectiveUrl": "https://www.esggei.org.ng/projects",
+      "redirects": 0,
+      "title": "Projects - EarthSprings Global Grace Empowerment Initiative (ESGGEI)",
+      "description": "Explore ESGGEI's community programmes supporting education, sustainable agriculture, women's empowerment, literacy and social welfare in Nigeria.",
+      "canonical": [
+        "https://www.esggei.org.ng/projects"
+      ],
+      "robots": null,
+      "headerRobots": [],
+      "h1": [
+        "Our Projects"
+      ],
+      "prerendered": true,
+      "mainPresent": true,
+      "contentBytes": 16168,
+      "hasHiddenReactStreamSegment": false
+    },
+    {
+      "url": "https://www.esggei.org.ng/projects/guruku-gbayi-outreach",
+      "status": 200,
+      "effectiveUrl": "https://www.esggei.org.ng/projects/guruku-gbayi-outreach",
+      "redirects": 0,
+      "title": "Guruku Gbayi Agriculture & Medical Outreach | ESGGEI",
+      "description": "ESGGEI’s integrated agriculture and medical outreach in Guruku Gbayi, Karu LGA, Nasarawa State, on 27 June 2026. Explore activities and outreach photographs.",
+      "canonical": [
+        "https://www.esggei.org.ng/projects/guruku-gbayi-outreach"
+      ],
+      "robots": null,
+      "headerRobots": [],
+      "h1": [
+        "Integrated Agriculture & Medical Outreach in Guruku Gbayi"
+      ],
+      "prerendered": true,
+      "mainPresent": true,
+      "contentBytes": 16127,
+      "hasHiddenReactStreamSegment": false
+    },
+    {
+      "url": "https://www.esggei.org.ng/gallery",
+      "status": 200,
+      "effectiveUrl": "https://www.esggei.org.ng/gallery",
+      "redirects": 0,
+      "title": "Gallery - EarthSprings Global Grace Empowerment Initiative (ESGGEI)",
+      "description": "See photographs and moments from EarthSprings Global Grace Empowerment Initiative's outreach and community projects in Nigeria.",
+      "canonical": [
+        "https://www.esggei.org.ng/gallery"
+      ],
+      "robots": null,
+      "headerRobots": [],
+      "h1": [
+        "Gallery"
+      ],
+      "prerendered": true,
+      "mainPresent": true,
+      "contentBytes": 39266,
+      "hasHiddenReactStreamSegment": true
+    },
+    {
+      "url": "https://www.esggei.org.ng/blog",
+      "status": 200,
+      "effectiveUrl": "https://www.esggei.org.ng/blog",
+      "redirects": 0,
+      "title": "Blog - EarthSprings Global Grace Empowerment Initiative (ESGGEI)",
+      "description": "Stories, ideas and reflections from EarthSprings Global Grace Empowerment Initiative and the communities we serve.",
+      "canonical": [
+        "https://www.esggei.org.ng/blog"
+      ],
+      "robots": null,
+      "headerRobots": [],
+      "h1": [
+        "Blog"
+      ],
+      "prerendered": true,
+      "mainPresent": true,
+      "contentBytes": 9110,
+      "hasHiddenReactStreamSegment": false
+    },
+    {
+      "url": "https://www.esggei.org.ng/blog/from-purpose-to-action",
+      "status": 200,
+      "effectiveUrl": "https://www.esggei.org.ng/blog/from-purpose-to-action",
+      "redirects": 0,
+      "title": "From Purpose to Action: The Story Behind EarthSprings",
+      "description": "Learn how EarthSprings Global Grace Empowerment Initiative connects education, sustainable agriculture, literacy, advocacy, and social support in its work with underserved communities.",
+      "canonical": [
+        "https://www.esggei.org.ng/blog/from-purpose-to-action"
+      ],
+      "robots": null,
+      "headerRobots": [],
+      "h1": [
+        "From Purpose to Action: The Story Behind EarthSprings"
+      ],
+      "prerendered": true,
+      "mainPresent": true,
+      "contentBytes": 20285,
+      "hasHiddenReactStreamSegment": true
+    },
+    {
+      "url": "https://www.esggei.org.ng/team",
+      "status": 200,
+      "effectiveUrl": "https://www.esggei.org.ng/team",
+      "redirects": 0,
+      "title": "Team - EarthSprings Global Grace Empowerment Initiative (ESGGEI)",
+      "description": "Meet the people leading EarthSprings Global Grace Empowerment Initiative and their commitment to education, livelihoods, dignity and community development.",
+      "canonical": [
+        "https://www.esggei.org.ng/team"
+      ],
+      "robots": null,
+      "headerRobots": [],
+      "h1": [
+        "Our Team"
+      ],
+      "prerendered": true,
+      "mainPresent": true,
+      "contentBytes": 11449,
+      "hasHiddenReactStreamSegment": false
+    },
+    {
+      "url": "https://www.esggei.org.ng/partner",
+      "status": 200,
+      "effectiveUrl": "https://www.esggei.org.ng/partner",
+      "redirects": 0,
+      "title": "Partner - EarthSprings Global Grace Empowerment Initiative (ESGGEI)",
+      "description": "Partner with EarthSprings Global Grace Empowerment Initiative. Learn how to support community programmes through collaboration, volunteering and donations.",
+      "canonical": [
+        "https://www.esggei.org.ng/partner"
+      ],
+      "robots": null,
+      "headerRobots": [],
+      "h1": [
+        "Contact Us"
+      ],
+      "prerendered": true,
+      "mainPresent": true,
+      "contentBytes": 14866,
+      "hasHiddenReactStreamSegment": false
+    },
+    {
+      "url": "https://www.esggei.org.ng/privacy",
+      "status": 200,
+      "effectiveUrl": "https://www.esggei.org.ng/privacy",
+      "redirects": 0,
+      "title": "Website Privacy Notice | ESGGEI",
+      "description": "How ESGGEI’s website handles enquiries, optional analytics and your privacy choices.",
+      "canonical": [
+        "https://www.esggei.org.ng/privacy"
+      ],
+      "robots": null,
+      "headerRobots": [],
+      "h1": [
+        "Website privacy notice"
+      ],
+      "prerendered": true,
+      "mainPresent": true,
+      "contentBytes": 10124,
+      "hasHiddenReactStreamSegment": false
+    },
+    {
+      "url": "http://esggei.org.ng/",
+      "status": 200,
+      "effectiveUrl": "https://www.esggei.org.ng/",
+      "redirects": 2,
+      "title": "EarthSprings Global Grace Empowerment Initiative (ESGGEI)",
+      "description": "Empowering vulnerable communities through education, agriculture, literacy, advocacy, and social support in Nigeria and beyond. Join EarthSprings Global Grace Empowerment Initiative in our mission to transform lives.",
+      "canonical": [
+        "https://www.esggei.org.ng/"
+      ],
+      "robots": null,
+      "headerRobots": [],
+      "h1": [
+        "Empowering lives.Restoring hope."
+      ],
+      "prerendered": true,
+      "mainPresent": true,
+      "contentBytes": 21321,
+      "hasHiddenReactStreamSegment": true
+    },
+    {
+      "url": "http://www.esggei.org.ng/",
+      "status": 200,
+      "effectiveUrl": "https://www.esggei.org.ng/",
+      "redirects": 1,
+      "title": "EarthSprings Global Grace Empowerment Initiative (ESGGEI)",
+      "description": "Empowering vulnerable communities through education, agriculture, literacy, advocacy, and social support in Nigeria and beyond. Join EarthSprings Global Grace Empowerment Initiative in our mission to transform lives.",
+      "canonical": [
+        "https://www.esggei.org.ng/"
+      ],
+      "robots": null,
+      "headerRobots": [],
+      "h1": [
+        "Empowering lives.Restoring hope."
+      ],
+      "prerendered": true,
+      "mainPresent": true,
+      "contentBytes": 21321,
+      "hasHiddenReactStreamSegment": true
+    },
+    {
+      "url": "https://esggei.org.ng/",
+      "status": 200,
+      "effectiveUrl": "https://www.esggei.org.ng/",
+      "redirects": 1,
+      "title": "EarthSprings Global Grace Empowerment Initiative (ESGGEI)",
+      "description": "Empowering vulnerable communities through education, agriculture, literacy, advocacy, and social support in Nigeria and beyond. Join EarthSprings Global Grace Empowerment Initiative in our mission to transform lives.",
+      "canonical": [
+        "https://www.esggei.org.ng/"
+      ],
+      "robots": null,
+      "headerRobots": [],
+      "h1": [
+        "Empowering lives.Restoring hope."
+      ],
+      "prerendered": true,
+      "mainPresent": true,
+      "contentBytes": 21321,
+      "hasHiddenReactStreamSegment": true
+    },
+    {
+      "url": "https://www.esggei.org.ng/index.html",
+      "status": 200,
+      "effectiveUrl": "https://www.esggei.org.ng/",
+      "redirects": 1,
+      "title": "EarthSprings Global Grace Empowerment Initiative (ESGGEI)",
+      "description": "Empowering vulnerable communities through education, agriculture, literacy, advocacy, and social support in Nigeria and beyond. Join EarthSprings Global Grace Empowerment Initiative in our mission to transform lives.",
+      "canonical": [
+        "https://www.esggei.org.ng/"
+      ],
+      "robots": null,
+      "headerRobots": [],
+      "h1": [
+        "Empowering lives.Restoring hope."
+      ],
+      "prerendered": true,
+      "mainPresent": true,
+      "contentBytes": 21321,
+      "hasHiddenReactStreamSegment": true
+    },
+    {
+      "url": "https://www.esggei.org.ng/about/",
+      "status": 200,
+      "effectiveUrl": "https://www.esggei.org.ng/about/",
+      "redirects": 0,
+      "title": "About - EarthSprings Global Grace Empowerment Initiative (ESGGEI)",
+      "description": "Learn about EarthSprings Global Grace Empowerment Initiative, our mission, vision and community-led approach to education, sustainable agriculture and social support.",
+      "canonical": [
+        "https://www.esggei.org.ng/about"
+      ],
+      "robots": null,
+      "headerRobots": [],
+      "h1": [
+        "About Us"
+      ],
+      "prerendered": true,
+      "mainPresent": true,
+      "contentBytes": 15905,
+      "hasHiddenReactStreamSegment": false
+    },
+    {
+      "url": "https://www.esggei.org.ng/about/index.html",
+      "status": 200,
+      "effectiveUrl": "https://www.esggei.org.ng/about",
+      "redirects": 1,
+      "title": "About - EarthSprings Global Grace Empowerment Initiative (ESGGEI)",
+      "description": "Learn about EarthSprings Global Grace Empowerment Initiative, our mission, vision and community-led approach to education, sustainable agriculture and social support.",
+      "canonical": [
+        "https://www.esggei.org.ng/about"
+      ],
+      "robots": null,
+      "headerRobots": [],
+      "h1": [
+        "About Us"
+      ],
+      "prerendered": true,
+      "mainPresent": true,
+      "contentBytes": 15905,
+      "hasHiddenReactStreamSegment": false
+    },
+    {
+      "url": "https://www.esggei.org.ng/?utm_source=seo-audit",
+      "status": 200,
+      "effectiveUrl": "https://www.esggei.org.ng/?utm_source=seo-audit",
+      "redirects": 0,
+      "title": "EarthSprings Global Grace Empowerment Initiative (ESGGEI)",
+      "description": "Empowering vulnerable communities through education, agriculture, literacy, advocacy, and social support in Nigeria and beyond. Join EarthSprings Global Grace Empowerment Initiative in our mission to transform lives.",
+      "canonical": [
+        "https://www.esggei.org.ng/"
+      ],
+      "robots": null,
+      "headerRobots": [],
+      "h1": [
+        "Empowering lives.Restoring hope."
+      ],
+      "prerendered": true,
+      "mainPresent": true,
+      "contentBytes": 21321,
+      "hasHiddenReactStreamSegment": true
+    },
+    {
+      "url": "https://www.esggei.org.ng/seo-audit-page-that-does-not-exist-20261116",
+      "status": 404,
+      "effectiveUrl": "https://www.esggei.org.ng/seo-audit-page-that-does-not-exist-20261116",
+      "redirects": 0,
+      "title": "",
+      "description": null,
+      "canonical": [],
+      "robots": null,
+      "headerRobots": [],
+      "h1": [],
+      "prerendered": false,
+      "mainPresent": false,
+      "contentBytes": 79,
+      "hasHiddenReactStreamSegment": false
+    },
+    {
+      "url": "https://www.esggei.org.ng/blog/seo-audit-missing-post-20261116",
+      "status": 404,
+      "effectiveUrl": "https://www.esggei.org.ng/blog/seo-audit-missing-post-20261116",
+      "redirects": 0,
+      "title": "",
+      "description": null,
+      "canonical": [],
+      "robots": null,
+      "headerRobots": [],
+      "h1": [],
+      "prerendered": false,
+      "mainPresent": false,
+      "contentBytes": 79,
+      "hasHiddenReactStreamSegment": false
+    },
+    {
+      "url": "https://www.esggei.org.ng/robots.txt",
+      "status": 200,
+      "effectiveUrl": "https://www.esggei.org.ng/robots.txt",
+      "redirects": 0,
+      "title": "",
+      "description": null,
+      "canonical": [],
+      "robots": null,
+      "headerRobots": [],
+      "h1": [],
+      "prerendered": false,
+      "mainPresent": false,
+      "contentBytes": 71,
+      "hasHiddenReactStreamSegment": false,
+      "body": "User-agent: *\nAllow: /\n\nSitemap: https://www.esggei.org.ng/sitemap.xml\n"
+    },
+    {
+      "url": "https://www.esggei.org.ng/sitemap.xml",
+      "status": 200,
+      "effectiveUrl": "https://www.esggei.org.ng/sitemap.xml",
+      "redirects": 0,
+      "title": "",
+      "description": null,
+      "canonical": [],
+      "robots": null,
+      "headerRobots": [],
+      "h1": [],
+      "prerendered": false,
+      "mainPresent": false,
+      "contentBytes": 719,
+      "hasHiddenReactStreamSegment": false,
+      "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n  <url><loc>https://www.esggei.org.ng/</loc></url>\n  <url><loc>https://www.esggei.org.ng/about</loc></url>\n  <url><loc>https://www.esggei.org.ng/projects</loc></url>\n  <url><loc>https://www.esggei.org.ng/projects/guruku-gbayi-outreach</loc></url>\n  <url><loc>https://www.esggei.org.ng/gallery</loc></url>\n  <url><loc>https://www.esggei.org.ng/blog</loc></url>\n  <url><loc>https://www.esggei.org.ng/blog/from-purpose-to-action</loc></url>\n  <url><loc>https://www.esggei.org.ng/team</loc></url>\n  <url><loc>https://www.esggei.org.ng/partner</loc></url>\n  <url><loc>https://www.esggei.org.ng/privacy</loc></url>\n</urlset>\n"
+    }
+  ]
+}

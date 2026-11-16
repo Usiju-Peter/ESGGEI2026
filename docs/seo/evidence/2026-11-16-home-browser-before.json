@@ -1,0 +1,138 @@
+[
+  {
+    "javaScriptEnabled": false,
+    "title": "EarthSprings Global Grace Empowerment Initiative (ESGGEI)",
+    "description": "Empowering vulnerable communities through education, agriculture, literacy, advocacy, and social support in Nigeria and beyond. Join EarthSprings Global Grace Empowerment Initiative in our mission to transform lives.",
+    "ogTitle": "EarthSprings Global Grace Empowerment Initiative (ESGGEI)",
+    "ogDescription": "Empowering vulnerable communities through education, agriculture, literacy, advocacy, and social support in Nigeria and beyond.",
+    "canonical": "https://www.esggei.org.ng/",
+    "h1": [
+      "Empowering lives.Restoring hope."
+    ],
+    "schema": {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "NGO",
+          "@id": "https://www.esggei.org.ng/#organization",
+          "name": "EarthSprings Global Grace Empowerment Initiative",
+          "alternateName": "ESGGEI",
+          "url": "https://www.esggei.org.ng/",
+          "logo": "https://www.esggei.org.ng/images/logo.png",
+          "sameAs": [
+            "https://www.instagram.com/esggei/",
+            "https://www.linkedin.com/in/earthsprings-global-grace-empowerment-initiative-esggei-aa132537b/",
+            "https://x.com/esggei"
+          ],
+          "email": "esgeei@gmail.com",
+          "telephone": "+2348064676210",
+          "description": "Community empowerment through education, sustainable agriculture, literacy, advocacy and social support in Nigeria."
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://www.esggei.org.ng/#website",
+          "url": "https://www.esggei.org.ng/",
+          "name": "EarthSprings Global Grace Empowerment Initiative",
+          "alternateName": "ESGGEI",
+          "publisher": {
+            "@id": "https://www.esggei.org.ng/#organization"
+          }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://www.esggei.org.ng/#webpage",
+          "url": "https://www.esggei.org.ng/",
+          "name": "EarthSprings Global Grace Empowerment Initiative (ESGGEI)",
+          "isPartOf": {
+            "@id": "https://www.esggei.org.ng/#website"
+          },
+          "breadcrumb": {
+            "@id": "https://www.esggei.org.ng/#breadcrumb"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://www.esggei.org.ng/#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://www.esggei.org.ng/"
+            }
+          ]
+        }
+      ]
+    },
+    "overflow": false,
+    "errors": []
+  },
+  {
+    "javaScriptEnabled": true,
+    "title": "EarthSprings Global Grace Empowerment Initiative (ESGGEI)",
+    "description": "Join EarthSprings Global Grace Empowerment Initiative (ESGGEI) as we transform lives in Nigeria through empowerment programs targeting education, sustainable farming, and social welfare.",
+    "ogTitle": "EarthSprings Global Grace Empowerment Initiative (ESGGEI)",
+    "ogDescription": "Join EarthSprings Global Grace Empowerment Initiative (ESGGEI) as we transform lives in Nigeria through empowerment programs targeting education, sustainable farming, and social welfare.",
+    "canonical": "https://www.esggei.org.ng/",
+    "h1": [
+      "Empowering lives.\nRestoring hope."
+    ],
+    "schema": {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "NGO",
+          "@id": "https://www.esggei.org.ng/#organization",
+          "name": "EarthSprings Global Grace Empowerment Initiative",
+          "alternateName": "ESGGEI",
+          "url": "https://www.esggei.org.ng/",
+          "logo": "https://www.esggei.org.ng/images/logo.png",
+          "sameAs": [
+            "https://www.instagram.com/esggei/",
+            "https://www.linkedin.com/in/earthsprings-global-grace-empowerment-initiative-esggei-aa132537b/",
+            "https://x.com/esggei"
+          ],
+          "email": "esgeei@gmail.com",
+          "telephone": "+2348064676210",
+          "description": "Community empowerment through education, sustainable agriculture, literacy, advocacy and social support in Nigeria."
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://www.esggei.org.ng/#website",
+          "url": "https://www.esggei.org.ng/",
+          "name": "EarthSprings Global Grace Empowerment Initiative",
+          "alternateName": "ESGGEI",
+          "publisher": {
+            "@id": "https://www.esggei.org.ng/#organization"
+          }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://www.esggei.org.ng/#webpage",
+          "url": "https://www.esggei.org.ng/",
+          "name": "EarthSprings Global Grace Empowerment Initiative (ESGGEI)",
+          "isPartOf": {
+            "@id": "https://www.esggei.org.ng/#website"
+          },
+          "breadcrumb": {
+            "@id": "https://www.esggei.org.ng/#breadcrumb"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://www.esggei.org.ng/#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://www.esggei.org.ng/"
+            }
+          ]
+        }
+      ]
+    },
+    "overflow": false,
+    "errors": []
+  }
+]

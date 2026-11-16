@@ -6,13 +6,30 @@ import {defineConfig} from 'vite';
 import { imagetools } from 'vite-imagetools';
 
 import { buildStructuredData } from './src/lib/structuredData';
+import { absoluteImageUrl, brandName, pageMetadata, siteOrigin } from './src/lib/siteMetadata';
+const escapeHtml = (value: string) => value.replace(/[&<>"']/g, character => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[character]!);
 const structuredData = () => ({
   name: 'structured-data',
   transformIndexHtml: {
     order: 'pre' as const,
-    handler(_html: string, context: { path: string }) {
+    handler(html: string, context: { path: string }) {
       const route = context.path.replace(/\\/g, '/').replace(/\/index\.html$/, '') || '/';
-      return [{ tag: 'script', attrs: { type: 'application/ld+json', id: 'page-structured-data' }, children: JSON.stringify(buildStructuredData(route)).replace(/</g, '\\u003c'), injectTo: 'head' as const }];
+      const metadata = pageMetadata[route];
+      if (!metadata) throw new Error('Missing page metadata for ' + route);
+      const values: Record<string, string> = {
+        description: metadata.description,
+        'og:title': metadata.title, 'og:description': metadata.description,
+        'og:url': siteOrigin + route, 'og:image': absoluteImageUrl(metadata.image), 'og:type': metadata.type,
+        'twitter:title': metadata.title, 'twitter:description': metadata.description,
+        'twitter:image': absoluteImageUrl(metadata.image),
+      };
+      const updated = html.replace(/<title>[\s\S]*?<\/title>/, `<title>${escapeHtml(metadata.title)}</title>`)
+        .replace(/<meta\s+(?:name|property)="([^"]+)"\s+content="[^"]*"\s*\/>/g,
+          (tag, key: string) => values[key] === undefined ? tag : tag.replace(/content="[^"]*"/, `content="${escapeHtml(values[key])}"`));
+      return { html: updated, tags: [
+        { tag: 'meta', attrs: { property: 'og:site_name', content: brandName }, injectTo: 'head' as const },
+        { tag: 'script', attrs: { type: 'application/ld+json', id: 'page-structured-data' }, children: JSON.stringify(buildStructuredData(route)).replace(/</g, '\\u003c'), injectTo: 'head' as const }
+      ] };
     }
   }
 });

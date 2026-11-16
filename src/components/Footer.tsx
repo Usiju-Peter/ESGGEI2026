@@ -18,7 +18,7 @@ export default function Footer() {
             <Link to="/" className="brand" aria-label="ESGGEI home">
               <img
                 src="/images/logo-small.webp"
-                alt=""
+                alt="ESGGEI logo"
                 width="70"
                 height="43"
                 loading="lazy"

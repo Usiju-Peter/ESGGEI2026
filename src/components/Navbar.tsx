@@ -28,7 +28,7 @@ export default function Navbar() {
     <header className="site-header">
       <div className="site-container header-layout">
         <Link to="/" className="brand" aria-label="ESGGEI home">
-          <img src="/images/logo-small.webp" alt="" width="70" height="43" />
+          <img src="/images/logo-small.webp" alt="ESGGEI logo" width="70" height="43" />
           <span>ESGGEI</span>
         </Link>
         <nav className="desktop-navigation" aria-label="Main navigation">
