@@ -4,10 +4,7 @@ import TeamGrid from "../components/TeamGrid";
 import { ActionLink, CallToAction, SectionHeading } from "../components/UI";
 import { useSEO } from "../lib/seo";
 export default function About() {
-  useSEO(
-    "About Us",
-    "Learn about EarthSprings Global Grace Empowerment Initiative (ESGGEI), our identity, story, vision, and mission to empower vulnerable communities through sustainable development.",
-  );
+  useSEO("/about");
   return (
     <>
       <PageHero

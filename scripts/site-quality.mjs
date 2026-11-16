@@ -9,7 +9,7 @@ for (const route of routes) {
   const html = readFileSync(htmlFor(route), 'utf8');
   const schemas = [...html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)].map(m => JSON.parse(m[1]));
   const graph = schemas.flatMap(s => s['@graph'] ?? [s]);
-  assert.equal(graph.filter(s => s['@type'] === 'NGO').length, 1, route + ' needs one organisation identity');
+  assert.equal(graph.filter(s => [s['@type']].flat().includes('NGO')).length, 1, route + ' needs one organisation identity');
   assert.ok(graph.some(s => s['@id'] === base + route + '#webpage'), route + ' schema URL mismatch');
   assert.equal(graph.filter(s => s['@type'] === 'BreadcrumbList').length, 1);
   for (const [,raw] of html.matchAll(/\bhref="([^"]+)"/g)) {

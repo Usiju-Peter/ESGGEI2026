@@ -8,10 +8,7 @@ import {
 import { projectsData } from "../data";
 import { useSEO } from "../lib/seo";
 export default function Projects() {
-  useSEO(
-    "Our Projects",
-    "Discover the practical initiatives of EarthSprings Global Grace Empowerment Initiative (ESGGEI) aimed at empowering communities and restoring hope through sustainable development projects in Nigeria.",
-  );
+  useSEO("/projects");
   return (
     <>
       <PageHero

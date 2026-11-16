@@ -1,5 +1,7 @@
 # ESGGEI SEO audit — 12 November 2026
 
+Historical audit: this document describes the earlier eight-route release. The current site has ten public routes. See [the 16 November 2026 audit](BRAND-SEARCH-AUDIT-2026-11-16.md) for current live checks, the static-rendering regression and brand-search fixes. Earlier statements about crawlability based only on finding an H1 in response HTML do not establish that content was visible without JavaScript.
+
 Website: https://www.esggei.org.ng/
 Repository: Usiju-Peter/ESGGEI2026
 Branch: seo/comprehensive-audit-2026-11

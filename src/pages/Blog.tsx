@@ -5,11 +5,7 @@ import { ActionLink } from "../components/UI";
 import { useSEO } from "../lib/seo";
 export default function Blog() {
   const post = blogPosts[0];
-  useSEO(
-    "Blog",
-    "Stories, ideas and reflections from EarthSprings Global Grace Empowerment Initiative and the communities we serve.",
-    { path: "/blog", image: post.heroImage },
-  );
+  useSEO("/blog");
   return (
     <>
       <PageHero

@@ -8,6 +8,8 @@ for (const route of routes) {
   assert.match(html, /<div id="root" data-prerendered="true">/, 'Missing prerendered root: ' + route);
   assert.match(html, /<h1(?:\s|>)/, 'Missing prerendered H1: ' + route);
   assert.match(html, /<main(?:\s|>)/, 'Missing prerendered main: ' + route);
+  assert.match(html, /<main\b[^>]*>[\s\S]*?<h1(?:\s|>)[\s\S]*?<\/main>/, 'H1 must be inside the prerendered main: ' + route);
+  assert.doesNotMatch(html, /id="[BS]:|<!--\$[?!]-->/, 'Unresolved streaming boundary: ' + route);
   assert.ok(html.includes('rel="canonical" href="https://www.esggei.org.ng' + route + '"'), 'Canonical mismatch: ' + route);
 }
 console.log('Production HTML prerender checks passed for ' + routes.length + ' routes.');

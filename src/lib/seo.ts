@@ -1,15 +1,6 @@
 import { useEffect } from 'react';
 import { buildStructuredData } from './structuredData';
-
-type SEOOptions = {
-  path?: string;
-  image?: string;
-  type?: 'website' | 'article';
-};
-
-const siteUrl = 'https://www.esggei.org.ng';
-const siteName = 'EarthSprings Global Grace Empowerment Initiative (ESGGEI)';
-const defaultImage = '/images/logo.png';
+import { absoluteImageUrl, brandName, pageMetadata, siteOrigin } from './siteMetadata';
 
 const upsertMeta = (attribute: 'name' | 'property', key: string, value: string) => {
   let element = document.head.querySelector<HTMLMetaElement>(`meta[${attribute}="${key}"]`);
@@ -22,21 +13,22 @@ const upsertMeta = (attribute: 'name' | 'property', key: string, value: string) 
 };
 
 /** Keeps metadata correct when visitors navigate client-side without reloading. */
-export const useSEO = (title: string, description: string, options: SEOOptions = {}) => {
+export const useSEO = (path: string) => {
   useEffect(() => {
-    const fullTitle = title === 'Home' ? siteName : `${title} | ${siteName}`;
+    const normalizedPath = path === '/' ? '/' : path.replace(/\/+$/, '');
+    const metadata = pageMetadata[normalizedPath];
+    if (!metadata) return;
+    const { title: fullTitle, description } = metadata;
     document.title = fullTitle;
 
-    const requestedPath = options.path ?? window.location.pathname;
-    const normalizedPath = requestedPath === '/' ? '/' : requestedPath.replace(/\/+$/, '');
-    const canonicalUrl = `${siteUrl}${normalizedPath}`;
-    const rawImage = options.image || defaultImage;
-    const absoluteImage = /^https?:\/\//i.test(rawImage) ? rawImage : `${siteUrl}${rawImage.startsWith('/') ? '' : '/'}${rawImage}`;
+    const canonicalUrl = `${siteOrigin}${normalizedPath}`;
+    const absoluteImage = absoluteImageUrl(metadata.image);
 
     upsertMeta('name', 'description', description);
     upsertMeta('property', 'og:title', fullTitle);
     upsertMeta('property', 'og:description', description);
-    upsertMeta('property', 'og:type', options.type ?? 'website');
+    upsertMeta('property', 'og:site_name', brandName);
+    upsertMeta('property', 'og:type', metadata.type);
     upsertMeta('property', 'og:url', canonicalUrl);
     upsertMeta('property', 'og:image', absoluteImage);
     upsertMeta('name', 'twitter:card', 'summary_large_image');
@@ -59,5 +51,5 @@ export const useSEO = (title: string, description: string, options: SEOOptions =
       document.head.appendChild(schema);
     }
     schema.textContent = JSON.stringify(buildStructuredData(normalizedPath)).replace(/</g, '\\u003c');
-  }, [title, description, options.path, options.image, options.type]);
+  }, [path]);
 };
