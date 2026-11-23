@@ -340,7 +340,7 @@ export default function Partner() {
                       className="underline"
                       to="/projects/guruku-gbayi-outreach"
                     >
-                      Guruku Gbayi outreach report
+                      Guruku Gbagyi outreach report
                     </Link>{" "}
                     and explore the{" "}
                     <Link className="underline" to="/gallery">

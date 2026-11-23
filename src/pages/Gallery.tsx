@@ -105,7 +105,7 @@ export default function Gallery() {
             <p className="eyebrow">Featured</p>
             <h2 className="section-title">Recent Outreach</h2>
             <p className="mt-4 text-muted">
-              Guruku Gbayi Community, Karu LGA, Nasarawa State &middot; June
+              Guruku Gbagyi Community, Karu LGA, Nasarawa State &middot; June
               2026
             </p>
             <Link

@@ -67,7 +67,7 @@ export default function About() {
           loading="lazy"
         />
         <figcaption>
-          Local voices. Shared priorities. · Guruku Gbayi, Nasarawa State
+          Local voices. Shared priorities. · Guruku Gbagyi, Nasarawa State
         </figcaption>
       </figure>
       <section id="how-we-work" className="section about-approach">

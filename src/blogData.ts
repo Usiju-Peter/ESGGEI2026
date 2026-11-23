@@ -25,7 +25,7 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "EarthSprings Global Grace Empowerment Initiative was created around a simple conviction: practical support, rooted in dignity, can help communities create lasting possibilities.",
     description:
-      "Learn how EarthSprings Global Grace Empowerment Initiative connects education, sustainable agriculture, literacy, advocacy, and social support in its work with underserved communities.",
+      "How EarthSprings (ESGGEI) began, and how it connects education, sustainable agriculture, literacy and social support for underserved communities in Nigeria.",
     heroImage: "/images/gallery/outreach-25.webp",
     heroAlt: "EarthSprings team and community leaders at an outreach gathering",
     heroWidth: 1200,
