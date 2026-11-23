@@ -29,7 +29,7 @@
 
   /* Universal keyboard-accessible focus indicator to meet WCAG AA requirements */
   *:focus-visible {
-    outline: 2.5px solid #B26F2B !important;
+    outline: 2.5px solid var(--focus, #9a5320) !important;
     outline-offset: 4px !important;
   }
 }

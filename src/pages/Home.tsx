@@ -24,7 +24,7 @@ export default function Home() {
               Restoring hope.
             </h1>
             <p className="lead">
-              EarthSprings Global Grace Empowerment Initiative connects education, sustainable agriculture, literacy,
+              EarthSprings Global Grace Empowerment Initiative (ESGGEI) connects education, sustainable agriculture, literacy,
               advocacy and social support for vulnerable communities in Nigeria.
             </p>
             <div className="acts">
