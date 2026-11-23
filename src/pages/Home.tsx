@@ -111,7 +111,7 @@ export default function Home() {
           <figcaption>
             <span>In community. Together.</span>
             <Link to="/gallery">
-              Guruku Gbayi, Nasarawa State{" "}
+              Guruku Gbagyi, Nasarawa State{" "}
               <ArrowUpRight size={18} aria-hidden="true" />
             </Link>
           </figcaption>
@@ -196,7 +196,7 @@ export default function Home() {
             src="/images/gallery/outreach-25.webp"
             width="1200"
             height="900"
-            alt="EarthSprings team and community leaders at the Guruku Gbayi outreach"
+            alt="EarthSprings team and community leaders at the Guruku Gbagyi outreach"
             loading="lazy"
           />
           <span>Purpose, made practical.</span>
@@ -214,10 +214,10 @@ export default function Home() {
           <h3>Integrated Agriculture & Medical Outreach</h3>
           <p>
             Community members, volunteers and health workers came together in
-            Guruku Gbayi for registration, screening, care and support.
+            Guruku Gbagyi for registration, screening, care and support.
           </p>
           <p className="p-place">
-            Guruku Gbayi Community, Karu LGA, Nasarawa State
+            Guruku Gbagyi Community, Karu LGA, Nasarawa State
           </p>
           <Action to="/projects/guruku-gbayi-outreach">
             Read the outreach report

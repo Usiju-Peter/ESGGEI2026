@@ -123,7 +123,7 @@ export const projectsData = [
 export const featuredProject = {
   title: "Integrated Agriculture & Medical Outreach",
   description: "A community outreach bringing together integrated agriculture and medical support.",
-  location: "Guruku Gbayi Community, Karu LGA, Nasarawa State",
+  location: "Guruku Gbagyi Community, Karu LGA, Nasarawa State",
   date: "27 June 2026",
   image: "/images/gallery/outreach-01.webp",
   imageAlt: "EarthSprings integrated agriculture and medical outreach banner",

@@ -60,13 +60,13 @@ export function ProjectFeature() {
       <figure>
         <DocumentaryImage
           src="/images/gallery/outreach-25.webp"
-          alt="EarthSprings team and community leaders gathered at the Guruku Gbayi outreach"
+          alt="EarthSprings team and community leaders gathered at the Guruku Gbagyi outreach"
           width="1200"
           height="900"
           loading="lazy"
           decoding="async"
         />
-        <figcaption>Guruku Gbayi Community · Nasarawa State</figcaption>
+        <figcaption>Guruku Gbagyi Community · Nasarawa State</figcaption>
       </figure>
       <div className="project-feature-copy">
         <p className="eyebrow">

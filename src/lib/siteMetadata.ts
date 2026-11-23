@@ -4,7 +4,7 @@ export const siteOrigin = 'https://www.esggei.org.ng';
 export const brandName = 'ESGGEI';
 export const organizationName = 'EarthSprings Global Grace Empowerment Initiative';
 export const homeTitle = `${brandName} | ${organizationName}`;
-export const homeDescription = 'Discover ESGGEI (EarthSprings Global Grace Empowerment Initiative), a Nigerian nonprofit organisation committed to empowerment, sustainable development and positive community impact.';
+export const homeDescription = 'ESGGEI (EarthSprings Global Grace Empowerment Initiative) is an Abuja-based NGO supporting education, farming livelihoods and girl-child protection in Nigeria.';
 
 export type PageMetadata = {
   title: string;
@@ -29,8 +29,8 @@ export const pageMetadata: Record<string, PageMetadata> = {
     "type": "website"
   },
   "/projects/guruku-gbayi-outreach": {
-    "title": "Guruku Gbayi Agriculture & Medical Outreach | ESGGEI",
-    "description": "ESGGEI’s integrated agriculture and medical outreach in Guruku Gbayi, Karu LGA, Nasarawa State, on 27 June 2026. Explore activities and outreach photographs.",
+    "title": "Guruku Gbagyi Agriculture & Medical Outreach | ESGGEI",
+    "description": "ESGGEI and NGAN’s agriculture and medical outreach in Guruku Gbagyi, Karu LGA, Nasarawa State, on 27 June 2026: what happened and photographs.",
     "image": "/images/gallery/outreach-01.webp",
     "type": "website"
   },

@@ -7,7 +7,7 @@ import { routes } from './routes.mjs';
 
 const origin = 'https://www.esggei.org.ng';
 const title = 'ESGGEI | EarthSprings Global Grace Empowerment Initiative';
-const description = 'Discover ESGGEI (EarthSprings Global Grace Empowerment Initiative), a Nigerian nonprofit organisation committed to empowerment, sustainable development and positive community impact.';
+const description = 'ESGGEI (EarthSprings Global Grace Empowerment Initiative) is an Abuja-based NGO supporting education, farming livelihoods and girl-child protection in Nigeria.';
 const fullName = 'EarthSprings Global Grace Empowerment Initiative';
 const socials = [
   'https://www.instagram.com/esggei/',

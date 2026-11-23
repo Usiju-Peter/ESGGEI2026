@@ -11,7 +11,7 @@ export default function Outreach() {
         <div className="reading-width">
           <p className="eyebrow">Community outreach · Nasarawa State</p>
           <h1 className="page-title">
-            Integrated Agriculture &amp; Medical Outreach in Guruku Gbayi
+            Integrated Agriculture &amp; Medical Outreach in Guruku Gbagyi
           </h1>
           <dl className="my-6 grid gap-4 sm:grid-cols-2">
             <div>
@@ -27,9 +27,13 @@ export default function Outreach() {
           </dl>
           <p className="text-lg leading-relaxed">
             EarthSprings Global Grace Empowerment Initiative brought community
-            members, volunteers and health workers together in Guruku Gbayi for
+            members, volunteers and health workers together in Guruku Gbagyi for
             an integrated agriculture and medical outreach. Registration, health
             screening, care and support formed part of the community gathering.
+          </p>
+          <p className="mt-4 leading-relaxed">
+            The outreach was held in collaboration with the National Ginger
+            Association of Nigeria (NGAN).
           </p>
           <figure className="my-8">
             <DocumentaryImage
@@ -110,6 +114,24 @@ export default function Outreach() {
               Discuss a partnership
             </Link>
           </div>
+          <section className="card mt-8" aria-labelledby="in-the-news">
+            <h2 id="in-the-news" className="card-title">
+              In the news
+            </h2>
+            <p className="mt-3 text-muted">
+              The News Agency of Nigeria reported on the outreach and its
+              message on food security, healthcare and rural safety.
+            </p>
+            <a
+              className="mt-3 inline-block font-semibold text-primary underline underline-offset-4"
+              href="https://nannews.ng/ngo-targets-food-security-community-safety-through-agriculture-healthcare-outreach/"
+              target="_blank"
+              rel="noopener"
+            >
+              Read the News Agency of Nigeria report
+              <span className="sr-only"> (opens in a new tab)</span>
+            </a>
+          </section>
           <ArticleShare
             title={featuredProject.title}
             path="/projects/guruku-gbayi-outreach"
