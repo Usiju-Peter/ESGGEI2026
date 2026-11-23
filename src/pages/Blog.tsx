@@ -1,51 +1,41 @@
 import { Link } from "react-router-dom";
 import { blogPosts, formatPublishedDate, getReadingTime } from "../blogData";
+import { Furrow } from "../components/Art";
 import PageHero from "../components/PageHero";
 import { ActionLink } from "../components/UI";
 import { useSEO } from "../lib/seo";
+
 export default function Blog() {
-  const post = blogPosts[0];
   useSEO("/blog");
   return (
     <>
       <PageHero
-        badge="04 / The EarthSprings journal"
+        badge="The EarthSprings journal"
         title="Blog"
         subtitle="Stories and reflections from our work and the communities we serve."
       />
       <section className="section section-white">
         <div className="site-container">
-          <article className="project-feature journal-feature">
-            <Link to={`/blog/${post.slug}`} aria-label={`Read ${post.title}`}>
-              <img
-                src={post.heroImage}
-                alt={post.heroAlt}
-                width={post.heroWidth}
-                height={post.heroHeight}
-                loading="eager"
-                className="journal-cover"
-              />
-            </Link>
-            <div className="project-feature-copy">
-              <p className="eyebrow">{post.category}</p>
-              <h2 className="section-title">
-                <Link to={`/blog/${post.slug}`} className="hover:underline">
-                  {post.title}
-                </Link>
-              </h2>
-              <p>{post.excerpt}</p>
-              <p className="text-sm">
-                {getReadingTime(post)} min read · Published{" "}
-                <time dateTime={post.publishedDate}>
-                  {formatPublishedDate(post.publishedDate)}
-                </time>
-              </p>
-              <ActionLink to={`/blog/${post.slug}`} variant="text">
-                Read article
-              </ActionLink>
-            </div>
-          </article>
-          <p className="mt-8 border-t border-primary/20 pt-5 text-muted">
+          {blogPosts.map((post) => (
+            <article className="post" key={post.slug}>
+              <Link className="cover" to={`/blog/${post.slug}`} aria-label={`Read ${post.title}`}>
+                <Furrow lines={14} lit={3} />
+                <b>{post.title.split(":")[0]}</b>
+              </Link>
+              <div className="txt">
+                <p className="meta">
+                  {post.category}, {getReadingTime(post)} min read, published{" "}
+                  <time dateTime={post.publishedDate}>{formatPublishedDate(post.publishedDate)}</time>
+                </p>
+                <h2>
+                  <Link to={`/blog/${post.slug}`}>{post.title}</Link>
+                </h2>
+                <p>{post.excerpt}</p>
+                <ActionLink to={`/blog/${post.slug}`} variant="text">Read the story</ActionLink>
+              </div>
+            </article>
+          ))}
+          <p className="text-muted" style={{ marginTop: 32, paddingTop: 20, borderTop: "1px solid var(--line)" }}>
             More stories from our work and communities will be shared here.
           </p>
         </div>

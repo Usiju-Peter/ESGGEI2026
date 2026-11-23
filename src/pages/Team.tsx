@@ -7,7 +7,7 @@ export default function Team() {
   return (
     <>
       <PageHero
-        badge="05 / People behind the purpose"
+        badge="People behind the purpose"
         title="Our Team"
         subtitle="Meet the people guiding ESGGEI’s work in education, livelihoods and community development."
       />

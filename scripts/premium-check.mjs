@@ -102,25 +102,25 @@ try {
     reducedMotion: "no-preference",
   });
   await motionPage.goto("http://127.0.0.1:4183/", { waitUntil: "networkidle" });
-  await motionPage.locator(".p-about").scrollIntoViewIfNeeded();
+  await motionPage.locator(".who").scrollIntoViewIfNeeded();
   await motionPage.waitForTimeout(600);
   assert.equal(
     await motionPage
-      .locator(".p-about")
+      .locator(".who")
       .evaluate((el) => getComputedStyle(el).opacity),
     "1",
   );
   await motionPage
-    .getByRole("link", { name: "Explore Our Work", exact: true })
+    .getByRole("link", { name: "See our work", exact: true })
     .focus();
   assert.notEqual(
     await motionPage
-      .locator(".p-action")
+      .locator(".home-hero .button")
       .first()
       .evaluate((el) => getComputedStyle(el).outlineStyle),
     "none",
   );
-  for (const selector of [".p-belief .p-link", "footer a"]) {
+  for (const selector of [".who .button-text", "footer a"]) {
     const link = motionPage.locator(selector).first();
     await link.focus();
     const ratio = await link.evaluate((el) => {

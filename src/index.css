@@ -1,22 +1,21 @@
 @import "tailwindcss";
-@import "./design-system.css";
 
 @theme {
   --font-sans: "DM Sans", sans-serif;
   --font-serif: Manrope, sans-serif;
 
-  --color-primary: #123524;
-  --color-primary-dark: #1F4D35;
+  --color-primary: #103f35;
+  --color-primary-dark: #245a49;
   --color-primary-light: #527529; /* Darkened from #6B8E3D to ensure WCAG AA (4.5:1) compliant text contrast */
   /* Extended brand palette sampled from the approved references and ESGGEI mark. */
-  --color-forest: #1A3B2B;
+  --color-forest: #103f35;
   --color-leaf: #779F3E;
-  --color-terra: #B26F2B;
-  --color-cream: #F7F1E8;
+  --color-terra: #f4a261;
+  --color-cream: #f7f5ed;
   --color-beige: #EFE4D1;
   --color-earth: #B9784A;
   --color-gold: #D4A84F;
-  --color-charcoal: #1C1C1C;
+  --color-charcoal: #17231e;
 }
 
 @layer base {
@@ -30,7 +29,7 @@
 
   /* Universal keyboard-accessible focus indicator to meet WCAG AA requirements */
   *:focus-visible {
-    outline: 2.5px solid #B26F2B !important;
+    outline: 2.5px solid var(--focus, #9a5320) !important;
     outline-offset: 4px !important;
   }
 }

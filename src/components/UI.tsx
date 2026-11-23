@@ -1,18 +1,15 @@
-import DocumentaryImage from "./DocumentaryImage";
 import { Link, type LinkProps } from "react-router-dom";
 import type { ReactNode } from "react";
-import { ArrowRight } from "lucide-react";
-import { featuredProject } from "../data";
 
 export function ActionLink({
   variant = "primary",
   className = "",
   ...props
 }: LinkProps & { variant?: "primary" | "secondary" | "light" | "text" }) {
-  return (
-    <Link {...props} className={`button button-${variant} ${className}`} />
-  );
+  const base = variant === "text" ? "button-text" : `button button-${variant}`;
+  return <Link {...props} className={`${base} ${className}`.trim()} />;
 }
+
 export function SectionHeading({
   eyebrow,
   title,
@@ -24,66 +21,50 @@ export function SectionHeading({
 }) {
   return (
     <div className="section-heading">
-      {eyebrow && <p className="eyebrow">{eyebrow}</p>}
+      {eyebrow && <p className="label">{eyebrow}</p>}
       <h2 className="section-title">{title}</h2>
       {children && <div className="section-description">{children}</div>}
     </div>
   );
 }
+
+export const ways = [
+  ["Partnership", "Funding, expertise or in-kind support."],
+  ["Volunteering", "Share your skills, location and availability."],
+  ["Support our work", "Talk with the team about practical support."],
+] as const;
+
+/** The emerald closing section used across pages. */
 export function CallToAction({
-  title = "Help shape the next chapter.",
-  text = "Bring your time, expertise or support to work that responds to community priorities.",
-  label = "Partner With Us",
+  title = "Bring your purpose. Build possibility.",
+  text,
+  showWays = true,
 }: {
   title?: string;
   text?: string;
-  label?: string;
+  showWays?: boolean;
 }) {
   return (
-    <section className="section cta-section">
-      <div className="site-container cta-layout">
-        <div>
-          <h2 className="section-title">{title}</h2>
-          <p>{text}</p>
+    <section className="closing on-dark">
+      <div className="site-container closing-inner">
+        <h2>{title}</h2>
+        {text && <p className="lead">{text}</p>}
+        {showWays && (
+          <ul className="ways3">
+            {ways.map(([heading, body]) => (
+              <li key={heading}>
+                <h3>{heading}</h3>
+                {body}
+              </li>
+            ))}
+          </ul>
+        )}
+        <div className="acts">
+          <ActionLink to="/partner" variant="light">
+            Contact the team
+          </ActionLink>
         </div>
-        <ActionLink to="/partner" variant="light">
-          {label}
-          <ArrowRight aria-hidden="true" size={18} />
-        </ActionLink>
       </div>
     </section>
-  );
-}
-export function ProjectFeature() {
-  return (
-    <article className="project-feature">
-      <figure>
-        <DocumentaryImage
-          src="/images/gallery/outreach-25.webp"
-          alt="EarthSprings team and community leaders gathered at the Guruku Gbayi outreach"
-          width="1200"
-          height="900"
-          loading="lazy"
-          decoding="async"
-        />
-        <figcaption>Guruku Gbayi Community · Nasarawa State</figcaption>
-      </figure>
-      <div className="project-feature-copy">
-        <p className="eyebrow">
-          Documented outreach ·{" "}
-          <time dateTime="2026-06-27">{featuredProject.date}</time>
-        </p>
-        <h2 className="section-title">{featuredProject.title}</h2>
-        <p>
-          A gathering of community members, volunteers and health workers for
-          registration, screening, care and support.
-        </p>
-        <p className="text-sm text-muted">{featuredProject.location}</p>
-        <ActionLink to="/projects/guruku-gbayi-outreach" variant="text">
-          Read the outreach report
-          <ArrowRight aria-hidden="true" size={18} />
-        </ActionLink>
-      </div>
-    </article>
   );
 }
