@@ -15,17 +15,17 @@ export type PageMetadata = {
 
 /** Shared by Vite's HTML output and client navigation; keep public URLs unchanged. */
 export const pageMetadata: Record<string, PageMetadata> = {
-  '/': { title: homeTitle, description: homeDescription, image: '/images/logo.png', type: 'website' },
+  '/': { title: homeTitle, description: homeDescription, image: '/images/og/esggei-share.jpg', type: 'website' },
   "/about": {
     "title": "About - EarthSprings Global Grace Empowerment Initiative (ESGGEI)",
     "description": "Learn about EarthSprings Global Grace Empowerment Initiative, our mission, vision and community-led approach to education, sustainable agriculture and social support.",
-    "image": "/images/logo.png",
+    "image": "/images/og/esggei-share.jpg",
     "type": "website"
   },
   "/projects": {
     "title": "Projects - EarthSprings Global Grace Empowerment Initiative (ESGGEI)",
     "description": "Explore ESGGEI's community programmes supporting education, sustainable agriculture, women's empowerment, literacy and social welfare in Nigeria.",
-    "image": "/images/logo.png",
+    "image": "/images/og/esggei-share.jpg",
     "type": "website"
   },
   "/projects/guruku-gbayi-outreach": {
@@ -49,19 +49,19 @@ export const pageMetadata: Record<string, PageMetadata> = {
   "/team": {
     "title": "Team - EarthSprings Global Grace Empowerment Initiative (ESGGEI)",
     "description": "Meet the people leading EarthSprings Global Grace Empowerment Initiative and their commitment to education, livelihoods, dignity and community development.",
-    "image": "/images/logo.png",
+    "image": "/images/og/esggei-share.jpg",
     "type": "website"
   },
   "/partner": {
     "title": "Partner - EarthSprings Global Grace Empowerment Initiative (ESGGEI)",
     "description": "Partner with EarthSprings Global Grace Empowerment Initiative. Learn how to support community programmes through collaboration, volunteering and donations.",
-    "image": "/images/logo.png",
+    "image": "/images/og/esggei-share.jpg",
     "type": "website"
   },
   "/privacy": {
     "title": "Website Privacy Notice | ESGGEI",
     "description": "How ESGGEI’s website handles enquiries, optional analytics and your privacy choices.",
-    "image": "/images/logo.png",
+    "image": "/images/og/esggei-share.jpg",
     "type": "website"
   },
   ...Object.fromEntries(blogPosts.map(post => [`/blog/${post.slug}`, {
