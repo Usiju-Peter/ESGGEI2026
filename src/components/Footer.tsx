@@ -55,7 +55,7 @@ export default function Footer() {
           <div>
             <h2>Get in touch</h2>
             <address>
-              <a href="mailto:esgeei@gmail.com">esgeei@gmail.com</a>
+              <a href="mailto:esggei@gmail.com">esggei@gmail.com</a>
               <a href="tel:+2348064676210">0806 467 6210</a>
               <p>
                 No 16 MD Umar Close,

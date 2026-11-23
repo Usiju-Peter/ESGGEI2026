@@ -72,8 +72,8 @@ export default function Privacy() {
         <p>
           For questions about information submitted through this website, or to
           request access, correction or deletion, email{" "}
-          <a className="underline" href="mailto:esgeei@gmail.com">
-            esgeei@gmail.com
+          <a className="underline" href="mailto:esggei@gmail.com">
+            esggei@gmail.com
           </a>
           . Please describe the enquiry without sending additional sensitive
           documents.

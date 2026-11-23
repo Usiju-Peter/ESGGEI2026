@@ -55,7 +55,7 @@ try {
             .top ?? null,
         emailTop:
           document
-            .querySelector('main a[href="mailto:esgeei@gmail.com"]')
+            .querySelector('main a[href="mailto:esggei@gmail.com"]')
             ?.getBoundingClientRect().top ?? null,
       }));
       if (route === '/projects/guruku-gbayi-outreach' && width === 1440) {
