@@ -21,7 +21,7 @@ await mkdir(output, { recursive: true });
 for (const file of await readdir(root)) {
   if (!/^outreach-\d+\.webp$/.test(file)) continue;
   const source = resolve(root, file);
-  const webp = [480, 960];
+  const webp = [480, 960, 1200];
   const avif = [480, 768, 1200];
   const paths = [
     ...webp.map((w) => resolve(output, file.replace(".webp", `-${w}.webp`))),

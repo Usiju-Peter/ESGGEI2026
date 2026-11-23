@@ -188,11 +188,12 @@ export default function Gallery() {
             >
               <ChevronLeft aria-hidden="true" size={25} />
             </button>
-            <img
+            <DocumentaryImage
               src={activeImage.src}
               alt={activeImage.alt}
               width={activeImage.width}
               height={activeImage.height}
+              sizes="100vw"
               className="max-h-[calc(100%_-_5rem)] max-w-full rounded-xl object-contain"
             />
             <p

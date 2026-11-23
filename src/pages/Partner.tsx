@@ -88,9 +88,9 @@ export default function Partner() {
           <div className="contact-direct contact-details">
             <div>
               <h2>Email Us</h2>
-              <a href="mailto:esgeei@gmail.com">
+              <a href="mailto:esggei@gmail.com">
                 <Mail aria-hidden="true" size={18} />
-                esgeei@gmail.com
+                esggei@gmail.com
               </a>
             </div>
             <div>
@@ -199,7 +199,7 @@ export default function Partner() {
                     className="rounded-lg border border-red-300 bg-red-50 p-3 text-sm text-red-900"
                   >
                     We could not send your message. Please try again or email
-                    ESGGEI directly at esgeei@gmail.com.
+                    ESGGEI directly at esggei@gmail.com.
                   </p>
                 )}
                 <button

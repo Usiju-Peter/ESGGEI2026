@@ -22,6 +22,7 @@ const Blog = lazy(() => import("./pages/Blog"));
 const BlogArticle = lazy(() => import("./pages/BlogArticle"));
 const Team = lazy(() => import("./pages/Team"));
 const Partner = lazy(() => import("./pages/Partner"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
@@ -106,6 +107,7 @@ export function AppContent() {
               <Route path="/blog/:slug" element={<BlogArticle />} />
               <Route path="/team" element={<Team />} />
               <Route path="/partner" element={<Partner />} />
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
         </main>

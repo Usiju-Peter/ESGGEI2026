@@ -1,5 +1,5 @@
 import type { ImgHTMLAttributes } from "react";
-/** Responsive derivatives for page layouts; the complete original remains available. */
+/** Responsive derivatives (480/768-960/1200) for layouts and the lightbox; the original is only the no-srcset fallback. */
 export default function DocumentaryImage({
   src,
   sizes = "(max-width: 767px) 100vw, 50vw",
@@ -18,7 +18,9 @@ export default function DocumentaryImage({
       <img
         {...props}
         src={src}
-        srcSet={`/images/gallery/previews/${name}-480.webp 480w, /images/gallery/previews/${name}-960.webp 960w, ${src} ${props.width || 1200}w`}
+        srcSet={[480, 960, 1200]
+          .map((w) => `/images/gallery/previews/${name}-${w}.webp ${w}w`)
+          .join(", ")}
         sizes={sizes}
       />
     </picture>
