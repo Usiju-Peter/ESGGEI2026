@@ -1,13 +1,13 @@
 {
-  "name": "react-example",
+  "name": "esggei-website",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "tsx server.ts",
-    "build": "vite build && node scripts/prerender.mjs && esbuild server.ts --bundle --platform=node --format=cjs --packages=external --sourcemap --outfile=dist/server.cjs",
-    "start": "node dist/server.cjs",
-    "clean": "rm -rf dist server.js",
+    "build": "vite build && node scripts/prerender.mjs && esbuild server.ts --bundle --platform=node --format=cjs --packages=external --sourcemap --outfile=build/server.cjs",
+    "start": "node build/server.cjs",
+    "clean": "rm -rf dist build",
     "lint": "tsc --noEmit",
     "seo:check": "node scripts/generate-sitemap.mjs --check && node scripts/seo-check.mjs",
     "seo:sitemap": "node scripts/generate-sitemap.mjs",
@@ -18,11 +18,9 @@
     "predev": "node scripts/generate-responsive-images.mjs"
   },
   "dependencies": {
-    "@google/genai": "^2.4.0",
     "@tailwindcss/vite": "^4.1.14",
     "@vitejs/plugin-react": "^5.0.4",
     "clsx": "^2.1.1",
-    "dotenv": "^17.2.3",
     "express": "^4.21.2",
     "lucide-react": "^0.546.0",
     "motion": "^12.23.24",
