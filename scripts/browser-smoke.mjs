@@ -41,7 +41,7 @@ try {
   }
 
   await page.goto(base, { waitUntil: 'networkidle' });
-  await page.getByRole('link', { name: 'Explore Our Work' }).first().click();
+  await page.getByRole('link', { name: 'See our work' }).first().click();
   await page.waitForURL('**/projects');
   assert.equal(await page.locator('main h1').count(), 1, 'Client-side navigation must render the destination');
 

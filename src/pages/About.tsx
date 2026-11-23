@@ -1,4 +1,4 @@
-import { Eye, HeartHandshake, Layers, Leaf, Sprout, Target, Users } from "lucide-react";
+import { HeartHandshake, Layers, Leaf, Sprout, Target, Users } from "lucide-react";
 import { Furrow } from "../components/Art";
 import PageHero from "../components/PageHero";
 import TeamGrid from "../components/TeamGrid";
@@ -84,12 +84,12 @@ export default function About() {
           <h2>Every child learns. Every woman thrives.</h2>
           <ul className="ways3" style={{ gridTemplateColumns: "1fr 1fr" }}>
             <li>
-              <h3><Eye aria-hidden="true" size={20} style={{ verticalAlign: "-3px", marginRight: 8 }} />Our vision</h3>
+              <h3>Our vision</h3>
               To build a society where every child learns, every woman thrives, and every vulnerable life is empowered to
               reach its full potential.
             </li>
             <li>
-              <h3><Target aria-hidden="true" size={20} style={{ verticalAlign: "-3px", marginRight: 8 }} />Our mission</h3>
+              <h3>Our mission</h3>
               To empower individuals and communities through education, agriculture, literacy, advocacy, and social
               support, with a special focus on children, women, widows, and the aged.
             </li>

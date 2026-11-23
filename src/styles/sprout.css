@@ -355,3 +355,5 @@ a { color: inherit; }
   .footer-layout > :first-child { grid-column: auto; }
 }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto !important; } }
+.desktop-navigation .button[aria-current="page"] { color: var(--cream); text-decoration: none; box-shadow: 0 0 0 3px var(--citrus); }
+.button-text, .text-link { line-height: 1.4; }
