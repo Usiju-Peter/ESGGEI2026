@@ -1,123 +1,84 @@
-import DocumentaryImage from "../components/DocumentaryImage";
-import ArticleShare from "../components/ArticleShare";
 import { Link } from "react-router-dom";
+import { Activity, BriefcaseMedical, ClipboardList, Users } from "lucide-react";
+import ArticleShare from "../components/ArticleShare";
+import { Furrow } from "../components/Art";
+import PageHero from "../components/PageHero";
+import { ActionLink } from "../components/UI";
 import { featuredProject, galleryImages } from "../data";
 import { useSEO } from "../lib/seo";
+
+const day = [
+  [ClipboardList, "Registration and consultation under the community canopy"],
+  [Activity, "Health screening, including blood-pressure checks and finger-prick tests"],
+  [BriefcaseMedical, "Preparation and distribution of medicines and health supplies"],
+  [Users, "Meetings between the outreach team and community representatives"],
+] as const;
+
 export default function Outreach() {
   useSEO("/projects/guruku-gbayi-outreach");
   return (
-    <article className="section section-white editorial-article outreach-article">
-      <div className="site-container">
-        <div className="reading-width">
-          <p className="eyebrow">Community outreach · Nasarawa State</p>
-          <h1 className="page-title">
-            Integrated Agriculture &amp; Medical Outreach in Guruku Gbayi
-          </h1>
-          <dl className="my-6 grid gap-4 sm:grid-cols-2">
-            <div>
-              <dt className="font-semibold">Outreach date</dt>
-              <dd>
-                <time dateTime="2026-06-27">{featuredProject.date}</time>
-              </dd>
-            </div>
-            <div>
-              <dt className="font-semibold">Location</dt>
-              <dd>{featuredProject.location}</dd>
-            </div>
-          </dl>
-          <p className="text-lg leading-relaxed">
-            EarthSprings Global Grace Empowerment Initiative brought community
-            members, volunteers and health workers together in Guruku Gbayi for
-            an integrated agriculture and medical outreach. Registration, health
-            screening, care and support formed part of the community gathering.
+    <article>
+      <PageHero
+        lit={6}
+        crumb={<><Link to="/projects">Projects</Link> / Outreach report</>}
+        title="Integrated agriculture and medical outreach in Guruku Gbayi"
+        aside={
+          <p className="bigdate">
+            <b>27</b>
+            <time dateTime="2026-06-27"><span>June 2026</span></time>
           </p>
-          <figure className="my-8">
-            <DocumentaryImage
-              src={featuredProject.image}
-              alt={featuredProject.imageAlt}
-              width="1200"
-              height="1600"
-              fetchPriority="high"
-              decoding="async"
-              className="article-photo"
-            />
-            <figcaption className="mt-3 text-sm text-charcoal/80">
-              The banner for ESGGEI’s Integrated Agriculture &amp; Medical
-              Outreach.
-            </figcaption>
-          </figure>
-          <h2 className="section-title mt-8">
-            Activities documented in the outreach gallery
-          </h2>
-          <p className="mt-4 leading-relaxed">
-            The photographs show registration and consultation, blood-pressure
-            checks, preparation of health supplies, and meetings between the
-            outreach team and community representatives. They provide a visual
-            record of participation and activities.
+        }
+      />
+      <div className="site-container report">
+        <div className="body">
+          <p>
+            EarthSprings Global Grace Empowerment Initiative brought community members, volunteers and health workers
+            together in Guruku Gbayi for an integrated agriculture and medical outreach. Registration, health screening,
+            care and support formed part of the community gathering.
           </p>
-          <div className="my-8 grid gap-6 sm:grid-cols-2">
-            {[
-              galleryImages[9],
-              galleryImages[10],
-              galleryImages[12],
-              galleryImages[24],
-            ].map((image) => (
-              <figure key={image.src}>
-                <DocumentaryImage
-                  {...image}
-                  loading="lazy"
-                  decoding="async"
-                  className="aspect-[4/3] w-full rounded-xl object-cover"
-                />
-                <figcaption className="mt-3 text-sm text-charcoal/80">
-                  {image.alt}
-                </figcaption>
-              </figure>
+
+          <h2>What the day included</h2>
+          <ul className="did">
+            {day.map(([Icon, text]) => (
+              <li key={text}>
+                <span className="ico"><Icon aria-hidden="true" /></span>
+                {text}
+              </li>
             ))}
+          </ul>
+
+          <div className="photos">
+            <Furrow lines={12} lit={4} />
+            <div>
+              <h3>{galleryImages.length} photographs from the day</h3>
+              <p>The full visual record of the outreach is in the gallery.</p>
+            </div>
+            <ActionLink to="/gallery" variant="light">See the photos</ActionLink>
           </div>
-          <h2 className="section-title mt-8">
-            Connecting community needs and practical support
-          </h2>
-          <p className="mt-4 leading-relaxed">
-            The outreach brings together two parts of ESGGEI’s work: sustainable
-            livelihoods and community support. Explore the organisation’s
-            programme priorities to understand how education, agriculture and
-            gender advocacy connect to its wider mission.
+
+          <h2>Connecting community needs and practical support</h2>
+          <p>
+            The outreach brings together two parts of ESGGEI’s work: sustainable livelihoods and community support. Our{" "}
+            <Link to="/projects">programme priorities</Link> show how education, agriculture and gender advocacy connect
+            to the wider mission.
           </p>
-          <p className="mt-4 leading-relaxed">
-            For questions about this outreach, current activities or
-            opportunities to collaborate, contact the ESGGEI team. Programme
-            availability and partnership arrangements should be confirmed
-            directly.
-          </p>
-          <div className="mt-6 flex flex-wrap gap-4">
-            <Link
-              className="font-semibold text-primary underline underline-offset-4"
-              to="/gallery"
-            >
-              View the full outreach gallery
-            </Link>
-            <Link
-              className="font-semibold text-primary underline underline-offset-4"
-              to="/projects"
-            >
-              Explore programme priorities
-            </Link>
-            <Link
-              className="font-semibold text-primary underline underline-offset-4"
-              to="/partner"
-            >
-              Discuss a partnership
-            </Link>
-          </div>
-          <ArticleShare
-            title={featuredProject.title}
-            path="/projects/guruku-gbayi-outreach"
-          />
-          <p className="mt-8 text-sm text-muted">
-            Published by EarthSprings Global Grace Empowerment Initiative.
-          </p>
+          <p>For questions about this outreach, current activities or ways to collaborate, contact the ESGGEI team.</p>
+          <ArticleShare title={featuredProject.title} path="/projects/guruku-gbayi-outreach" />
         </div>
+        <aside className="aside" aria-label="Outreach details">
+          <div className="box">
+            <dl>
+              <div><dt>Date</dt><dd><time dateTime="2026-06-27">{featuredProject.date}</time></dd></div>
+              <div><dt>Place</dt><dd>{featuredProject.location}</dd></div>
+              <div><dt>Programmes</dt><dd>Agriculture and community health support</dd></div>
+              <div><dt>Record</dt><dd>Written report and {galleryImages.length} photographs</dd></div>
+            </dl>
+          </div>
+          <div className="box box-ci">
+            <h3>Want to support the next outreach?</h3>
+            <ActionLink to="/partner">Discuss a partnership</ActionLink>
+          </div>
+        </aside>
       </div>
     </article>
   );

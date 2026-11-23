@@ -79,7 +79,7 @@ export default function Partner() {
   return (
     <>
       <PageHero
-        badge="06 / Let’s work together"
+        badge="Let’s work together"
         title="Contact Us"
         subtitle="Talk to the ESGGEI team about partnerships, volunteering or our community work."
       />

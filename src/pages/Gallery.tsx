@@ -77,13 +77,13 @@ export default function Gallery() {
   return (
     <>
       <PageHero
-        badge="03 / A visual record"
+        badge="A visual record"
         title="Gallery"
         subtitle="Moments from our work, outreach and community."
       />
 
       <section className="section section-white gallery-feature">
-        <div className="site-container grid items-center gap-6 md:grid-cols-2 md:gap-10">
+        <div className="site-container gallery-feature-grid">
           <button
             type="button"
             onClick={() => setActiveIndex(featuredIndex)}
@@ -102,14 +102,14 @@ export default function Gallery() {
             />
           </button>
           <div>
-            <p className="eyebrow">Featured</p>
-            <h2 className="section-title">Recent Outreach</h2>
+            <p className="label">Featured</p>
+            <h2 className="section-title">Recent outreach</h2>
             <p className="mt-4 text-muted">
-              Guruku Gbayi Community, Karu LGA, Nasarawa State &middot; June
+              Guruku Gbayi Community, Karu LGA, Nasarawa State, June
               2026
             </p>
             <Link
-              className="button button-text mt-3"
+              className="button-text mt-3"
               to="/projects/guruku-gbayi-outreach"
             >
               Read the outreach report

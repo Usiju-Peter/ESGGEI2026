@@ -20,7 +20,7 @@ export default function NotFound() {
   return (
     <>
       <PageHero
-        badge="404 / Page not found"
+        badge="Page not found"
         title="We can’t find that page"
         subtitle="The link may be old or mistyped. Everything on the ESGGEI website is a click away from here."
       />

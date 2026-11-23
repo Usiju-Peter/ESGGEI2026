@@ -1,12 +1,14 @@
 import { Link } from "react-router-dom";
 import { analyticsConfigured } from "../lib/analytics";
 import { useSEO } from "../lib/seo";
+import PageHero from "../components/PageHero";
 export default function Privacy() {
   useSEO("/privacy");
   return (
+    <>
+    <PageHero badge="Privacy" title="Website privacy notice" />
     <article className="section section-white policy-page">
       <div className="site-container reading-width reading-copy space-y-5">
-        <h1 className="page-title">Website privacy notice</h1>
         <p>
           Updated <time dateTime="2026-11-12">12 November 2026</time>.
         </p>
@@ -83,5 +85,6 @@ export default function Privacy() {
         </Link>
       </div>
     </article>
+    </>
   );
 }

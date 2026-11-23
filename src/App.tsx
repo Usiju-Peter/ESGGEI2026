@@ -8,10 +8,8 @@ import { useEffect, lazy, Suspense } from "react";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import AnalyticsConsent from "./components/AnalyticsConsent";
-import Breadcrumbs from "./components/Breadcrumbs";
 import Home from "./pages/Home";
-import "./styles/premium-system.css";
-import "./styles/premium-pages.css";
+import "./styles/sprout.css";
 
 const Outreach = lazy(() => import("./pages/Outreach"));
 const Privacy = lazy(() => import("./pages/Privacy"));
@@ -80,7 +78,6 @@ export function AppContent() {
       </a>
       <div className="flex flex-col min-h-screen">
         <Navbar />
-        <Breadcrumbs />
         <main
           id="main-content"
           tabIndex={-1}
