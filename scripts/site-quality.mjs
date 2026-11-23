@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { readFileSync, existsSync, statSync } from 'node:fs';
-import { resolve, join } from 'node:path';
+import { resolve, join, sep } from 'node:path';
 import { routes } from './routes.mjs';
 const base = 'https://www.esggei.org.ng';
 const htmlFor = route => route === '/' ? 'dist/index.html' : `dist${route}/index.html`;
@@ -24,7 +24,7 @@ for (const route of routes) {
       }
     } else {
       const file = resolve('dist', '.' + url.pathname);
-      assert.ok(file.startsWith(resolve('dist') + '/') && existsSync(file) && statSync(file).isFile(), `${route}: broken local link ${raw}`);
+      assert.ok(file.startsWith(resolve('dist') + sep) && existsSync(file) && statSync(file).isFile(), `${route}: broken local link ${raw}`);
     }
   }
   for (const [,src] of html.matchAll(/\bsrc="(\/[^\"]+)"/g)) {

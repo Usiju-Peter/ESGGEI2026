@@ -4,7 +4,7 @@ React 19 + Vite + TypeScript + React Router, with static HTML prerendering for t
 
 ## Local development
 
-Use Node 24 and npm. Run `npm ci`, then `npm run dev` (port 3000). `npm run build` creates the static site and Node server in `dist/`. `npm run preview` previews the static output. `NODE_ENV=production npm start` runs the built Node server.
+Use Node 24 and npm. Run `npm ci`, then `npm run dev` (port 3000). `npm run build` creates the static site in `dist/` (including `dist/404.html`, served by Vercel for unknown URLs) and the optional Node server in `build/`, so the server bundle is never published. `npm run preview` previews the static output. `NODE_ENV=production npm start` runs the built Node server.
 
 No API key is needed to render the website. Optional browser configuration is documented in `.env.example`: `VITE_GA4_MEASUREMENT_ID` enables consent-gated analytics after rebuilding; `VITE_CONTACT_FORM_ENDPOINT` selects an activated FormSubmit endpoint. Confirm ownership and activation before changing the existing recipient. Never put secrets in VITE-prefixed variables or commit .env.local.
 
@@ -30,7 +30,7 @@ Mocked form/analytics tests do not confirm actual delivery. Automated checks do 
 
 ## Publishing and maintenance
 
-Vite entrypoints, metadata, prerendering and sitemap checks must all include a new route. Preserve article dates and records; verify programme facts and image permissions before publication. Keep social destinations real and review contact delivery with the owner.
+Vite entrypoints, metadata, prerendering and sitemap checks must all include a new route. `vercel.json` sets clean URLs, security headers (including a Content Security Policy that allows only this site, FormSubmit and Google Analytics) and caching; widen the policy before adding any other third-party script, font, image host or form endpoint. Preserve article dates and records; verify programme facts and image permissions before publication. Keep social destinations real and review contact delivery with the owner.
 
 `src/lib/siteMetadata.ts` is the shared source for built and client-side page metadata. Change page titles, descriptions and social images there; page components call `useSEO` with their canonical route. Article metadata is derived from `src/blogData.ts`. HTML entrypoints remain templates with fallback head tags, which Vite replaces using the shared values. Prerendering waits for React and disables splitting large resolved Suspense boundaries into hidden streaming segments, so the static content is visible without JavaScript. Keep the built-HTML and browser checks when changing this pipeline.
 
